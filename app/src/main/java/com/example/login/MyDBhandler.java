@@ -26,13 +26,25 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
     private static SQLiteDatabase db;
     public MyDBhandler(Context context){
-        super(context,"db_test",null,1);
+        super(context,"db_test.db",null,1);
         db=getReadableDatabase();
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
+        // create the table for users
         db.execSQL("CREATE TABLE IF NOT EXISTS user(" + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"+"username TEXT,"+"password TEXT)" );
-        //db.execSQL(CREATE_PRODUCTS_TABLE);
+
+        // create the table for instructors
+        String CREATE_INSTRUCTOR_TABLE = "CREATE TABLE " + TABLE_INSTRUCTORS + "(" + COLUMN_ID +
+                " INTEGER PRIMARY KEY," + COLUMN_USERNAME + " TEXT," + COLUMN_PASSWORD +
+                " TEXT" + ")";
+        db.execSQL(CREATE_INSTRUCTOR_TABLE);
+
+        // create the table for students
+        String CREATE_STUDENT_TABLE = "CREATE TABLE " + TABLE_STUDENTS + "(" + COLUMN_ID +
+                " INTEGER PRIMARY KEY," + COLUMN_USERNAME + " TEXT," + COLUMN_PASSWORD +
+                " TEXT" + ")";
+        db.execSQL(CREATE_STUDENT_TABLE);
     }
 
     @Override
