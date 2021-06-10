@@ -1,16 +1,28 @@
 package com.example.login;
 
+import android.widget.EditText;
+
 public class User {
     public String username;
     public String password;
     public int ID;
-    public String UserType;
+    public String userType;
 
-    public User(String name,String password){
+    public User(){}
+
+    public User(String name, String password){
         super();
-        this.username=name;
-        this.password=password;
+        this.username = name;
+        this.password = password;
     }
+
+    public User(String name, String password, String userType){
+        super();
+        this.username = name;
+        this.password = password;
+        this.userType = userType;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -29,11 +41,11 @@ public class User {
     public void setID(int ID){
         this.ID = ID;
     }
-    public String UserType(){
-        return UserType;
+    public String getUserType(){
+        return userType;
     }
-    public void setUserType(String UserType){
-        this.UserType=UserType;
+    public void setUserType(String userType){
+        this.userType=userType;
     }
     @Override
     public String toString(){
