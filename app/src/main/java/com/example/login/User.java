@@ -3,10 +3,13 @@ package com.example.login;
 import android.widget.EditText;
 
 public class User {
-    public String username;
-    public String password;
-    public int ID;
-    public String userType;
+    private String username;
+    private String password;
+    private int ID;
+    private String userType;
+    private String lastName;
+    private String firstName;
+
 
     public User(){}
 
@@ -21,6 +24,23 @@ public class User {
         this.username = name;
         this.password = password;
         this.userType = userType;
+    }
+
+    public User(String name, String password,String lastName, String firstName){
+        super();
+        this.username = name;
+        this.password = password;
+        this.lastName = lastName;
+        this.firstName = firstName;
+    }
+
+    public User(String name, String password, String userType, String lastName, String firstName){
+        super();
+        this.username = name;
+        this.password = password;
+        this.userType = userType;
+        this.lastName = lastName;
+        this.firstName = firstName;
     }
 
     public String getUsername() {
@@ -51,4 +71,8 @@ public class User {
     public String toString(){
         return "User{id =" + ID + ", username = "+ username+",password = "+ password + "}";
     }
+    public void setLastName(String lastName){this.lastName = lastName;}
+    public String getLastName(){return this.lastName;}
+    public void setFirstName(String firstName){this.firstName=firstName;}
+    public String gerFirstName(){return this.firstName;}
 }
