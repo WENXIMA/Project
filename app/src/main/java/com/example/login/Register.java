@@ -1,5 +1,6 @@
 package com.example.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -62,7 +63,7 @@ public class Register extends AppCompatActivity {
                 editTextUsername.setText("");
                 editTextPassword.setText("");
 
-                System.out.println("account type will be: instructor");
+                // link to instructor welcome page
 
             } else if(studentSelect.isChecked()){ // user/pass fields not empty & chose a student account
                 Student student = new Student(username, password, "instructor");
@@ -72,15 +73,17 @@ public class Register extends AppCompatActivity {
                 editTextUsername.setText("");
                 editTextPassword.setText("");
 
-                System.out.println("account type will be: student");
+                // link to student welcome page
             }
         } else if(!instructorSelect.isChecked() && !studentSelect.isChecked()) { // user has not chosen an account type
-            warningText.setText("Please select an account type to proceed!");
+            warningText.setText("Please select an account type to proceed!"); // make this a toast?
         }
     }
 
     // onClick for the cancel button, bottom left
-    public void cancelAccountCreation(){
+    public void cancelAccountCreation(View v){
         // return to the login (activity_main)
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 }
