@@ -56,19 +56,20 @@ public class MyDBhandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS user");
         onCreate(db);
     }
-/*
-    public void addUser(User user) {
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME, user.getUsername());
-        values.put(COLUMN_PASSWORD, user.getPassword());
+    /*
+        public void addUser(User user) {
 
-        db.insert(TABLE_PRODUCTS, null, values);
-        db.close();
-    }
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_USERNAME, user.getUsername());
+            values.put(COLUMN_PASSWORD, user.getPassword());
 
- */
+            db.insert(TABLE_PRODUCTS, null, values);
+            db.close();
+        }
+
+     */
     public User findStudent(String username) {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM" + TABLE_STUDENTS + "WHERE" + COLUMN_USERNAME + "=\"" + username + "\"";
@@ -86,6 +87,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         db.close();
         return user;
     }
+
     public User findInstructor(String username) {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM" + TABLE_INSTRUCTORS + "WHERE" + COLUMN_USERNAME + "=\"" + username + "\"";
@@ -128,6 +130,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         db.insert(TABLE_STUDENTS, null, values);
         db.close();
     }
+
     public boolean deletestudent(String username) {
         boolean result = false;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -143,6 +146,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         db.close();
         return result;
     }
+
     public boolean deleteinstructors(String username) {
         boolean result = false;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -158,21 +162,16 @@ public class MyDBhandler extends SQLiteOpenHelper {
         db.close();
         return result;
     }
-    public List<String> AllUsers() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "select * from " + TABLE_STUDENTS+TABLE_INSTRUCTORS;
-        Cursor cursor = db.rawQuery(query, null);
-        List<String> users = new ArrayList<String>();
-        while (cursor.moveToNext()) {
-            String temp = //"ID:" + cursor.getString(0).toString() + " " +
-                    "UserName" + cursor.getString(1).toString() + " " +
-                            "Password" + cursor.getString(2).toString() + " " +
-                            "UserType" + cursor.getString(3).toString() + " ";
-            users.add(temp);
-        }
-        cursor.close();
-        db.close();
 
-        return users;
+    public ArrayList<User> AllUsers() {
+        ArrayList<User> list = new ArrayList<User>();
+        Cursor cursor = db.query("user", null, null, null, null, null, null, "name DESC");
+        while (cursor.moveToNext()) {
+            String name = cursor.getString(cursor.getColumnIndex("name"));
+            String password = cursor.getString(cursor.getColumnIndex("password"));
+            list.add(new User(name, password));
+        }
+        return list;
     }
+
 }

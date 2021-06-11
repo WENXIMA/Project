@@ -15,8 +15,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
   //TextView idView;
+  private MyDBhandler myDBhandler;
   EditText username;
   EditText password;
   RadioButton Instructor;
@@ -29,37 +30,52 @@ public class MainActivity extends AppCompatActivity {
 
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-
+    initView();
+    myDBhandler = new MyDBhandler(this);
+  }
+  private void initView() {
     username = (EditText)findViewById(R.id.editTextUsername);
     password = (EditText)findViewById(R.id.editTextPassword);
     Login = (Button)findViewById(R.id.btn_login);
     SignUp = (Button)findViewById(R.id.btn_signup);
-    Login.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        startActivity(new Intent(MainActivity.this,Register.class));
-      }
-    });
-
-  }
-/*
-  public void NewUser(View view){
-    MyDBhandler dBhandler = new MyDBhandler(this);
-    User user = new User(username.getText().toString(), password.getText().toString());
-    dBhandler.addUser(user);
-    username.setText("");
-    password.setText("");
+    Login.setOnClickListener(this);
+    SignUp.setOnClickListener(this);
   }
 
-  public void lookupUser(View view){
-    MyDBhandler dBhandler = new MyDBhandler(this);
-    User user = dBhandler.findUser(username.getText().toString());
-    if(user != null){
-      password.setText(String.valueOf(user.getPassword()));
-    } else {
+  public void onClick(View view) {
+    switch (view.getId()){
+      case R.id.btn_signup:
+        startActivity(new Intent(this, Register.class));
+        finish();
+        break;
+      case R.id.btn_login:
+        String name= username.getText().toString().trim();
+        String password1 = password.getText().toString().trim();
 
-    }
+        if(!TextUtils.isEmpty(name) && !TextUtils.isEmpty(password1)){
+          ArrayList<User> data = myDBhandler.AllUsers();
+          boolean match = false;
+          for(int i=0;i<data.size();i++){
+            User user = data.get(i);
+            if(name.equals(user.getUsername()) && password1.equals(user.getPassword())){
+              match = true;
+              break;
+            } else {
+              match = false;
+            }
+          }
+          if (match){
+            Toast.makeText(this,"Log-In Successfully",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
+          } else{
+            Toast.makeText(this,"Username/password incorrectly",Toast.LENGTH_SHORT).show();
+          }
+        } else {
+          Toast.makeText(this,"Please enter your username and password",Toast.LENGTH_SHORT).show();
+        } break;
+  }
   }
 
- */
 }
