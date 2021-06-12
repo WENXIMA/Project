@@ -1,5 +1,6 @@
 package com.example.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -77,10 +78,14 @@ public class Register extends AppCompatActivity {
         } else if(!instructorSelect.isChecked() && !studentSelect.isChecked()) { // user has not chosen an account type
             warningText.setText("Please select an account type to proceed!");
         }
+        //startActivity(new Intent(this,MainActivity.class));
+        Register.super.onBackPressed();
     }
 
     // onClick for the cancel button, bottom left
     public void cancelAccountCreation(){
         // return to the login (activity_main)
+        //startActivity(new Intent(this,MainActivity.class));
+        Register.super.onBackPressed();
     }
 }

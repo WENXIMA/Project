@@ -21,13 +21,15 @@
         android:layout_height="match_parent"
         android:layout_marginStart="30dp"
         android:layout_marginTop="450dp"
+        android:layout_marginEnd="30dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/add"
-            android:layout_width="350"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#393939"
             android:text="ADD COURSE" />
@@ -38,13 +40,15 @@
         android:layout_height="match_parent"
         android:layout_marginStart="30dp"
         android:layout_marginTop="500dp"
+        android:layout_marginEnd="30dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/search"
-            android:layout_width="350"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#393939"
             android:text="Search Course" />
@@ -55,13 +59,15 @@
         android:layout_height="match_parent"
         android:layout_marginStart="30dp"
         android:layout_marginTop="550dp"
+        android:layout_marginEnd="30dp"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/delete"
-            android:layout_width="350"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#393939"
             android:text="DELETE ACCOUNT" />

@@ -92,7 +92,7 @@
             android:layout_marginTop="150dp"
             android:orientation="horizontal">
             <Button
-                android:id="@id/btn_login"
+                android:id="@+id/btn_login"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_marginStart="20dp"
@@ -103,27 +103,26 @@
                 android:text="LogIn"
                 android:textSize="22sp" />
         </LinearLayout>
-    <LinearLayout
-        android:id="@+id/buttonLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_signup"
-            android:layout_width="327dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="1"
-            android:backgroundTint="#393939"
-            android:fontFamily="sans-serif"
-            android:text="Do not have account? SignUp"
-            android:textSize="15sp" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:orientation="horizontal">
 
-
+            <Button
+                android:id="@+id/btn_signup"
+                android:layout_width="327dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:backgroundTint="#393939"
+                android:fontFamily="sans-serif"
+                android:text="Do not have account? SignUp"
+                android:textSize="15sp" />
+        </LinearLayout>
 
 
     </LinearLayout>

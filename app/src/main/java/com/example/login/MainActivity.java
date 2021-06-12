@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     switch (view.getId()){
       case R.id.btn_signup:
         startActivity(new Intent(this, Register.class));
-        finish();
+        //finish();
         break;
       case R.id.btn_login:
         String name= username.getText().toString().trim();
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
           Toast.makeText(this,"Please enter your username and password",Toast.LENGTH_SHORT).show();
         } break;
+
   }
   }
 

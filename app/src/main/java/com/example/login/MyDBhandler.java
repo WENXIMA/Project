@@ -30,7 +30,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
     public MyDBhandler(Context context) {
         super(context, "db_test.db", null, 1);
-        db = getReadableDatabase();
+        db = getWritableDatabase();
     }
 
     @Override
@@ -49,6 +49,9 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 " INTEGER PRIMARY KEY," + COLUMN_USERNAME + " TEXT," + COLUMN_PASSWORD +
                 " TEXT" + ")";
         db.execSQL(CREATE_STUDENT_TABLE);
+
+        String CREATE_COURSES_TABLE = "create table " + TABLE_COURSES + "(" + COLUMN_COURSE_CODE + "String primary key," + COLUMN_COURSE_NAME + "TEXT )";
+        db.execSQL(CREATE_COURSES_TABLE);
     }
 
     @Override
@@ -173,5 +176,15 @@ public class MyDBhandler extends SQLiteOpenHelper {
         }
         return list;
     }
+
+    public void addCourse(String courseName, String courseCode)
+    {
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_COURSE_CODE,course.GetProductName());
+        values.put(COLUMN_PRICE,product.GetPrice());
+        db.insert(TABLE_PRODUCTS,null,values);
+        db.close();
+    }
+
 
 }
