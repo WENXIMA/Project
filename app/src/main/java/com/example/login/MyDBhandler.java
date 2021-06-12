@@ -25,6 +25,8 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String COLUMN_PASSWORD = "password"; // for instructor and student tables
     private static final String COLUMN_COURSE_CODE = "courseCode"; // for course table
     private static final String COLUMN_COURSE_NAME = "courseName"; // for course table
+    private static final String COLUMN_COURSE_CAPACITY = "capacity";// course capacity
+    private static final String COLUMN_COURSE_INSTRUCTOR = "instructor"; // course instructor
     private static final String COLUMN_USERTYPE = "usertype";
     private static SQLiteDatabase db;
 
@@ -50,7 +52,8 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 " TEXT" + ")";
         db.execSQL(CREATE_STUDENT_TABLE);
 
-        String CREATE_COURSES_TABLE = "create table " + TABLE_COURSES + "(" + COLUMN_COURSE_CODE + "String primary key," + COLUMN_COURSE_NAME + "TEXT )";
+        String CREATE_COURSES_TABLE = "create table " + TABLE_COURSES + "(" + COLUMN_COURSE_CODE + "String primary key not null," + COLUMN_COURSE_NAME + "TEXT not null,"
+                + COLUMN_COURSE_CAPACITY + "TEXT," +  COLUMN_COURSE_INSTRUCTOR + " TEXT )";
         db.execSQL(CREATE_COURSES_TABLE);
     }
 
@@ -74,7 +77,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
      */
     public User findStudent(String username) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM" + TABLE_STUDENTS + "WHERE" + COLUMN_USERNAME + "=\"" + username + "\"";
         Cursor cursor = db.rawQuery(query, null);
         User user = new User();
@@ -92,7 +95,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     }
 
     public User findInstructor(String username) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
         String query = "SELECT * FROM" + TABLE_INSTRUCTORS + "WHERE" + COLUMN_USERNAME + "=\"" + username + "\"";
         Cursor cursor = db.rawQuery(query, null);
         User user = new User();
@@ -136,7 +139,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
     public boolean deletestudent(String username) {
         boolean result = false;
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
 
         String query = "SELECT * FROM" + TABLE_STUDENTS + "WHERE" + COLUMN_USERNAME + "=\"" + username + "\"";
         Cursor cursor = db.rawQuery(query, null);
@@ -152,7 +155,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
     public boolean deleteinstructors(String username) {
         boolean result = false;
-        SQLiteDatabase db = this.getWritableDatabase();
+        //SQLiteDatabase db = this.getWritableDatabase();
 
         String query = "SELECT * FROM" + TABLE_INSTRUCTORS + "WHERE" + COLUMN_USERNAME + "=\"" + username + "\"";
         Cursor cursor = db.rawQuery(query, null);
@@ -177,14 +180,30 @@ public class MyDBhandler extends SQLiteOpenHelper {
         return list;
     }
 
-    public void addCourse(String courseName, String courseCode)
+    public void addCourse(Course course)
     {
         ContentValues values = new ContentValues();
-        values.put(COLUMN_COURSE_CODE,course.GetProductName());
-        values.put(COLUMN_PRICE,product.GetPrice());
-        db.insert(TABLE_PRODUCTS,null,values);
+        values.put(COLUMN_COURSE_NAME, course.getCourseName());
+        values.put(COLUMN_COURSE_CODE, course.getCourseCode());
+        values.put(COLUMN_COURSE_CAPACITY,course.getCapacity());
+        values.put(COLUMN_COURSE_INSTRUCTOR,course.getInstructorName());
+        db.insert(TABLE_COURSES,null,values);
         db.close();
     }
 
+    public boolean deleteCourse(String courseName)
+    {
+        boolean result = false;
 
+        String query = "SELECT * FROM" + TABLE_COURSES + "WHERE" + COLUMN_COURSE_NAME + "=\"" + courseName + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            String idSTR = cursor.getString(0);
+            db.delete(TABLE_COURSES, COLUMN_COURSE_CODE+ " = " + idSTR, null);
+            cursor.close();
+            result = true;
+        }
+        db.close();
+        return result;
+    }
 }
