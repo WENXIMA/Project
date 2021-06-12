@@ -56,7 +56,7 @@ public class Register extends AppCompatActivity {
                 warningText.setText("Please enter a username and password to proceed!");
 
             } else if(instructorSelect.isChecked()){ // user/pass fields not empty & chose an instructor account
-                Instructor instructor = new Instructor(username, password, "instructor");
+                Instructor instructor = new Instructor(username, password);
                 dbHandler.addInstructor(instructor);
 
                 // clear editTexts
@@ -66,7 +66,7 @@ public class Register extends AppCompatActivity {
                 // link to instructor welcome page
 
             } else if(studentSelect.isChecked()){ // user/pass fields not empty & chose a student account
-                Student student = new Student(username, password, "instructor");
+                Student student = new Student(username, password);
                 dbHandler.addStudent(student);
 
                 // clear editTexts
