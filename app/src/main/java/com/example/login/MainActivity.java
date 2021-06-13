@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button register;
     private User view;
     public static User user=null;
+    private boolean admincheck=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +29,6 @@ public class MainActivity extends AppCompatActivity {
         register = findViewById(R.id.register);
         username = findViewById(R.id.userName);
         password1 = findViewById(R.id.userpassword);
-
-
-
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+        DB = new MyDBhandler(MainActivity.this);
+        if (!admincheck) {
+            DB.addAdmin();
+        }
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(password)) {
                     MyDBhandler db=new MyDBhandler(MainActivity.this);
-                    db.addAdmin();
                     ArrayList<User> data = db.getAllDATA();
                     System.out.println(data);
 
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        DB = new MyDBhandler(MainActivity.this);
+
     }
     public void openInstructorWelcome(String username) {
         Intent intent = new Intent(this, InstructorWelcome.class);
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openAdminWelcome(String username) {
-        Intent intent = new Intent(this, AdminPage.class);
+        Intent intent = new Intent(this, AdminWelcome.class);
         startActivity(intent);
     }
 

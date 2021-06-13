@@ -17,7 +17,7 @@ public class InstructorWelcome extends AppCompatActivity {
         setContentView(R.layout.activity_instructor_welcome);
         logout= findViewById(R.id.LogOut);
         welcome=findViewById(R.id.textView3);
-        welcome.setText("Welcome "+ MainActivity.user.getUsername()+ ", you are logged in as a Instructor");
+        welcome.setText("Welcome "+ MainActivity.user.getUsername()+ ", you are logged in as an Instructor");
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override

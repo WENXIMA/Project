@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyDBhandler extends SQLiteOpenHelper {
     // database schema
@@ -20,7 +19,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
 
     // columns
-    private static final int DATABASE_VERSION = 27;
+    private static final int DATABASE_VERSION = 31;
     private static final String DATABASE_NAME = "productDB.db";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
@@ -64,7 +63,6 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
         System.out.println("test");
         db.execSQL(CREATE_COURSES_TABLE);
-//        addAdmin();
     }
 
     @Override
@@ -84,13 +82,21 @@ public class MyDBhandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM " +TABLE_USER,null);
-        cursor.moveToFirst();
+        if(cursor.moveToFirst()){
+            String username = cursor.getString(cursor.getColumnIndex("username"));
+            String password = cursor.getString(cursor.getColumnIndex("password"));
+            String type = cursor.getString(cursor.getColumnIndex("type"));
+            list.add(new User(username,password,type));
+        }
+
         while(cursor.moveToNext()){
             String username = cursor.getString(cursor.getColumnIndex("username"));
             String password = cursor.getString(cursor.getColumnIndex("password"));
             String type = cursor.getString(cursor.getColumnIndex("type"));
             list.add(new User(username,password,type));
         }
+
+        System.out.println(list);
 
         return list;
     }
@@ -117,6 +123,53 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
         System.out.println(list.size()+" _____________");
         return list;
+    }
+
+    //ADDED CODE
+    public User findusers(String username){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        ArrayList<User> list= getAllDATA();
+        User temp=null;
+        for(int i=0;i<list.size(); i++){
+            temp= list.get(i);
+            if (temp.getUsername().equals(username)&& temp.getUserType().equals(ManageAccounts.type)){
+                return temp;
+            }
+        }
+        if (username.equals("")||ManageAccounts.type.equals("")) {
+            for (int i = 0; i < list.size(); i++) {
+                temp = list.get(i);
+                if (temp.getUsername().equals(username) || temp.getUserType().equals(ManageAccounts.type)) {
+                    return temp;
+                }
+            }
+        }else {
+            return null;
+        }
+        return null;
+    }
+    public boolean deleteaccount(String username){
+        boolean result = false;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        String query = "SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_USERNAME +
+                " = \"" + username + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+
+        // delete the course from the db
+        if(cursor.moveToFirst()){
+            String idStr = cursor.getString(0);
+            db.delete(TABLE_USER, COLUMN_ID + " = " + idStr, null);
+            cursor.close();
+            result = true;
+        }
+        db.close();
+        return result;
     }
 
 
@@ -186,10 +239,18 @@ public class MyDBhandler extends SQLiteOpenHelper {
         Course temp=null;
         for(int i=0;i<list.size(); i++){
             temp= list.get(i);
-            if (temp.getCourseName().equals(AdminPage.editTextCourseNamee)&& temp.getCourseCode().equals(AdminPage.editTextCourseCodee)){
+            if (temp.getCourseName().equals(AdminCourses.editTextCourseNamee)&& temp.getCourseCode().equals(AdminCourses.editTextCourseCodee)){
                 return temp;
-            }else if (temp.getCourseName().equals(AdminPage.editTextCourseNamee)|| temp.getCourseCode().equals(AdminPage.editTextCourseCodee)){
-                return temp;
+            }
+        }
+        for(int i=0;i<list.size(); i++) {
+            temp= list.get(i);
+            if (AdminCourses.editTextCourseNamee.equals("")||AdminCourses.editTextCourseCodee.equals("")) {
+                if (temp.getCourseName().equals(AdminCourses.editTextCourseNamee) || temp.getCourseCode().equals(AdminCourses.editTextCourseCodee)) {
+                    return temp;
+                }
+            }else {
+                return null;
             }
         }
         return null;

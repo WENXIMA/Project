@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminPage">
+    tools:context=".AdminCourses">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -42,7 +42,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Search by entering a course code"
+                    android:text="Search by entering a course code or name"
                     android:textColor="#303030"
                     android:textSize="22sp" />
             </LinearLayout>
@@ -203,6 +203,12 @@
                     android:textSize="17sp" />
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/Return"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="return to admin page" />
 
         </LinearLayout>
     </ScrollView>

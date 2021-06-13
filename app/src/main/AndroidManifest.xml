@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Login">
-        <activity android:name=".AdminPage"></activity>
-        <activity android:name=".AddCourse" />
+        <activity android:name=".ManageAccounts"></activity>
+        <activity android:name=".AdminWelcome" />
+        <activity android:name=".AdminCourses" />
         <activity android:name=".StudentWelcome" />
         <activity android:name=".InstructorWelcome" />
         <activity android:name=".MainActivity">

@@ -15,7 +15,6 @@ public class User {
     }
 
     public User(String name, String password, String userType){
-//        super();
         this.username = name;
         this.password = password;
         this.userType = userType;
@@ -46,4 +45,7 @@ public class User {
     public String toString(){
         return "User{type =" + userType + ", username = "+ username+",password = "+ password + "}";
     }
+
+
+
 }

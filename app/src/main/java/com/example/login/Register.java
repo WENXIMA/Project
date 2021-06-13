@@ -54,7 +54,6 @@ public class Register extends AppCompatActivity {
         MyDBhandler dbHandler = new MyDBhandler(this);
         String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
-//        dbHandler.addAdmin();
 
         warningText.setText(""); // reset warning text in case it was previously triggered
 
@@ -87,9 +86,4 @@ public class Register extends AppCompatActivity {
         }
     }
 
-    // onClick for the cancel button, bottom left
-    public void cancelAccountCreation(){
-        // return to the login (activity_main)
-
-    }
 }

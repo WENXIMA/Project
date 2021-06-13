@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AdminPage extends AppCompatActivity {
+public class AdminCourses extends AppCompatActivity {
 
     TextView searchCourseHeaderText, searchCoursePromptText, courseCodeLabel, courseNameLabel,
             courseIDLabel, courseIDTextView, warningTextSearchCourse;
@@ -20,7 +20,7 @@ public class AdminPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_page);
+        setContentView(R.layout.activity_admin_courses);
 
         searchCourseHeaderText = findViewById(R.id.searchCourseHeaderText);
         searchCoursePromptText = findViewById(R.id.searchCoursePromptText);
@@ -85,7 +85,7 @@ public class AdminPage extends AppCompatActivity {
             courseIDTextView.setText(String.valueOf(course.getId()));
 
         } else { // if course not found
-            warningTextSearchCourse.setText("Course not found, re-enter course code");
+            warningTextSearchCourse.setText("Course not found, re-enter course code or name");
         }
     }
 
@@ -94,17 +94,17 @@ public class AdminPage extends AppCompatActivity {
         MyDBhandler dbHandler = new MyDBhandler(this);
         String courseCodeEntered = editTextCourseCode.getText().toString().trim();
         String courseNameEntered = editTextCourseName.getText().toString().trim();
-        int courseIdDisplayed = Integer.parseInt(courseIDTextView.getText().toString());
 
         warningTextSearchCourse.setText(""); // reset warning text in case it was previously triggered
 
-        if(courseCodeEntered.matches("") || courseNameEntered.matches("")){ // one or both fields left empty
+        if(courseCodeEntered.equals("") || courseNameEntered.equals("")){ // one or both fields left empty
             warningTextSearchCourse.setText("Course name and course code fields cannot be empty");
 
         } else if(dbHandler.findCourse(courseCodeEntered) == null){ // if course does not exist
             warningTextSearchCourse.setText("Course does not exist, cannot edit information");
 
         } else {
+            int courseIdDisplayed = Integer.parseInt(courseIDTextView.getText().toString());
             dbHandler.editCourse(courseCodeEntered, courseNameEntered, courseIdDisplayed);
         }
     }
@@ -125,7 +125,7 @@ public class AdminPage extends AppCompatActivity {
             courseIDTextView.setText("");
 
         } else {
-            warningTextSearchCourse.setText("unable to delete course, re-enter course code and retry");
+            warningTextSearchCourse.setText("unable to delete course, re-enter course code or name");
         }
     }
 }
