@@ -14,6 +14,8 @@ public class AdminPage extends AppCompatActivity {
             courseIDLabel, courseIDTextView, warningTextSearchCourse;
     EditText editTextCourseCode, editTextCourseName;
     Button searchButton, editCourseButton, deleteCourseButton;
+    public static String editTextCourseCodee;
+    public static String editTextCourseNamee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,8 @@ public class AdminPage extends AppCompatActivity {
     public void searchCourse(View v){
         MyDBhandler dbHandler = new MyDBhandler(this);
         String courseCodeEntered = editTextCourseCode.getText().toString().trim();
+        editTextCourseCodee= editTextCourseCode.getText().toString();
+        editTextCourseNamee= editTextCourseName.getText().toString();
 
         warningTextSearchCourse.setText(""); // reset warning text in case it was previously triggered
 
@@ -77,6 +81,7 @@ public class AdminPage extends AppCompatActivity {
 
         if(course != null){ // if found the course, display its information
             editTextCourseName.setText(String.valueOf(course.getCourseName()));
+            editTextCourseCode.setText(String.valueOf(course.getCourseCode()));
             courseIDTextView.setText(String.valueOf(course.getId()));
 
         } else { // if course not found
@@ -89,6 +94,7 @@ public class AdminPage extends AppCompatActivity {
         MyDBhandler dbHandler = new MyDBhandler(this);
         String courseCodeEntered = editTextCourseCode.getText().toString().trim();
         String courseNameEntered = editTextCourseName.getText().toString().trim();
+        int courseIdDisplayed = Integer.parseInt(courseIDTextView.getText().toString());
 
         warningTextSearchCourse.setText(""); // reset warning text in case it was previously triggered
 
@@ -99,7 +105,7 @@ public class AdminPage extends AppCompatActivity {
             warningTextSearchCourse.setText("Course does not exist, cannot edit information");
 
         } else {
-            dbHandler.editCourse(courseCodeEntered, courseNameEntered);
+            dbHandler.editCourse(courseCodeEntered, courseNameEntered, courseIdDisplayed);
         }
     }
 

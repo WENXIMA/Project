@@ -20,7 +20,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
 
     // columns
-    private static final int DATABASE_VERSION = 23;
+    private static final int DATABASE_VERSION = 27;
     private static final String DATABASE_NAME = "productDB.db";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
@@ -83,22 +83,6 @@ public class MyDBhandler extends SQLiteOpenHelper {
         ArrayList<User> list = new ArrayList<User>();
         SQLiteDatabase db = this.getWritableDatabase();
 
-//        Cursor cursorProducts = db.rawQuery("SELECT * FROM " + TABLE_INSTRUCTORS, null);
-//
-//
-//        // while there are products in our table, keep moving to the next product
-//        // we add the product id, name, and price for each new element in the arraylist
-//        // column 0 is product id, column 1 is product name, column 2 is product price in our table
-//        if (cursorProducts.moveToFirst()) {
-//            do {
-//                list.add(new User(cursorProducts.getString(0),
-//                        cursorProducts.getString(1),
-//                        cursorProducts.getString(2)));
-//            } while (cursorProducts.moveToNext());
-//        }
-//        cursorProducts.close();
-//        list.add(new User("admin","admin123","admin"));
-        System.out.println(db+"  "+TABLE_USER);
         Cursor cursor = db.rawQuery("SELECT * FROM " +TABLE_USER,null);
         cursor.moveToFirst();
         while(cursor.moveToNext()){
@@ -110,6 +94,31 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
         return list;
     }
+
+    public ArrayList<Course> getAllCourseData(){
+        ArrayList<Course> list = new ArrayList<Course>();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " +TABLE_COURSES,null);
+        if(cursor.moveToFirst()){
+            String code = cursor.getString(cursor.getColumnIndex("courseCode"));
+            String name = cursor.getString(cursor.getColumnIndex("courseName"));
+            String id = cursor.getString(cursor.getColumnIndex("_id"));
+            list.add(new Course(code,name,id));
+
+            while(cursor.moveToNext()){
+                code = cursor.getString(cursor.getColumnIndex("courseCode"));
+                name = cursor.getString(cursor.getColumnIndex("courseName"));
+                id = cursor.getString(cursor.getColumnIndex("_id"));
+                list.add(new Course(code,name,id));
+            }
+        }
+
+
+        System.out.println(list.size()+" _____________");
+        return list;
+    }
+
 
     // add an instructor account to the database
     public void addInstructor(Instructor instructor){
@@ -172,12 +181,29 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
     // search for a course
     public Course findCourse(String courseCode){
-        SQLiteDatabase db = this.getWritableDatabase();
+
+        ArrayList<Course> list= getAllCourseData();
+        Course temp=null;
+        for(int i=0;i<list.size(); i++){
+            temp= list.get(i);
+            if (temp.getCourseName().equals(AdminPage.editTextCourseNamee)&& temp.getCourseCode().equals(AdminPage.editTextCourseCodee)){
+                return temp;
+            }else if (temp.getCourseName().equals(AdminPage.editTextCourseNamee)|| temp.getCourseCode().equals(AdminPage.editTextCourseCodee)){
+                return temp;
+            }
+        }
+        return null;
+
+    }
+
+    public Course findCourseByID(int id){
+                SQLiteDatabase db = this.getWritableDatabase();
+
 
         // run a query to find the course
         // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
-        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_COURSE_CODE +
-                " = \"" + courseCode + "\"";
+        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_ID +
+                " = \"" + id + "\"";
         Cursor cursor = db.rawQuery(query, null);
 
         // create an object and get the result
@@ -217,13 +243,13 @@ public class MyDBhandler extends SQLiteOpenHelper {
     }
 
     // edit a course
-    public void editCourse(String courseCode, String courseName){
+    public void editCourse(String courseCode, String courseName, int id){
         SQLiteDatabase db = this.getWritableDatabase();
 
         // run a query to find the course
         // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
-        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_COURSE_CODE +
-                " = \"" + courseCode + "\"";
+        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_ID +
+                " = \"" + id + "\"";
         Cursor cursor = db.rawQuery(query, null);
 
         // edit the course in the db

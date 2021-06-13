@@ -7,9 +7,14 @@ public class Course {
 
     // constructors
     public Course(){}
-    public Course(String courseCode, String courseName){
+    public Course(String courseName, String courseCode){
         this.courseCode = courseCode;
         this.courseName = courseName;
+    }
+    public Course(String courseCode, String courseName,String id){
+        this.courseCode = courseCode;
+        this.courseName = courseName;
+        this.id = Integer.parseInt(id);
     }
 
     // getters and setters
