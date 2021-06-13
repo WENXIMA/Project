@@ -32,7 +32,6 @@ public class AdminMain extends AppCompatActivity {
     private void Greeting()
     {
         String str = "Welcome " +  CurrentUser.firstName + "/" + CurrentUser.username + " ! You are logged in as " +CurrentUser.userType + ".";
-
         greeting.setText(str);
     }
 
@@ -49,6 +48,13 @@ public class AdminMain extends AppCompatActivity {
     private void Delete(View view)
     {
 
+    }
+
+    private void LogOut(View view)
+    {
+
+        startActivity(new Intent(this,MainActivity.class));
+        finish();
     }
 
 

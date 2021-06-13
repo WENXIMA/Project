@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             User user = data.get(i);
             if(name.equals(user.getUsername()) && password1.equals(user.getPassword())){
               match = true;
+              CurrentUser.userType = user.getUserType();
+              CurrentUser.username = user.getUsername();
+              CurrentUser.ID = user.getID();
+              CurrentUser.lastName = user.getLastName();
               break;
             } else {
               match = false;

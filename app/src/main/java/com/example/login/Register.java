@@ -83,7 +83,7 @@ public class Register extends AppCompatActivity {
     }
 
     // onClick for the cancel button, bottom left
-    public void cancelAccountCreation(){
+    public void cancelAccountCreation(View view){
         // return to the login (activity_main)
         //startActivity(new Intent(this,MainActivity.class));
         Register.super.onBackPressed();

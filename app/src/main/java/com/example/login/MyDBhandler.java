@@ -171,7 +171,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
     public ArrayList<User> AllUsers() {
         ArrayList<User> list = new ArrayList<User>();
-        Cursor cursor = db.query("user", null, null, null, null, null, null, "name DESC");
+        Cursor cursor = db.query("user", null, null, null, null, null, "name DESC");
         while (cursor.moveToNext()) {
             String name = cursor.getString(cursor.getColumnIndex("name"));
             String password = cursor.getString(cursor.getColumnIndex("password"));
