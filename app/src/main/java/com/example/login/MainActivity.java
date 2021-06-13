@@ -46,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 String password = password1.getText().toString().trim();
 
                 if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(password)) {
-                    ArrayList<User> data = MyDBhandler.getAllDATA();
+                    MyDBhandler db=new MyDBhandler(MainActivity.this);
+                    db.addAdmin();
+                    ArrayList<User> data = db.getAllDATA();
                     System.out.println(data);
 
                     boolean userdata = false;

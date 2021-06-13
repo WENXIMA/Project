@@ -20,7 +20,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
 
     // columns
-    private static final int DATABASE_VERSION = 22;
+    private static final int DATABASE_VERSION = 23;
     private static final String DATABASE_NAME = "productDB.db";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
@@ -36,6 +36,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         // create the table for users
 //        db.execSQL("CREATE TABLE IF NOT EXISTS user(" + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"+"username TEXT,"+"password TEXT)" );
 
@@ -78,8 +79,10 @@ public class MyDBhandler extends SQLiteOpenHelper {
 //    }
 
 
-    public static ArrayList<User> getAllDATA(){
+    public  ArrayList<User> getAllDATA(){
         ArrayList<User> list = new ArrayList<User>();
+        SQLiteDatabase db = this.getWritableDatabase();
+
 //        Cursor cursorProducts = db.rawQuery("SELECT * FROM " + TABLE_INSTRUCTORS, null);
 //
 //
@@ -139,19 +142,18 @@ public class MyDBhandler extends SQLiteOpenHelper {
         allUsers.add(student);
     }
 
-//    public void addAdmin(){
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        User admin=new User("admin","admin123","admin");
-//
-//        ContentValues values = new ContentValues();
-//        values.put(COLUMN_USERNAME, admin.getUsername());
-//        values.put(COLUMN_PASSWORD, admin.getPassword());
-//        values.put(COLUMN_TYPE, admin.getUserType());
-//        // insert into table and close
-//        System.out.println(values+ "______ "+ TABLE_USER+ "______ "+db);
-//        db1.insert(TABLE_USER, null, values);
-//        db1.close();
-//    }
+    public void addAdmin(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        User admin=new User("admin","admin123","admin");
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USERNAME, admin.getUsername());
+        values.put(COLUMN_PASSWORD, admin.getPassword());
+        values.put(COLUMN_TYPE, admin.getUserType());
+        // insert into table and close
+        db.insert(TABLE_USER, null, values);
+        db.close();
+    }
 
     //Courses
     public void addCourse(Course course){
