@@ -53,7 +53,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_STUDENT_TABLE);
 
         String CREATE_COURSES_TABLE = "create table " + TABLE_COURSES + "(" + COLUMN_COURSE_CODE + "String primary key not null," + COLUMN_COURSE_NAME + "TEXT not null,"
-                + COLUMN_COURSE_CAPACITY + "TEXT," +  COLUMN_COURSE_INSTRUCTOR + " TEXT )";
+                + COLUMN_COURSE_CAPACITY + "TEXT," + COLUMN_COURSE_INSTRUCTOR + " TEXT )";
         db.execSQL(CREATE_COURSES_TABLE);
     }
 
@@ -180,26 +180,24 @@ public class MyDBhandler extends SQLiteOpenHelper {
         return list;
     }
 
-    public void addCourse(Course course)
-    {
+    public void addCourse(Course course) {
         ContentValues values = new ContentValues();
         values.put(COLUMN_COURSE_NAME, course.getCourseName());
         values.put(COLUMN_COURSE_CODE, course.getCourseCode());
-        values.put(COLUMN_COURSE_CAPACITY,course.getCapacity());
-        values.put(COLUMN_COURSE_INSTRUCTOR,course.getInstructorName());
-        db.insert(TABLE_COURSES,null,values);
+        values.put(COLUMN_COURSE_CAPACITY, course.getCapacity());
+        values.put(COLUMN_COURSE_INSTRUCTOR, course.getInstructorName());
+        db.insert(TABLE_COURSES, null, values);
         db.close();
     }
 
-    public boolean deleteCourse(String courseName)
-    {
+    public boolean deleteCourse(String courseName) {
         boolean result = false;
 
         String query = "SELECT * FROM" + TABLE_COURSES + "WHERE" + COLUMN_COURSE_NAME + "=\"" + courseName + "\"";
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
             String idSTR = cursor.getString(0);
-            db.delete(TABLE_COURSES, COLUMN_COURSE_CODE+ " = " + idSTR, null);
+            db.delete(TABLE_COURSES, COLUMN_COURSE_CODE + " = " + idSTR, null);
             cursor.close();
             result = true;
         }
@@ -207,3 +205,32 @@ public class MyDBhandler extends SQLiteOpenHelper {
         return result;
     }
 }
+//<<<<<<< Updated upstream
+//=======
+//
+//    public Course findCourse(String courseName)
+//    {
+//        Course temp;
+//        String query = "SELECT * FROM" + TABLE_COURSES + "WHERE" + COLUMN_COURSE_NAME + "=\"" + courseName + "\"";
+//        Cursor cursor = db.rawQuery(query, null);
+//        if (cursor.moveToFirst()) {
+//            //user.setID(Integer.parseInt(cursor.getString(0)));
+//            temp = new Course(cursor.getString(0));
+//            instructor.setUsername(cursor.getString(0));
+//            instructor.setPassword(cursor.getString(1));
+//            instructor.setUserType(cursor.getString(2));
+//            cursor.close();
+//        } else {
+//            temp = null;
+//        }
+//        db.close();
+//        return instructor;
+//    }
+//
+//    public Course findCourse(String courseCode)
+//    {
+//
+//    }
+//
+//>>>>>>> Stashed changes
+//}

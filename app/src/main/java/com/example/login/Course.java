@@ -6,6 +6,7 @@ public class Course {
     private String courseCode;
     private int capacity;
     private String instructorName;
+    private int id;
 
 
     public Course(String courseName,String courseCode)

@@ -48,6 +48,35 @@ public class Register extends AppCompatActivity {
         MyDBhandler dbHandler = new MyDBhandler(this);
         String username = editTextUsername.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+//<<<<<<< Updated upstream
+//=======
+//        switch (view.getId()) {
+//
+//            //warningText.setText(""); // reset warning text in case it was previously triggered
+//            case R.id.createAccountButton:
+//                if (instructorSelect.isChecked() && !TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+//                    Instructor instructor = new Instructor(username, password);
+//                    dbHandler.addInstructor(instructor);
+//                    startActivity(new Intent(Register.this, MainActivity.class));
+//                    finish();
+//                    Toast.makeText(this, "Register as instructor Successfully", Toast.LENGTH_SHORT).show();
+//                    break;
+//                } else if (studentSelect.isChecked() && !TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)) {
+//                    Student student = new Student(username, password);
+//                    dbHandler.addStudent(student);
+//                    startActivity(new Intent(this, MainActivity.class));
+//                    finish();
+//                    Toast.makeText(this, "Register as Student Successfully", Toast.LENGTH_SHORT).show();
+//                    break;
+//                } else {
+//                    Toast.makeText(this,"Failed to Register",Toast.LENGTH_SHORT).show();
+//                }
+//            case R.id.cancelRegisterButton:
+//                Intent in = new Intent(Register.this, MainActivity.class);
+//                startActivity(in);
+//                //finish();
+//                break;
+//>>>>>>> Stashed changes
 
         warningText.setText(""); // reset warning text in case it was previously triggered
 
@@ -66,7 +95,7 @@ public class Register extends AppCompatActivity {
                 System.out.println("account type will be: instructor");
 
             } else if(studentSelect.isChecked()){ // user/pass fields not empty & chose a student account
-                Student student = new Student(username, password, "instructor");
+                Student student = new Student(username, password);
                 dbHandler.addStudent(student);
 
                 // clear editTexts
