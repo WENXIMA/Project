@@ -44,7 +44,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Search by entering a Username"
+                    android:text="Search by entering a Username and/or User type"
                     android:textColor="#303030"
                     android:textSize="22sp" />
             </LinearLayout>
