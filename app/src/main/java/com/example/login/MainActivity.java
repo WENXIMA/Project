@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button register;
     private User view;
     public static User user=null;
-    private boolean admincheck=false;
+    private static boolean admincheck=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         DB = new MyDBhandler(MainActivity.this);
         if (!admincheck) {
             DB.addAdmin();
+            admincheck=true;
         }
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(password)) {
                     MyDBhandler db=new MyDBhandler(MainActivity.this);
                     ArrayList<User> data = db.getAllDATA();
-                    System.out.println(data);
 
                     boolean userdata = false;
                     for (int i = 0; i < data.size(); i++) {

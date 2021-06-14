@@ -9,8 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 public class MyDBhandler extends SQLiteOpenHelper {
-    // database schema
-    public static ArrayList<User> allUsers= new ArrayList<User>();
 
     // tables
     private static final String TABLE_INSTRUCTORS = "instructors";
@@ -19,7 +17,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
 
     // columns
-    private static final int DATABASE_VERSION = 31;
+    private static final int DATABASE_VERSION = 34;
     private static final String DATABASE_NAME = "productDB.db";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
@@ -29,7 +27,6 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String COLUMN_COURSE_NAME = "courseName"; // for course table
 
     private static SQLiteDatabase db;
-    private static SQLiteDatabase db1;
     public MyDBhandler(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -37,10 +34,6 @@ public class MyDBhandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         // create the table for users
-//        db.execSQL("CREATE TABLE IF NOT EXISTS user(" + "_id INTEGER PRIMARY KEY AUTOINCREMENT,"+"username TEXT,"+"password TEXT)" );
-
-        // create the table for instructors
-
         String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_USER
                 + "(" + COLUMN_ID + " INTEGER PRIMARY KEY,"
                 + COLUMN_USERNAME + " TEXT,"
@@ -49,11 +42,6 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 ")";
         db.execSQL(CREATE_PRODUCTS_TABLE);
 
-        // create the table for students
-//        String CREATE_STUDENT_TABLE = "CREATE TABLE " + TABLE_STUDENTS + "(" + COLUMN_ID +
-//                " INTEGER PRIMARY KEY," + COLUMN_USERNAME + " TEXT,"+ COLUMN_TYPE + " TEXT," + COLUMN_PASSWORD +
-//                " TEXT" + ")";
-//        db.execSQL(CREATE_STUDENT_TABLE);
 
         String CREATE_COURSES_TABLE = "CREATE TABLE " + TABLE_COURSES
                 + "(" + COLUMN_ID + " INTEGER PRIMARY KEY,"
@@ -61,7 +49,6 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 + COLUMN_COURSE_NAME + " TEXT" +
                 ")";
 
-        System.out.println("test");
         db.execSQL(CREATE_COURSES_TABLE);
     }
 
@@ -71,11 +58,6 @@ public class MyDBhandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURSES);
         onCreate(db);
     }
-//    public void add(String username,String password)
-//    {
-//        db.execSQL("INSERT INTO user(username,password)VALUES(?,?)",new Object[]{username,password});
-//    }
-
 
     public  ArrayList<User> getAllDATA(){
         ArrayList<User> list = new ArrayList<User>();
@@ -119,9 +101,6 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 list.add(new Course(code,name,id));
             }
         }
-
-
-        System.out.println(list.size()+" _____________");
         return list;
     }
 
@@ -151,7 +130,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         }
         return null;
     }
-    public boolean deleteaccount(String username){
+    public boolean deleteAccount(String username){
         boolean result = false;
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -178,7 +157,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         // create a new map of values where column names are keys
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        System.out.println(instructor.getUsername()+" "+instructor.getPassword()+" "+instructor.getUserType());
+//        System.out.println(instructor.getUsername()+" "+instructor.getPassword()+" "+instructor.getUserType());
         values.put(COLUMN_USERNAME, instructor.getUsername());
         values.put(COLUMN_PASSWORD, instructor.getPassword());
         values.put(COLUMN_TYPE, instructor.getUserType());
@@ -186,8 +165,8 @@ public class MyDBhandler extends SQLiteOpenHelper {
         // insert into table and close
         db.insert(TABLE_USER, null, values);
         db.close();
+        System.out.println(getAllDATA());
 
-        allUsers.add(instructor);
     }
 
     // add a student account to the database
@@ -201,7 +180,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         // insert into table and close
         db.insert(TABLE_USER, null, values);
         db.close();
-        allUsers.add(student);
+        System.out.println(getAllDATA());
     }
 
     public void addAdmin(){
@@ -215,6 +194,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         // insert into table and close
         db.insert(TABLE_USER, null, values);
         db.close();
+//        System.out.println(getAllDATA());
     }
 
     //Courses
@@ -230,6 +210,8 @@ public class MyDBhandler extends SQLiteOpenHelper {
         // insert the set into the products table and close
         db.insert(TABLE_COURSES, null, values);
         db.close();
+        System.out.println(getAllCourseData());
+
     }
 
     // search for a course
@@ -258,7 +240,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     }
 
     public Course findCourseByID(int id){
-                SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
 
 
         // run a query to find the course
@@ -300,6 +282,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
             result = true;
         }
         db.close();
+        System.out.println(getAllCourseData());
         return result;
     }
 
@@ -324,6 +307,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
             db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
             cursor.close();
         }
+        System.out.println(getAllCourseData());
     }
 
 

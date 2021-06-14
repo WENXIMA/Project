@@ -55,11 +55,11 @@ public class ManageAccounts extends AppCompatActivity {
 
 
     }
-    public void deleteaccount(View view){
+    public void deleteAccount(View view){
         MyDBhandler dBhandler = new MyDBhandler(this);
         String delete = deleteusername.getText().toString().trim();
         warningTextSearchUsername1.setText("");
-        boolean result = dBhandler.deleteaccount(delete);
+        boolean result = dBhandler.deleteAccount(delete);
         if(result){
             warningTextSearchUsername1.setText("Account delete");
             deleteusername.setText("");

@@ -174,7 +174,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="#812F2F"
                     android:fontFamily="sans-serif"
-                    android:onClick="deleteaccount"
+                    android:onClick="deleteAccount"
                     android:text="delete"
                     android:textSize="22sp" />
 
