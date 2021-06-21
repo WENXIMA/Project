@@ -7,199 +7,307 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-import java.util.List;
-
 public class MyDBhandler extends SQLiteOpenHelper {
-    // database schema
 
     // tables
-    private static final int DATABASE_VERSION = 1;
     private static final String TABLE_INSTRUCTORS = "instructors";
     private static final String TABLE_STUDENTS = "students";
-    //private static final String TABLE_PRODUCTS = "users";
     private static final String TABLE_COURSES = "courses";
+    private static final String TABLE_USER = "user";
 
     // columns
-    private static final String COLUMN_ID = "_id"; // for all tables
-    private static final String COLUMN_USERNAME = "username"; // for instructor and student tables
-    private static final String COLUMN_PASSWORD = "password"; // for instructor and student tables
+    private static final int DATABASE_VERSION = 34;
+    private static final String DATABASE_NAME = "productDB.db";
+    private static final String COLUMN_ID = "_id";
+    private static final String COLUMN_USERNAME = "username";
+    private static final String COLUMN_PASSWORD = "password";
+    private static final String COLUMN_TYPE = "type";
     private static final String COLUMN_COURSE_CODE = "courseCode"; // for course table
     private static final String COLUMN_COURSE_NAME = "courseName"; // for course table
-    private static final String COLUMN_USERTYPE = "usertype";
+
     private static SQLiteDatabase db;
-
-    public MyDBhandler(Context context) {
-        super(context, "db_test.db", null, 1);
-        db = getReadableDatabase();
+    public MyDBhandler(Context context){
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         // create the table for users
-        db.execSQL("CREATE TABLE IF NOT EXISTS user(" + "_id INTEGER PRIMARY KEY AUTOINCREMENT," + "username TEXT," + "password TEXT)");
+        String CREATE_PRODUCTS_TABLE = "CREATE TABLE " + TABLE_USER
+                + "(" + COLUMN_ID + " INTEGER PRIMARY KEY,"
+                + COLUMN_USERNAME + " TEXT,"
+                + COLUMN_PASSWORD + " TEXT,"
+                + COLUMN_TYPE + " TEXT" +
+                ")";
+        db.execSQL(CREATE_PRODUCTS_TABLE);
 
-        // create the table for instructors
-        String CREATE_INSTRUCTOR_TABLE = "CREATE TABLE " + TABLE_INSTRUCTORS + "(" + COLUMN_ID +
-                " INTEGER PRIMARY KEY," + COLUMN_USERNAME + " TEXT," + COLUMN_PASSWORD +
-                " TEXT" + ")";
-        db.execSQL(CREATE_INSTRUCTOR_TABLE);
 
-        // create the table for students
-        String CREATE_STUDENT_TABLE = "CREATE TABLE " + TABLE_STUDENTS + "(" + COLUMN_ID +
-                " INTEGER PRIMARY KEY," + COLUMN_USERNAME + " TEXT," + COLUMN_PASSWORD +
-                " TEXT" + ")";
-        db.execSQL(CREATE_STUDENT_TABLE);
-        String sql_admin = "create table administractor(" +
-                " account varchar(20)," +
-                " password varchar(20))";
-        String sql_insert_admin = "insert into administractor values('admin123','admin123')";
+        String CREATE_COURSES_TABLE = "CREATE TABLE " + TABLE_COURSES
+                + "(" + COLUMN_ID + " INTEGER PRIMARY KEY,"
+                + COLUMN_COURSE_CODE + " TEXT,"
+                + COLUMN_COURSE_NAME + " TEXT" +
+                ")";
 
-        db.execSQL(sql_admin);
-        db.execSQL(sql_insert_admin);
+        db.execSQL(CREATE_COURSES_TABLE);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS user");
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURSES);
         onCreate(db);
     }
 
-    // add an instructor account to the database
-    public void addInstructor(Instructor instructor) {
-        // create a new map of values where column names are keys
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_USERNAME, instructor.getUsername());
-        values.put(COLUMN_PASSWORD, instructor.getPassword());
+    public  ArrayList<User> getAllDATA(){
+        ArrayList<User> list = new ArrayList<User>();
+        SQLiteDatabase db = this.getWritableDatabase();
 
-        // insert into table and close
-        db.insert(TABLE_INSTRUCTORS, null, values);
-        db.close();
+        Cursor cursor = db.rawQuery("SELECT * FROM " +TABLE_USER,null);
+        if(cursor.moveToFirst()){
+            String username = cursor.getString(cursor.getColumnIndex("username"));
+            String password = cursor.getString(cursor.getColumnIndex("password"));
+            String type = cursor.getString(cursor.getColumnIndex("type"));
+            list.add(new User(username,password,type));
+        }
+
+        while(cursor.moveToNext()){
+            String username = cursor.getString(cursor.getColumnIndex("username"));
+            String password = cursor.getString(cursor.getColumnIndex("password"));
+            String type = cursor.getString(cursor.getColumnIndex("type"));
+            list.add(new User(username,password,type));
+        }
+
+        System.out.println(list);
+
+        return list;
     }
 
-    // add an student account to the database
-    public void addStudent(Student student) {
+    public ArrayList<Course> getAllCourseData(){
+        ArrayList<Course> list = new ArrayList<Course>();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM " +TABLE_COURSES,null);
+        if(cursor.moveToFirst()){
+            String code = cursor.getString(cursor.getColumnIndex("courseCode"));
+            String name = cursor.getString(cursor.getColumnIndex("courseName"));
+            String id = cursor.getString(cursor.getColumnIndex("_id"));
+            list.add(new Course(code,name,id));
+
+            while(cursor.moveToNext()){
+                code = cursor.getString(cursor.getColumnIndex("courseCode"));
+                name = cursor.getString(cursor.getColumnIndex("courseName"));
+                id = cursor.getString(cursor.getColumnIndex("_id"));
+                list.add(new Course(code,name,id));
+            }
+        }
+        return list;
+    }
+
+    //ADDED CODE
+    public User findusers(String username){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        ArrayList<User> list= getAllDATA();
+        User temp=null;
+        for(int i=0;i<list.size(); i++){
+            temp= list.get(i);
+            if (temp.getUsername().equals(username)&& temp.getUserType().equals(ManageAccounts.type)){
+                return temp;
+            }
+        }
+        if (username.equals("")||ManageAccounts.type.equals("")) {
+            for (int i = 0; i < list.size(); i++) {
+                temp = list.get(i);
+                if (temp.getUsername().equals(username) || temp.getUserType().equals(ManageAccounts.type)) {
+                    return temp;
+                }
+            }
+        }else {
+            return null;
+        }
+        return null;
+    }
+    public boolean deleteAccount(String username){
+        boolean result = false;
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        String query = "SELECT * FROM " + TABLE_USER + " WHERE " + COLUMN_USERNAME +
+                " = \"" + username + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+
+        // delete the course from the db
+        if(cursor.moveToFirst()){
+            String idStr = cursor.getString(0);
+            db.delete(TABLE_USER, COLUMN_ID + " = " + idStr, null);
+            cursor.close();
+            result = true;
+        }
+        db.close();
+        return result;
+    }
+
+
+    // add an instructor account to the database
+    public void addInstructor(Instructor instructor){
         // create a new map of values where column names are keys
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+//        System.out.println(instructor.getUsername()+" "+instructor.getPassword()+" "+instructor.getUserType());
+        values.put(COLUMN_USERNAME, instructor.getUsername());
+        values.put(COLUMN_PASSWORD, instructor.getPassword());
+        values.put(COLUMN_TYPE, instructor.getUserType());
+
+        // insert into table and close
+        db.insert(TABLE_USER, null, values);
+        db.close();
+        System.out.println(getAllDATA());
+
+    }
+
+    // add a student account to the database
+    public void addStudent(Student student){
+        // create a new map of values where column names are keys
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_USERNAME, student.getUsername());
         values.put(COLUMN_PASSWORD, student.getPassword());
-
+        values.put(COLUMN_TYPE, student.getUserType());
         // insert into table and close
-        db.insert(TABLE_STUDENTS, null, values);
+        db.insert(TABLE_USER, null, values);
         db.close();
+        System.out.println(getAllDATA());
     }
-    //Find Student in database
-    public Student findStudent(String username) {
+
+    public void addAdmin(){
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM" + TABLE_STUDENTS + "WHERE" + COLUMN_USERNAME + "=\"" + username + "\"";
+        User admin=new User("admin","admin123","admin");
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_USERNAME, admin.getUsername());
+        values.put(COLUMN_PASSWORD, admin.getPassword());
+        values.put(COLUMN_TYPE, admin.getUserType());
+        // insert into table and close
+        db.insert(TABLE_USER, null, values);
+        db.close();
+//        System.out.println(getAllDATA());
+    }
+
+    //Courses
+    public void addCourse(Course course){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // creating an empty set of values
+        ContentValues values = new ContentValues();
+        // add values to the set
+        values.put(COLUMN_COURSE_NAME, course.getCourseName());
+        values.put(COLUMN_COURSE_CODE, course.getCourseCode());
+
+        // insert the set into the products table and close
+        db.insert(TABLE_COURSES, null, values);
+        db.close();
+        System.out.println(getAllCourseData());
+
+    }
+
+    // search for a course
+    public Course findCourse(String courseCode){
+
+        ArrayList<Course> list= getAllCourseData();
+        Course temp=null;
+        for(int i=0;i<list.size(); i++){
+            temp= list.get(i);
+            if (temp.getCourseName().equals(AdminCourses.editTextCourseNamee)&& temp.getCourseCode().equals(AdminCourses.editTextCourseCodee)){
+                return temp;
+            }
+        }
+        for(int i=0;i<list.size(); i++) {
+            temp= list.get(i);
+            if (AdminCourses.editTextCourseNamee.equals("")||AdminCourses.editTextCourseCodee.equals("")) {
+                if (temp.getCourseName().equals(AdminCourses.editTextCourseNamee) || temp.getCourseCode().equals(AdminCourses.editTextCourseCodee)) {
+                    return temp;
+                }
+            }else {
+                return null;
+            }
+        }
+        return null;
+
+    }
+
+    public Course findCourseByID(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_ID +
+                " = \"" + id + "\"";
         Cursor cursor = db.rawQuery(query, null);
-        Student student2 = new Student();
-        if (cursor.moveToFirst()) {
-            //user.setID(Integer.parseInt(cursor.getString(0)));
-            student2.setUsername(cursor.getString(0));
-            student2.setPassword(cursor.getString(1));
-            student2.setUserType(cursor.getString(2));
+
+        // create an object and get the result
+        Course course = new Course();
+        if(cursor.moveToFirst()){
+            course.setId(Integer.parseInt(cursor.getString(0)));
+            course.setCourseCode(cursor.getString(1));
+            course.setCourseName(cursor.getString(2));
             cursor.close();
         } else {
-            student2 = null;
+            course = null;
         }
         db.close();
-        return student2;
-    }
-    //Find Instructor in database
-    public Instructor findInstructor(String username) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM" + TABLE_INSTRUCTORS + "WHERE" + COLUMN_USERNAME + "=\"" + username + "\"";
-        Cursor cursor = db.rawQuery(query, null);
-        Instructor instructor = new Instructor();
-        if (cursor.moveToFirst()) {
-            //user.setID(Integer.parseInt(cursor.getString(0)));
-            instructor.setUsername(cursor.getString(0));
-            instructor.setPassword(cursor.getString(1));
-            instructor.setUserType(cursor.getString(2));
-            cursor.close();
-        } else {
-            instructor = null;
-        }
-        db.close();
-        return instructor;
+        return course;
     }
 
-
-
-    // delete an student account to the database
-    public boolean deletestudent(String username) {
+    // delete a course
+    public boolean deleteCourse(String courseCode){
         boolean result = false;
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String query = "SELECT * FROM" + TABLE_STUDENTS + "WHERE" + COLUMN_USERNAME + "=\"" + username + "\"";
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_COURSE_CODE +
+                " = \"" + courseCode + "\"";
         Cursor cursor = db.rawQuery(query, null);
-        if (cursor.moveToFirst()) {
-            String idSTR = cursor.getString(0);
-            db.delete(TABLE_STUDENTS, COLUMN_ID + " = " + idSTR, null);
+
+        // delete the course from the db
+        if(cursor.moveToFirst()){
+            String idStr = cursor.getString(0);
+            db.delete(TABLE_COURSES, COLUMN_ID + " = " + idStr, null);
             cursor.close();
             result = true;
         }
         db.close();
+        System.out.println(getAllCourseData());
         return result;
     }
-    // delete an instructor account to the database
-    public boolean deleteinstructors(String username) {
-        boolean result = false;
+
+    // edit a course
+    public void editCourse(String courseCode, String courseName, int id){
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String query = "SELECT * FROM" + TABLE_INSTRUCTORS + "WHERE" + COLUMN_USERNAME + "=\"" + username + "\"";
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_ID +
+                " = \"" + id + "\"";
         Cursor cursor = db.rawQuery(query, null);
-        if (cursor.moveToFirst()) {
-            String idSTR = cursor.getString(0);
-            db.delete(TABLE_INSTRUCTORS, COLUMN_ID + " = " + idSTR, null);
+
+        // edit the course in the db
+        if(cursor.moveToFirst()){
+            String idStr = cursor.getString(0);
+
+            ContentValues updatedColumns = new ContentValues();
+            updatedColumns.put(COLUMN_COURSE_CODE, courseCode);
+            updatedColumns.put(COLUMN_COURSE_NAME, courseName);
+
+            db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
             cursor.close();
-            result = true;
         }
-        db.close();
-        return result;
+        System.out.println(getAllCourseData());
     }
-    //List all students in database
-    public ArrayList<Student> AllStudents() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "select * from " + TABLE_STUDENTS;
-        Cursor cursor = db.rawQuery(query,null);
 
-        ArrayList<Student> students = new ArrayList<>();
-
-        while(cursor.moveToNext()) {
-            /*
-            String temp = "Username: " + cursor.getString(0).toString() + " " +
-                    "Password: " + cursor.getString(1).toString();
-            students.add(temp);
-             */
-            String name = cursor.getString(cursor.getColumnIndex("name"));
-            String password = cursor.getString(cursor.getColumnIndex("password"));
-            String UserType = cursor.getString(cursor.getColumnIndex("UserType"));
-            students.add(new Student(name,password));
-        }
-        cursor.close();
-        db.close();
-
-        return students;
-    }
-    //List all Instructors in database
-    public ArrayList<Instructor> AllInstructor() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "select * from " + TABLE_INSTRUCTORS;
-        Cursor cursor = db.rawQuery(query,null);
-
-        ArrayList<Instructor> Instructor = new ArrayList<>();
-
-        while(cursor.moveToNext()) {
-            String name = cursor.getString(cursor.getColumnIndex("name"));
-            String password = cursor.getString(cursor.getColumnIndex("password"));
-            String UserType = cursor.getString(cursor.getColumnIndex("UserType"));
-            Instructor.add(new Instructor(name,password));
-        }
-        cursor.close();
-        db.close();
-
-        return Instructor;
-    }
 
 }

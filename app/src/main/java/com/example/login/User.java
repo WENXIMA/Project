@@ -1,10 +1,10 @@
 package com.example.login;
 
 public class User {
-    public String username;
-    public String password;
-    public int ID;
-    public String userType;
+    private String username;
+    private String password;
+    private int ID;
+    private String userType;
 
     public User(){}
 
@@ -15,7 +15,6 @@ public class User {
     }
 
     public User(String name, String password, String userType){
-        super();
         this.username = name;
         this.password = password;
         this.userType = userType;
@@ -42,11 +41,9 @@ public class User {
     public String getUserType(){
         return userType;
     }
-    public void setUserType(String userType){
-        this.userType=userType;
-    }
+
     @Override
     public String toString(){
-        return "User{id =" + ID + ", username = "+ username+",password = "+ password + "}";
+        return "User{type =" + userType + ", username = "+ username+",password = "+ password + "}";
     }
 }

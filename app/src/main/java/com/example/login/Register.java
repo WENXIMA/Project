@@ -41,6 +41,12 @@ public class Register extends AppCompatActivity {
 
         cancelButton = findViewById(R.id.cancelButton);
         createButton = findViewById(R.id.createButton);
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Register.this,MainActivity.class));
+            }
+        });
     }
 
     // onClick for the create button, bottom right
@@ -56,34 +62,25 @@ public class Register extends AppCompatActivity {
                 warningText.setText("Please enter a username and password to proceed!");
 
             } else if(instructorSelect.isChecked()){ // user/pass fields not empty & chose an instructor account
-                Instructor instructor = new Instructor(username, password);
+                Instructor instructor = new Instructor(username, password, "instructor");
                 dbHandler.addInstructor(instructor);
 
                 // clear editTexts
                 editTextUsername.setText("");
                 editTextPassword.setText("");
-
-                // link to instructor welcome page
+                System.out.println(instructor+"account type will be: instructor");
 
             } else if(studentSelect.isChecked()){ // user/pass fields not empty & chose a student account
-                Student student = new Student(username, password);
+                Student student = new Student(username, password, "student");
                 dbHandler.addStudent(student);
 
                 // clear editTexts
                 editTextUsername.setText("");
                 editTextPassword.setText("");
-
-                // link to student welcome page
+                System.out.println(student+"account type will be: student");
             }
         } else if(!instructorSelect.isChecked() && !studentSelect.isChecked()) { // user has not chosen an account type
-            warningText.setText("Please select an account type to proceed!"); // make this a toast?
+            warningText.setText("Please select an account type to proceed!");
         }
-    }
-
-    // onClick for the cancel button, bottom left
-    public void cancelAccountCreation(View v){
-        // return to the login (activity_main)
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
     }
 }

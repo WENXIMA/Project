@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login">
 
+        <activity android:name=".ManageAccounts"></activity>
+        <activity android:name=".AdminWelcome" />
+        <activity android:name=".AdminCourses" />
+        <activity android:name=".StudentWelcome" />
+        <activity android:name=".InstructorWelcome" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,10 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Register">
-
-        </activity>
+        <activity android:name=".Register" />
     </application>
 
 </manifest>
