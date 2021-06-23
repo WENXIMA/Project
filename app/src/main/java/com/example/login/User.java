@@ -41,11 +41,9 @@ public class User {
     public String getUserType(){
         return userType;
     }
+
     @Override
     public String toString(){
         return "User{type =" + userType + ", username = "+ username+",password = "+ password + "}";
     }
-
-
-
 }

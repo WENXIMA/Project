@@ -5,11 +5,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AdminCourses extends AppCompatActivity {
 
+public class InstructorSearchAssign extends AppCompatActivity {
     TextView searchCourseHeaderText, searchCoursePromptText, courseCodeLabel, courseNameLabel,
             courseIDLabel, courseIDTextView, warningTextSearchCourse;
     EditText editTextCourseCode, editTextCourseName;
@@ -20,8 +19,7 @@ public class AdminCourses extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_courses);
-
+        setContentView(R.layout.activity_instructor_search_assign);
         searchCourseHeaderText = findViewById(R.id.searchCourseHeaderText);
         searchCoursePromptText = findViewById(R.id.searchCoursePromptText);
 
@@ -41,35 +39,8 @@ public class AdminCourses extends AppCompatActivity {
         deleteCourseButton = findViewById(R.id.deleteCourseButton);
     }
 
+    public boolean searchCourse(View v){
 
-    public void newCourse (View view) {
-        MyDBhandler dbHandler = new MyDBhandler(this);
-
-        String name=editTextCourseName.getText().toString();
-        String code=editTextCourseCode.getText().toString();
-        name.trim();
-        code.trim();
-
-        warningTextSearchCourse.setText(""); // reset warning text in case it was previously triggered
-
-        if (!name.equals("")&& !code.equals("")) {
-            Course product = new Course(name, code);
-            dbHandler.addCourse(product);
-
-            // clear the text boxes
-            editTextCourseName.setText("");
-            editTextCourseCode.setText("");
-            warningTextSearchCourse.setText("Course added!");
-
-        }else{
-            warningTextSearchCourse.setText("Course must have name and code");
-
-        }
-
-    }
-
-    // onClick for the search button
-    public void searchCourse(View v){
         MyDBhandler dbHandler = new MyDBhandler(this);
         String courseCodeEntered = editTextCourseCode.getText().toString().trim();
         editTextCourseCodee= editTextCourseCode.getText().toString();
@@ -77,55 +48,68 @@ public class AdminCourses extends AppCompatActivity {
 
         warningTextSearchCourse.setText(""); // reset warning text in case it was previously triggered
 
-        Course course = dbHandler.findCourseAdmin(courseCodeEntered);
+        Course course = dbHandler.findCourseInstructor(courseCodeEntered);
 
         if(course != null){ // if found the course, display its information
             editTextCourseName.setText(String.valueOf(course.getCourseName()));
             editTextCourseCode.setText(String.valueOf(course.getCourseCode()));
             courseIDTextView.setText(String.valueOf(course.getId()));
+            return true;
 
         } else { // if course not found
+            warningTextSearchCourse.setText("Course not found, re-enter course code or name");
+            return false;
+        }
+
+    }
+
+    public void assign(View v){
+        MyDBhandler dbHandler = new MyDBhandler(this);
+        String courseCodeEntered = editTextCourseCode.getText().toString().trim();
+        warningTextSearchCourse.setText("");
+
+        if (searchCourse(v)){
+            Course course = dbHandler.findCourseInstructor(courseCodeEntered);
+            System.out.println(course.getInstructor());
+            if (course.getInstructor()==null||course.getInstructor().equals("")){
+                course.setInstructor(MainActivity.user.getUsername());
+                dbHandler.assign(course,MainActivity.user.getUsername());
+                System.out.println(course.getInstructor());
+                warningTextSearchCourse.setText("Now you are assigned to the course");
+            }else if (course.getInstructor().equals(MainActivity.user.getUsername())){
+                warningTextSearchCourse.setText("You are already assigned to this course");
+            }
+            else {
+                warningTextSearchCourse.setText("Course is already assigned to "+course.getInstructor());
+            }
+        }else{
             warningTextSearchCourse.setText("Course not found, re-enter course code or name");
         }
     }
 
-    // onClick for the edit button
-    public void editCourse(View v){
+    public void unassign(View v){
         MyDBhandler dbHandler = new MyDBhandler(this);
         String courseCodeEntered = editTextCourseCode.getText().toString().trim();
-        String courseNameEntered = editTextCourseName.getText().toString().trim();
+        warningTextSearchCourse.setText("");
 
-        warningTextSearchCourse.setText(""); // reset warning text in case it was previously triggered
-
-        if(courseCodeEntered.equals("") || courseNameEntered.equals("")){ // one or both fields left empty
-            warningTextSearchCourse.setText("Course name and course code fields cannot be empty");
-
-        } else if(dbHandler.findCourseAdmin(courseCodeEntered) == null){ // if course does not exist
-            warningTextSearchCourse.setText("Course does not exist, cannot edit information");
-
-        } else {
-            int courseIdDisplayed = Integer.parseInt(courseIDTextView.getText().toString());
-            dbHandler.editCourse(courseCodeEntered, courseNameEntered, courseIdDisplayed);
+        if (searchCourse(v)){
+            Course course = dbHandler.findCourseInstructor(courseCodeEntered);
+            if (course.getInstructor().equals(MainActivity.user.getUsername())){
+                dbHandler.unassign(course);
+                course.setInstructor(null);
+                course.setCapacity(null);
+                course.setDays(null);
+                course.setHours(null);
+                course.setDescription(null);
+                warningTextSearchCourse.setText("Now you are unassigned from the course");
+            }else {
+                warningTextSearchCourse.setText("Can't unassign a course that you are not assigned to.");
+            }
+        }else{
+            warningTextSearchCourse.setText("Course not found, re-enter course code or name");
         }
     }
 
-    // onClick for the delete button
-    public void deleteCourse(View v){
-        MyDBhandler dbHandler = new MyDBhandler(this);
-        String courseCodeEntered = editTextCourseCode.getText().toString().trim();
 
-        warningTextSearchCourse.setText(""); // reset warning text in case it was previously triggered
 
-        boolean result = dbHandler.deleteCourse(courseCodeEntered);
-
-        if(result){
-            warningTextSearchCourse.setText("Course deleted");
-            editTextCourseCode.setText("");
-            editTextCourseName.setText("");
-            courseIDTextView.setText("");
-
-        } else {
-            warningTextSearchCourse.setText("unable to delete course, re-enter course code or name");
-        }
-    }
 }

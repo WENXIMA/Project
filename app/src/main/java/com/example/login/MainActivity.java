@@ -102,10 +102,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AdminWelcome.class);
         startActivity(intent);
     }
-
-
-
 }
-
-
-

@@ -68,7 +68,6 @@ public class Register extends AppCompatActivity {
                 // clear editTexts
                 editTextUsername.setText("");
                 editTextPassword.setText("");
-
                 System.out.println(instructor+"account type will be: instructor");
 
             } else if(studentSelect.isChecked()){ // user/pass fields not empty & chose a student account
@@ -78,12 +77,10 @@ public class Register extends AppCompatActivity {
                 // clear editTexts
                 editTextUsername.setText("");
                 editTextPassword.setText("");
-
                 System.out.println(student+"account type will be: student");
             }
         } else if(!instructorSelect.isChecked() && !studentSelect.isChecked()) { // user has not chosen an account type
             warningText.setText("Please select an account type to proceed!");
         }
     }
-
 }
