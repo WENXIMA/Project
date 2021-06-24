@@ -17,11 +17,18 @@
             android:textSize="20sp" />
 
         <Button
+            android:id="@+id/assign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Assign" />
+
+        <Button
             android:id="@+id/LogOut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Logut"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="667dp" />
+
     </LinearLayout>
 </RelativeLayout>

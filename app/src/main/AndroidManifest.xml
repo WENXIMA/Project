@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Login">
-
-        <activity android:name=".ManageAccounts"></activity>
+        <activity android:name=".InstructorSearchAssign"></activity>
+        <activity android:name=".ManageAccounts" />
         <activity android:name=".AdminWelcome" />
         <activity android:name=".AdminCourses" />
         <activity android:name=".StudentWelcome" />

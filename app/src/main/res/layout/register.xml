@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -144,15 +145,13 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/buttonLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/cancelButton"
-                android:layout_width="wrap_content"
+                android:layout_width="182dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
@@ -162,11 +161,12 @@
                 android:onClick="cancelAccountCreation"
                 android:text="◀ cancel"
                 android:textSize="22sp"
-                android:visibility="visible" />
+                android:visibility="visible"
+                tools:visibility="visible" />
 
             <Button
                 android:id="@+id/createButton"
-                android:layout_width="wrap_content"
+                android:layout_width="178dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
@@ -176,7 +176,17 @@
                 android:onClick="createNewAccount"
                 android:text="create ▶"
                 android:textSize="22sp"
-                android:visibility="visible" />
+                android:visibility="visible"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:orientation="horizontal">
 
         </LinearLayout>
 
