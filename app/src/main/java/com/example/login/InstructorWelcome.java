@@ -9,9 +9,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class InstructorWelcome extends AppCompatActivity {
-    Button logout,assign;
+    Button logout,assign,viewall;
     TextView welcome;
-    public static User instructor;
+    User instructor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,13 +19,20 @@ public class InstructorWelcome extends AppCompatActivity {
         logout= findViewById(R.id.LogOut);
         welcome=findViewById(R.id.textView3);
         assign=findViewById(R.id.assign);
+        viewall=findViewById(R.id.viewallcourse);
         instructor= MainActivity.user;
-        welcome.setText("Welcome "+ MainActivity.user.getUsername()+ ", you are logged in as an Instructor");
+        welcome.setText("Welcome "+ instructor.getUsername()+ ", you are logged in as an Instructor");
 
         assign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(InstructorWelcome.this,InstructorSearchAssign.class));
+            }
+        });
+        viewall.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(InstructorWelcome.this,ViewAllCourse.class));
             }
         });
 

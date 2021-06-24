@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.List;
+
 public class MyDBhandler extends SQLiteOpenHelper {
 
     // tables
@@ -16,7 +18,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
 
     // columns
-    private static final int DATABASE_VERSION = 36;
+    private static final int DATABASE_VERSION = 37;
     private static final String DATABASE_NAME = "productDB.db";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
@@ -116,6 +118,8 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 list.add(new Course(code,name,id,instructor));
             }
         }
+        cursor.close();
+        db.close();
         return list;
     }
 
