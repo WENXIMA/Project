@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         user= data.get(i);
 
                         if (name.equals(user.getUsername()) && password.equals(user.getPassword())) {
+                            System.out.println(user);
                             userdata = true;
                             break;
                         } else {
@@ -65,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
 
-                    System.out.println(user);
                     if (userdata && user.getUserType().equals("instructor")) {
                         System.out.println("INSTRUCTOR");
                         openInstructorWelcome(user.getUsername());

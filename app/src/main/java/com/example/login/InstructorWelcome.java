@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class InstructorWelcome extends AppCompatActivity {
     Button logout,assign;
     TextView welcome;
-    User instructor;
+    public static User instructor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +20,7 @@ public class InstructorWelcome extends AppCompatActivity {
         welcome=findViewById(R.id.textView3);
         assign=findViewById(R.id.assign);
         instructor= MainActivity.user;
-        welcome.setText("Welcome "+ instructor.getUsername()+ ", you are logged in as an Instructor");
+        welcome.setText("Welcome "+ MainActivity.user.getUsername()+ ", you are logged in as an Instructor");
 
         assign.setOnClickListener(new View.OnClickListener() {
             @Override
