@@ -94,7 +94,11 @@ public class InstructorSearchAssign extends AppCompatActivity {
 
         if (searchCourse(v)){
             Course course = dbHandler.findCourseInstructor(courseCodeEntered);
-            if (course.getInstructor().equals(MainActivity.user.getUsername())){
+            if (course.getInstructor()==null){
+                warningTextSearchCourse.setText("Error. No one is currently assigned to the course");
+            }
+
+            else if (course.getInstructor().equals(MainActivity.user.getUsername())){
                 dbHandler.unassign(course);
                 course.setInstructor(null);
                 course.setCapacity(null);
