@@ -1,9 +1,19 @@
 package com.example.login;
 
+import android.content.Context;
+
+import androidx.test.core.app.ActivityScenario;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
+import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
+import org.junit.Rule;
 import org.junit.Test;
+
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
+import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
@@ -20,45 +30,33 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 public class TestCases {
 
     @Test
-    public void assignUnassignCourseToInstructor() {
-        // start on login page (activity_main)
-        // login as admin
-        onView(withId(R.id.userName)).perform(typeText("admin"));
-        onView(withId(R.id.userpassword)).perform(typeText("admin123"));
+    public void assignCourseToInstructor() {
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        MyDBhandler db = new MyDBhandler(appContext);
 
         // create a course to test
-        onView(withId(R.id.Courses)).perform(click());
+        ActivityScenario<AdminCourses> adminCoursesScenario = ActivityScenario.launch(AdminCourses.class);
         onView(withId(R.id.editTextCourseCode)).perform(typeText("TC1"));
-        onView(withId(R.id.editTextCourseName)).perform(typeText("Test Course"));
+        onView(withId(R.id.editTextCourseName)).perform(typeText("Test Course"), closeSoftKeyboard());
         onView(withId(R.id.add)).perform(click());
-        onView(withId(R.id.Return)).perform(click()); // back to admin welcome
-        onView(withId(R.id.LogOut)).perform(click()); // log out of admin account
-
-        onView(withId(R.id.register)).perform(click());
+        adminCoursesScenario.close();
 
         // create test instructor account
+        ActivityScenario<Register> registerScenario = ActivityScenario.launch(Register.class);
         onView(withId(R.id.editTextUsername)).perform(typeText("testInstructor"));
-        onView(withId(R.id.editTextPassword)).perform(typeText("TI1"));
+        onView(withId(R.id.editTextPassword)).perform(typeText("TI1"), closeSoftKeyboard());
+        onView(withId(R.id.instructorSelect)).perform(click());
         onView(withId(R.id.createButton)).perform(click());
-        onView(withId(R.id.cancelButton)).perform(click()); // back to login page
-
-        // log into instructor account
-        onView(withId(R.id.userName)).perform(typeText("testInstructor"));
-        onView(withId(R.id.userpassword)).perform(typeText("TI1"));
-        onView(withId(R.id.login)).perform(click());
-
-        onView(withId(R.id.assign)).perform(click()); // instructor welcome page
+        registerScenario.close();
 
         // assign course
-        onView(withId(R.id.editTextCourseCode)).perform(typeText("TC1"));
-        onView(withId(R.id.assign)).perform(click());
+        ActivityScenario<InstructorSearchAssign> instructorSearchAssignScenario = ActivityScenario.launch(InstructorSearchAssign.class);
+        onView(withId(R.id.editTextCourseCode)).perform(typeText("TC1"), closeSoftKeyboard());
+        onView(withId(R.id.assign)).perform(scrollTo(), click());
+        instructorSearchAssignScenario.close();
 
         // check for successful assignment
-
-
-        // unassign course
-
-        // check for successful unassignment
-
+        Course assignedCourse = db.findCourseInstructor("TC1");
+        assertEquals("testInstructor", assignedCourse.getInstructor());
     }
 }
