@@ -41,22 +41,40 @@ public class TestCases {
         onView(withId(R.id.add)).perform(click());
         adminCoursesScenario.close();
 
-        // create test instructor account
-        ActivityScenario<Register> registerScenario = ActivityScenario.launch(Register.class);
-        onView(withId(R.id.editTextUsername)).perform(typeText("testInstructor"));
-        onView(withId(R.id.editTextPassword)).perform(typeText("TI1"), closeSoftKeyboard());
-        onView(withId(R.id.instructorSelect)).perform(click());
-        onView(withId(R.id.createButton)).perform(click());
-        registerScenario.close();
-
         // assign course
         ActivityScenario<InstructorSearchAssign> instructorSearchAssignScenario = ActivityScenario.launch(InstructorSearchAssign.class);
         onView(withId(R.id.editTextCourseCode)).perform(typeText("TC1"), closeSoftKeyboard());
+        // force set username because shortcutting through the views doesn't set one (technically not logged in)
+        MainActivity.user = new Instructor("testInstructor", "TI1", "instructor");
         onView(withId(R.id.assign)).perform(scrollTo(), click());
-        instructorSearchAssignScenario.close();
 
-        // check for successful assignment
+        // check for successful assignment message
+        //onView(withText("Now you are assigned to the course")).check(matches(isDisplayed()));
+
+        //instructorSearchAssignScenario.close();
+
+        // check for successful assignment in database
         Course assignedCourse = db.findCourseInstructor("TC1");
         assertEquals("testInstructor", assignedCourse.getInstructor());
     }
+
+    @Test
+    // if user leaves username and/or password fields empty in registration
+    public void emptyRegistrationField(){
+        ActivityScenario<Register> registerScenario = ActivityScenario.launch(Register.class);
+        onView(withId(R.id.studentSelect)).perform(click());
+        onView(withId(R.id.createButton)).perform(click());
+        onView(withText("Please enter a username and password to proceed!")).check(matches(isDisplayed()));
+    }
+
+    @Test
+    // if course doesn't exist and the admin tries to search for it
+    public void courseSearchUnsuccessful(){
+        ActivityScenario<AdminCourses> registerScenario = ActivityScenario.launch(AdminCourses.class);
+        onView(withId(R.id.editTextCourseCode)).perform(typeText("123"), closeSoftKeyboard());
+        onView(withId(R.id.searchButton)).perform(click());
+        onView(withText("Course not found, re-enter course code or name")).check(matches(isDisplayed()));
+    }
+
+
 }
