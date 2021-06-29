@@ -70,11 +70,14 @@ public class TestCases {
     @Test
     // if course doesn't exist and the admin tries to search for it
     public void courseSearchUnsuccessful(){
-        ActivityScenario<AdminCourses> registerScenario = ActivityScenario.launch(AdminCourses.class);
+        ActivityScenario<AdminCourses> adminCoursesScenario = ActivityScenario.launch(AdminCourses.class);
         onView(withId(R.id.editTextCourseCode)).perform(typeText("123"), closeSoftKeyboard());
         onView(withId(R.id.searchButton)).perform(click());
         onView(withText("Course not found, re-enter course code or name")).check(matches(isDisplayed()));
     }
 
+    @Test
+    public void editCourse(){
 
+    }
 }
