@@ -15,6 +15,11 @@
             android:layout_marginBottom="50dp"
             android:text=' Welcome "Username", You logged in as an Instructor'
             android:textSize="20sp" />
+        <Button
+            android:id="@+id/ConnectCourseManager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manage Course" />
 
         <Button
             android:id="@+id/assign"

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class MyDBhandler extends SQLiteOpenHelper {
@@ -398,6 +399,59 @@ public class MyDBhandler extends SQLiteOpenHelper {
             db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
             cursor.close();
         }
+    }
+    public void updateCourseDetails(Course course, String description, String days, String hours,String capacity)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int id = course.getId();
+
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_ID +
+                " = \"" + id + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+
+        // edit the course in the db
+        if(cursor.moveToFirst()){
+            String idStr = cursor.getString(0);
+
+            ContentValues updatedColumns = new ContentValues();
+            updatedColumns.put(COLUMN_DAYS,days);
+            updatedColumns.put(COLUMN_HOURS,hours);
+            updatedColumns.put(COLUMN_DESCRIPTION,description);
+            updatedColumns.put(COLUMN_CAPACITY,capacity);
+            db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
+            cursor.close();
+        }
+    }
+
+    public List<Course> findCourseByInstructor(String instructorName){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_INSTRUCTOR +
+                " = \"" + instructorName + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+        List<Course> courses = new LinkedList<>();
+
+
+        while(cursor.moveToNext()){
+            Course course = new Course();
+            course.setId(Integer.parseInt(cursor.getString(0)));
+            course.setCourseCode(cursor.getString(1));
+            course.setCourseName(cursor.getString(2));
+            course.setInstructor(cursor.getString(3));
+            course.setDays(cursor.getString(4));
+            course.setHours(cursor.getString(5));
+            course.setDescription(cursor.getString(6));
+            course.setCapacity(cursor.getString(7));
+            courses.add(course);
+        }
+        cursor.close();
+        db.close();
+        return courses;
     }
 
 
