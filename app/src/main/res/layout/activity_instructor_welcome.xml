@@ -26,12 +26,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="View-All-Course" />
+        <Button
+            android:id="@+id/ConnectCourseManager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manage Course" />
 
         <Button
             android:id="@+id/LogOut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Logut"
+            android:text="Log out"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="667dp" />
 

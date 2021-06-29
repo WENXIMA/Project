@@ -179,7 +179,7 @@
 
 
                 <Button
-                    android:id="@+id/unassign"
+                    android:id="@+id/detailUnassign"
                     android:layout_width="118dp"
                     android:layout_height="70dp"
                     android:layout_marginStart="20dp"

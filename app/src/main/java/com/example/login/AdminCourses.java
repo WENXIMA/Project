@@ -23,7 +23,7 @@ public class AdminCourses extends AppCompatActivity {
         setContentView(R.layout.activity_admin_courses);
 
         searchCourseHeaderText = findViewById(R.id.searchCourseHeaderText);
-        searchCoursePromptText = findViewById(R.id.searchCoursePromptText);
+        searchCoursePromptText = findViewById(R.id.manageCoursePromptText);
 
         courseCodeLabel = findViewById(R.id.courseCodeLabel);
         editTextCourseCode = findViewById(R.id.editTextCourseCode);
