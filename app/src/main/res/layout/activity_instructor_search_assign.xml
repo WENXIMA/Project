@@ -35,7 +35,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/searchCoursePromptText"
+                    android:id="@+id/manageCoursePromptText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
@@ -179,7 +179,7 @@
 
 
                 <Button
-                    android:id="@+id/unassign"
+                    android:id="@+id/detailUnassign"
                     android:layout_width="118dp"
                     android:layout_height="70dp"
                     android:layout_marginStart="20dp"

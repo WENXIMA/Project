@@ -1,5 +1,6 @@
 package com.example.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,7 @@ public class AdminCourses extends AppCompatActivity {
     TextView searchCourseHeaderText, searchCoursePromptText, courseCodeLabel, courseNameLabel,
             courseIDLabel, courseIDTextView, warningTextSearchCourse;
     EditText editTextCourseCode, editTextCourseName;
-    Button searchButton, editCourseButton, deleteCourseButton;
+    Button searchButton, editCourseButton, deleteCourseButton, returnButton;
     public static String editTextCourseCodee;
     public static String editTextCourseNamee;
 
@@ -39,6 +40,14 @@ public class AdminCourses extends AppCompatActivity {
         searchButton = findViewById(R.id.searchButton);
         editCourseButton = findViewById(R.id.editCourseButton);
         deleteCourseButton = findViewById(R.id.deleteCourseButton);
+        returnButton=findViewById(R.id.Return);
+
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminCourses.this,AdminWelcome.class));
+            }
+        });
     }
 
 

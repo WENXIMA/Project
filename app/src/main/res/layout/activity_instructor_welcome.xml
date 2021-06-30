@@ -17,15 +17,16 @@
             android:textSize="20sp" />
 
         <Button
+            android:id="@+id/ConnectCourseManager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Manage Course" />
+
+        <Button
             android:id="@+id/assign"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Assign" />
-        <Button
-            android:id="@+id/viewallcourse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View-All-Course" />
 
         <Button
             android:id="@+id/LogOut"

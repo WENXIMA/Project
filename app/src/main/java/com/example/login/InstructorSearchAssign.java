@@ -1,5 +1,6 @@
 package com.example.login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ public class InstructorSearchAssign extends AppCompatActivity {
     TextView searchCourseHeaderText, searchCoursePromptText, courseCodeLabel, courseNameLabel,
             courseIDLabel, courseIDTextView, warningTextSearchCourse;
     EditText editTextCourseCode, editTextCourseName;
-    Button searchButton, editCourseButton, deleteCourseButton;
+    Button searchButton, editCourseButton, deleteCourseButton,returnButton;
     public static String editTextCourseCodee;
     public static String editTextCourseNamee;
 
@@ -37,6 +38,14 @@ public class InstructorSearchAssign extends AppCompatActivity {
         searchButton = findViewById(R.id.searchButton);
         editCourseButton = findViewById(R.id.editCourseButton);
         deleteCourseButton = findViewById(R.id.deleteCourseButton);
+        returnButton=findViewById(R.id.Return);
+
+        returnButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(InstructorSearchAssign.this,InstructorWelcome.class));
+            }
+        });
     }
 
     public boolean searchCourse(View v){
