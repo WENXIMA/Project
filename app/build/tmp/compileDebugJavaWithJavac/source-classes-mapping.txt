@@ -3,11 +3,20 @@ com/example/login/ViewAllCourse.java
  com.example.login.ViewAllCourse$1
 com/example/login/MyDBhandler.java
  com.example.login.MyDBhandler
+com/example/login/ManagaCourseMain.java
+ com.example.login.ManagaCourseMain
+com/example/login/InstractorUpdateCourseDetails.java
+ com.example.login.InstractorUpdateCourseDetails
+ com.example.login.InstractorUpdateCourseDetails$1
+com/example/login/InstructorCourseManage.java
+ com.example.login.InstructorCourseManage
+ com.example.login.InstructorCourseManage$1
 com/example/login/InstructorWelcome.java
  com.example.login.InstructorWelcome
  com.example.login.InstructorWelcome$1
  com.example.login.InstructorWelcome$2
  com.example.login.InstructorWelcome$3
+ com.example.login.InstructorWelcome$4
 com/example/login/AdminWelcome.java
  com.example.login.AdminWelcome
  com.example.login.AdminWelcome$1
@@ -30,6 +39,9 @@ com/example/login/MainActivity.java
  com.example.login.MainActivity
  com.example.login.MainActivity$1
  com.example.login.MainActivity$2
+com/example/login/CourseAdapter.java
+ com.example.login.CourseAdapter
+ com.example.login.CourseAdapter$1
 com/example/login/User.java
  com.example.login.User
 com/example/login/ManageAccounts.java

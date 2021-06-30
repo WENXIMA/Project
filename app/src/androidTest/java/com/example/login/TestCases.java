@@ -1,6 +1,7 @@
 package com.example.login;
 
 import android.content.Context;
+import android.content.Intent;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
@@ -77,7 +78,33 @@ public class TestCases {
     }
 
     @Test
-    public void editCourse(){
+    public void editCourseDetails(){
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        MyDBhandler db = new MyDBhandler(appContext);
 
+        // create instructor
+        Instructor testInstructor = new Instructor("testInstructor", "TI1", "instructor");
+        db.addInstructor(testInstructor);
+
+        // create course
+        Course testCourse = new Course("Test Course 2", "TC2");
+        db.addCourse(testCourse);
+
+        // assign course to use course editing feature
+        db.assign(testCourse, "testInstructor");
+
+        ActivityScenario<InstractorUpdateCourseDetails> editCourseDetailsScenario = ActivityScenario.launch(InstractorUpdateCourseDetails.class);
+
+        onView(withId(R.id.detailEditCourseDes)).perform(typeText("test description"), closeSoftKeyboard());
+        onView(withId(R.id.detailEditCourseDays)).perform(typeText("Mon, Wed"), closeSoftKeyboard());
+        onView(withId(R.id.detailEditCourseHours)).perform(typeText("8:30am-9:50am, 8:30am-9:50am"), closeSoftKeyboard());
+        onView(withId(R.id.detailEditCourseCap)).perform(typeText("78"), closeSoftKeyboard());
+        onView(withId(R.id.detailUpdate)).perform(click());
+
+        Course updatedCourse = db.findCourseInstructor("TC2");
+        assertEquals("test description", updatedCourse.getDescription());
+        assertEquals("Mon, Wed", updatedCourse.getDays());
+        assertEquals("8:30am-9:50am, 8:30am-9:50am", updatedCourse.getHours());
+        assertEquals("78", updatedCourse.getCapacity());
     }
 }
