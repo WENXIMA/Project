@@ -17,7 +17,6 @@ public class Course {
     public Course(String courseName, String courseCode){
         this.courseCode = courseCode;
         this.courseName = courseName;
-        instructor="";
     }
     public Course(String courseCode, String courseName,String id, String instructor){
         this.courseCode = courseCode;
@@ -47,7 +46,7 @@ public class Course {
     }
     @Override
     public String toString(){
-        return "Course #" + id + "\n course code = "+ courseCode + "\n course name = " + courseName +"\n Instructor name = "+ instructor;
+        return "Course{id = " + id + ", course code = "+ courseCode + ", course name = " + courseName + "}";
     }
 
     public void setInstructor(String instructor) {

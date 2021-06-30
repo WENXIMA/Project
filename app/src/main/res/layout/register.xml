@@ -181,14 +181,11 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/buttonLayout"
+        <Button
+            android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:orientation="horizontal">
-
-        </LinearLayout>
+            android:text="Button" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

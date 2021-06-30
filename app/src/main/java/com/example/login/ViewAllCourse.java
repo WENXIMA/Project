@@ -38,7 +38,7 @@ public class ViewAllCourse extends AppCompatActivity{
     public void ShowCourse(){
         MyDBhandler dBhandler = new MyDBhandler(this);
         List courses = dBhandler.getAllCourseData();
-        ArrayAdapter<Course> arrayAdapter = new ArrayAdapter<Course>(this, android.R.layout.simple_expandable_list_item_1,courses);
+        ArrayAdapter<Course> arrayAdapter = new ArrayAdapter<Course>(this, android.R.layout.activity_list_item,android.R.id.text1,courses);
         Viewallcourse.setAdapter(arrayAdapter);
     }
 }
