@@ -19,13 +19,13 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Login" >
-        <activity android:name="com.example.login.ViewAllCourse" />
         <activity android:name="com.example.login.InstructorSearchAssign" />
         <activity android:name="com.example.login.ManageAccounts" />
         <activity android:name="com.example.login.AdminWelcome" />
         <activity android:name="com.example.login.AdminCourses" />
         <activity android:name="com.example.login.StudentWelcome" />
         <activity android:name="com.example.login.InstructorWelcome" />
+        <activity android:name="com.example.login.ViewAllCourse" />
         <activity android:name="com.example.login.InstractorUpdateCourseDetails" />
         <activity android:name="com.example.login.InstructorCourseManage" />
         <activity android:name="com.example.login.MainActivity" >
