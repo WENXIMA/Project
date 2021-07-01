@@ -1793,7 +1793,7 @@ id beginning
 id blocking
 id bottom
 id bounce
-id buttonLayout
+id button
 id buttonPanel
 id cache_measures
 id cancelButton
@@ -2066,7 +2066,6 @@ id scrollView
 id scrollable
 id searchButton
 id searchCourseHeaderText
-id searchCoursePromptText
 id search_badge
 id search_bar
 id search_button
@@ -2181,7 +2180,6 @@ id view_offset_helper
 id view_tree_lifecycle_owner
 id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
-id viewallcourse
 id visible
 id visible_removing_fragment_view_tag
 id warningText

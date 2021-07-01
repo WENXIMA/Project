@@ -80,40 +80,40 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\la
 		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:11:9-43
+activity#com.example.login.ViewAllCourse
+ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:13:9-60
+	android:name
+		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:13:19-48
 activity#com.example.login.InstructorSearchAssign
-ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:13:9-69
+ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:14:9-60
 	android:name
-		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:13:19-57
+		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:14:19-57
 activity#com.example.login.ManageAccounts
-ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:14:9-52
+ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:15:9-52
 	android:name
-		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:14:19-49
+		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:15:19-49
 activity#com.example.login.AdminWelcome
-ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:15:9-50
-	android:name
-		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:15:19-47
-activity#com.example.login.AdminCourses
 ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:16:9-50
 	android:name
 		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:16:19-47
+activity#com.example.login.AdminCourses
+ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:17:9-50
+	android:name
+		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:17:19-47
 activity#com.example.login.StudentWelcome
-ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:17:9-52
+ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:18:9-52
 	android:name
-		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:17:19-49
+		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:18:19-49
 activity#com.example.login.InstructorWelcome
-ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:18:9-55
+ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:19:9-55
 	android:name
-		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:18:19-52
-activity#com.example.login.ViewAllCourse
-ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:19:9-51
-	android:name
-		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:19:19-48
+		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:19:19-52
 activity#com.example.login.InstractorUpdateCourseDetails
-ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:20:9-66
+ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:20:9-67
 	android:name
 		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:20:19-64
 activity#com.example.login.InstructorCourseManage
-ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:21:9-59
+ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:21:9-60
 	android:name
 		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:21:19-57
 activity#com.example.login.MainActivity

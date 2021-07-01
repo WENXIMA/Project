@@ -22,7 +22,7 @@ public class InstructorSearchAssign extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructor_search_assign);
         searchCourseHeaderText = findViewById(R.id.searchCourseHeaderText);
-        searchCoursePromptText = findViewById(R.id.searchCoursePromptText);
+        searchCoursePromptText = findViewById(R.id.manageCoursePromptText);
 
         courseCodeLabel = findViewById(R.id.courseCodeLabel);
         editTextCourseCode = findViewById(R.id.editTextCourseCode);

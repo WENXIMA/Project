@@ -41,15 +41,6 @@ public class InstructorWelcome extends AppCompatActivity {
             }
         });
 
-        manage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InstructorWelcome.this,InstructorCourseManage.class);
-                intent.putExtra("name",instructor.getUsername());
-                startActivity(intent);
-            }
-        });
-
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

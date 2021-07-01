@@ -12,6 +12,7 @@ import androidx.test.runner.AndroidJUnit4;
 import org.junit.Rule;
 import org.junit.Test;
 
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static org.junit.Assert.*;
@@ -31,6 +32,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 public class TestCases {
 
     @Test
+    // check that course assignment by instructor is reflected in database
     public void assignCourseToInstructor() {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         MyDBhandler db = new MyDBhandler(appContext);
@@ -48,11 +50,6 @@ public class TestCases {
         // force set username because shortcutting through the views doesn't set one (technically not logged in)
         MainActivity.user = new Instructor("testInstructor", "TI1", "instructor");
         onView(withId(R.id.assign)).perform(scrollTo(), click());
-
-        // check for successful assignment message
-        //onView(withText("Now you are assigned to the course")).check(matches(isDisplayed()));
-
-        //instructorSearchAssignScenario.close();
 
         // check for successful assignment in database
         Course assignedCourse = db.findCourseInstructor("TC1");
@@ -78,33 +75,50 @@ public class TestCases {
     }
 
     @Test
-    public void editCourseDetails(){
+    // check that course name and course code edits by admin are reflected in database
+    public void adminEditCourse(){
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         MyDBhandler db = new MyDBhandler(appContext);
 
-        // create instructor
-        Instructor testInstructor = new Instructor("testInstructor", "TI1", "instructor");
-        db.addInstructor(testInstructor);
-
-        // create course
         Course testCourse = new Course("Test Course 2", "TC2");
         db.addCourse(testCourse);
 
-        // assign course to use course editing feature
-        db.assign(testCourse, "testInstructor");
+        ActivityScenario<AdminCourses> adminCoursesScenario = ActivityScenario.launch(AdminCourses.class);
 
-        ActivityScenario<InstractorUpdateCourseDetails> editCourseDetailsScenario = ActivityScenario.launch(InstractorUpdateCourseDetails.class);
+        // search for course
+        onView(withId(R.id.editTextCourseCode)).perform(typeText("TC2"), closeSoftKeyboard());
+        onView(withId(R.id.searchButton)).perform(click());
 
-        onView(withId(R.id.detailEditCourseDes)).perform(typeText("test description"), closeSoftKeyboard());
-        onView(withId(R.id.detailEditCourseDays)).perform(typeText("Mon, Wed"), closeSoftKeyboard());
-        onView(withId(R.id.detailEditCourseHours)).perform(typeText("8:30am-9:50am, 8:30am-9:50am"), closeSoftKeyboard());
-        onView(withId(R.id.detailEditCourseCap)).perform(typeText("78"), closeSoftKeyboard());
-        onView(withId(R.id.detailUpdate)).perform(click());
+        // edit course name and course code
+        onView(withId(R.id.editTextCourseCode)).perform(clearText());
+        onView(withId(R.id.editTextCourseName)).perform(clearText());
+        onView(withId(R.id.editTextCourseCode)).perform(typeText("TC3"));
+        onView(withId(R.id.editTextCourseName)).perform(typeText("Test Course 3"), closeSoftKeyboard());
+        onView(withId(R.id.editCourseButton)).perform(click());
 
-        Course updatedCourse = db.findCourseInstructor("TC2");
-        assertEquals("test description", updatedCourse.getDescription());
-        assertEquals("Mon, Wed", updatedCourse.getDays());
-        assertEquals("8:30am-9:50am, 8:30am-9:50am", updatedCourse.getHours());
-        assertEquals("78", updatedCourse.getCapacity());
+        AdminCourses.editTextCourseCodee = "TC3";
+        AdminCourses.editTextCourseNamee = "Test Course 3";
+        Course updatedCourse = db.findCourseAdmin("TC3");
+        assertEquals("TC3", updatedCourse.getCourseCode());
+        assertEquals("Test Course 3", updatedCourse.getCourseName());
+    }
+
+    @Test
+    // check that account deletion by admin is reflected in database
+    public void adminDeleteAccount(){
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        MyDBhandler db = new MyDBhandler(appContext);
+
+        // create an instructor via DBhandler
+        Instructor testInstructor = new Instructor("testInstructor2", "TI2", "instructor");
+        db.addInstructor(testInstructor);
+
+        // delete instructor using UI
+        ActivityScenario<ManageAccounts> manageAccountsScenario = ActivityScenario.launch(ManageAccounts.class);
+        onView(withId(R.id.editTextUserName)).perform(typeText("testInstructor2"), closeSoftKeyboard());
+        onView(withId(R.id.searchButton)).perform(click());
+        onView(withId(R.id.delbutton)).perform(click());
+
+        assertTrue(db.findusers("testInstructor2") == null);
     }
 }
