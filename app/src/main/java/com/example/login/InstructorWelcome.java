@@ -17,13 +17,13 @@ public class InstructorWelcome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructor_welcome);
-        logout= findViewById(R.id.LogOut);
-        welcome=findViewById(R.id.textView3);
-        assign=findViewById(R.id.assign);
+        instructor = MainActivity.user;
+        logout = findViewById(R.id.LogOut);
+        welcome = findViewById(R.id.textView3);
+        assign = findViewById(R.id.assign);
         manage = findViewById(R.id.ConnectCourseManager);
-        instructor= MainActivity.user;
-        manage = findViewById(R.id.ConnectCourseManager);
-        welcome.setText("Welcome "+ instructor.getUsername()+ ", you are logged in as an Instructor");
+        viewall = findViewById(R.id.viewallcourse);
+        welcome.setText("Welcome " + instructor.getUsername() + ", you are logged in as an Instructor");
 
         manage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +41,13 @@ public class InstructorWelcome extends AppCompatActivity {
             }
         });
 
+        viewall.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(InstructorWelcome.this,ViewAllCourse.class));
+            }
+        });
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,5 +55,4 @@ public class InstructorWelcome extends AppCompatActivity {
             }
         });
     }
-
 }

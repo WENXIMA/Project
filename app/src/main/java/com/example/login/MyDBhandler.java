@@ -119,6 +119,8 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 list.add(new Course(code,name,id,instructor));
             }
         }
+        cursor.close();
+        db.close();
         return list;
     }
 
@@ -431,14 +433,12 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
     public List<Course> findCourseByInstructor(String instructorName){
         SQLiteDatabase db = this.getWritableDatabase();
-
         // run a query to find the course
         // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
         String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_INSTRUCTOR +
                 " = \"" + instructorName + "\"";
         Cursor cursor = db.rawQuery(query, null);
         List<Course> courses = new LinkedList<>();
-
         while(cursor.moveToNext()){
             Course course = new Course();
             course.setId(Integer.parseInt(cursor.getString(0)));

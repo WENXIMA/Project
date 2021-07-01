@@ -17,9 +17,10 @@ public class InstractorUpdateCourseDetails extends AppCompatActivity {
     private int id;
     private Course course;
     private MyDBhandler myDBhandler;
-    TextView currentDes,currentCapa,currentDays,currentHours,currentName;
-    EditText days,hours,des,capa;
-    Button returnPre,update,unassign;
+
+    TextView  currentDes, currentCapa, currentDays, currentHours, currentName;
+    EditText days, hours, des, capa;
+    Button returnPre, update, unassign;
     String instructor;
 
 
@@ -28,7 +29,7 @@ public class InstractorUpdateCourseDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructor_course_details);
 
-        id = getIntent().getIntExtra("id",-1);
+        id = getIntent().getIntExtra("id", -1);
 
         myDBhandler = new MyDBhandler(this);
 
@@ -59,67 +60,66 @@ public class InstractorUpdateCourseDetails extends AppCompatActivity {
         returnPre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent temp = new Intent(InstractorUpdateCourseDetails.this,InstructorCourseManage.class);
-                temp.putExtra("name",instructor);
+                Intent temp = new Intent(InstractorUpdateCourseDetails.this, InstructorCourseManage.class);
+                temp.putExtra("name", instructor);
                 startActivity(temp);
                 finish();
             }
         });
 
-
-        if(course.getCapacity() == null || course.getCapacity().equals(""))
+        if (course.getCapacity() == null || course.getCapacity().equals(""))
             currentCapa.setText("Not Set");
         else
             currentCapa.setText(course.getCapacity());
 
-        if(course.getDescription() == null || course.getDescription().equals(""))
+        if (course.getDescription() == null || course.getDescription().equals(""))
             currentDes.setText("No Description");
         else
             currentDes.setText(course.getDescription());
 
-        if(course.getDays() == null || course.getDays().equals(""))
+        if (course.getDays() == null || course.getDays().equals(""))
             currentDays.setText("Not Set");
         else
             currentDays.setText(course.getDays());
 
-        if(course.getHours() == null || course.getHours().equals(""))
+        if (course.getHours() == null || course.getHours().equals(""))
             currentHours.setText("Not Set");
         else
             currentHours.setText(course.getHours());
     }
 
-    public void editUpdate(View view)
-    {
-        String tempD,tempH,tempDe,tempC;
-        tempC  = capa.getText().toString().trim();
+    public void editUpdate(View view) {
+        String tempD, tempH, tempDe, tempC;
+        tempC = capa.getText().toString().trim();
         tempD = days.getText().toString().trim();
         tempDe = des.getText().toString().trim();
         tempH = hours.getText().toString().trim();
 
-        if(tempC.equals(""))
-            tempC = course.getCapacity();
+        if (tempC.equals("")) {
+            tempC = course.getCapacity();}
 
+            if (tempD.equals("")) {
+                tempD = course.getDays();
+            }
 
-        if(tempD.equals(""))
-            tempD = course.getDays();
+            if (tempDe.equals("")) {
+                tempDe = course.getDescription();
+            }
 
-        if(tempDe.equals(""))
-            tempDe = course.getDescription();
+            if (tempH.equals("")) {
+                tempH = course.getHours();
+            }
 
-        if(tempH.equals(""))
-            tempH = course.getHours();
+            myDBhandler.updateCourseDetails(course, tempDe, tempD, tempH, tempC);
+            Toast.makeText(this, "Course details update successfully", Toast.LENGTH_SHORT).show();
+        }
 
-        myDBhandler.updateCourseDetails(course,tempDe,tempD,tempH,tempC);
-        Toast.makeText(this, "Course details update successfully", Toast.LENGTH_SHORT).show();
+        public void Unassign(View view){
+            myDBhandler.unassign(course);
+            Toast.makeText(this, "You are unassigned successfully", Toast.LENGTH_SHORT).show();
+            Intent temp = new Intent(InstractorUpdateCourseDetails.this, InstructorCourseManage.class);
+            temp.putExtra("name", instructor);
+            startActivity(temp);
+            finish();
+        }
     }
-
-    public void Unassign(View view)
-    {
-        myDBhandler.unassign(course);
-        Toast.makeText(this, "You are unassigned successfully", Toast.LENGTH_SHORT).show();
-        Intent temp = new Intent(InstractorUpdateCourseDetails.this,InstructorCourseManage.class);
-        temp.putExtra("name",instructor);
-        startActivity(temp);
-        finish();
-    }
-}

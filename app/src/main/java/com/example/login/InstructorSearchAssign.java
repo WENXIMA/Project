@@ -13,7 +13,7 @@ public class InstructorSearchAssign extends AppCompatActivity {
     TextView searchCourseHeaderText, searchCoursePromptText, courseCodeLabel, courseNameLabel,
             courseIDLabel, courseIDTextView, warningTextSearchCourse;
     EditText editTextCourseCode, editTextCourseName;
-    Button searchButton, editCourseButton, deleteCourseButton,returnButton;
+    Button searchButton, editCourseButton, deleteCourseButton, returnButton;
     public static String editTextCourseCodee;
     public static String editTextCourseNamee;
 
@@ -22,7 +22,7 @@ public class InstructorSearchAssign extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructor_search_assign);
         searchCourseHeaderText = findViewById(R.id.searchCourseHeaderText);
-        searchCoursePromptText = findViewById(R.id.manageCoursePromptText);
+        searchCoursePromptText = findViewById(R.id.searchCoursePromptText);
 
         courseCodeLabel = findViewById(R.id.courseCodeLabel);
         editTextCourseCode = findViewById(R.id.editTextCourseCode);
@@ -38,7 +38,7 @@ public class InstructorSearchAssign extends AppCompatActivity {
         searchButton = findViewById(R.id.searchButton);
         editCourseButton = findViewById(R.id.editCourseButton);
         deleteCourseButton = findViewById(R.id.deleteCourseButton);
-        returnButton=findViewById(R.id.Return);
+        returnButton = findViewById(R.id.Return);
 
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +122,4 @@ public class InstructorSearchAssign extends AppCompatActivity {
             warningTextSearchCourse.setText("Course not found, re-enter course code or name");
         }
     }
-
-
-
 }

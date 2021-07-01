@@ -24,7 +24,7 @@ public class AdminCourses extends AppCompatActivity {
         setContentView(R.layout.activity_admin_courses);
 
         searchCourseHeaderText = findViewById(R.id.searchCourseHeaderText);
-        searchCoursePromptText = findViewById(R.id.manageCoursePromptText);
+        searchCoursePromptText = findViewById(R.id.searchCoursePromptText);
 
         courseCodeLabel = findViewById(R.id.courseCodeLabel);
         editTextCourseCode = findViewById(R.id.editTextCourseCode);
@@ -41,7 +41,6 @@ public class AdminCourses extends AppCompatActivity {
         editCourseButton = findViewById(R.id.editCourseButton);
         deleteCourseButton = findViewById(R.id.deleteCourseButton);
         returnButton=findViewById(R.id.Return);
-
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

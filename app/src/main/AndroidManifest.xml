@@ -10,15 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login">
 
-        <activity android:name=".ViewAllCourse"></activity>
         <activity android:name=".InstructorSearchAssign" />
         <activity android:name=".ManageAccounts" />
         <activity android:name=".AdminWelcome" />
         <activity android:name=".AdminCourses" />
         <activity android:name=".StudentWelcome" />
         <activity android:name=".InstructorWelcome" />
-        <activity android:name=".InstractorUpdateCourseDetails" />
-        <activity android:name=".InstructorCourseManage" />
+        <activity android:name=".ViewAllCourse" />
+        <activity android:name=".InstractorUpdateCourseDetails"/>
+        <activity android:name=".InstructorCourseManage"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,5 +28,4 @@
         </activity>
         <activity android:name=".Register" />
     </application>
-
 </manifest>

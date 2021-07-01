@@ -29,6 +29,12 @@
             android:text="Assign" />
 
         <Button
+            android:id="@+id/viewallcourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View-All-Course" />
+
+        <Button
             android:id="@+id/LogOut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
