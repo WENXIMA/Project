@@ -1,33 +1,8 @@
-com/example/login/Student.java
- com.example.login.Student
-com/example/login/MyDBhandler.java
- com.example.login.MyDBhandler
-com/example/login/ManagaCourseMain.java
- com.example.login.ManagaCourseMain
-com/example/login/User.java
- com.example.login.User
-com/example/login/Instructor.java
- com.example.login.Instructor
-com/example/login/ManageCourseMain.java
- com.example.login.ManageCourseMain
-com/example/login/ListViewNesting.java
- com.example.login.ListViewNesting
-com/example/login/Course.java
- com.example.login.Course
-com/example/login/BuildConfig.java
- com.example.login.BuildConfig
-com/example/login/Register.java
- com.example.login.Register
- com.example.login.Register$1
 com/example/login/ViewAllCourse.java
  com.example.login.ViewAllCourse
  com.example.login.ViewAllCourse$1
-com/example/login/AdminCourses.java
- com.example.login.AdminCourses
- com.example.login.AdminCourses$1
-com/example/login/InstractorUpdateCourseDetails.java
- com.example.login.InstractorUpdateCourseDetails
- com.example.login.InstractorUpdateCourseDetails$1
+com/example/login/MyDBhandler.java
+ com.example.login.MyDBhandler
 com/example/login/InstructorCourseManage.java
  com.example.login.InstructorCourseManage
  com.example.login.InstructorCourseManage$1
@@ -37,6 +12,28 @@ com/example/login/InstructorWelcome.java
  com.example.login.InstructorWelcome$2
  com.example.login.InstructorWelcome$3
  com.example.login.InstructorWelcome$4
+com/example/login/InstructorUpdateCourseDetails.java
+ com.example.login.InstructorUpdateCourseDetails
+ com.example.login.InstructorUpdateCourseDetails$1
+com/example/login/AdminWelcome.java
+ com.example.login.AdminWelcome
+ com.example.login.AdminWelcome$1
+ com.example.login.AdminWelcome$2
+ com.example.login.AdminWelcome$3
+com/example/login/Course.java
+ com.example.login.Course
+com/example/login/BuildConfig.java
+ com.example.login.BuildConfig
+com/example/login/Student.java
+ com.example.login.Student
+com/example/login/Register.java
+ com.example.login.Register
+ com.example.login.Register$1
+com/example/login/AdminCourses.java
+ com.example.login.AdminCourses
+ com.example.login.AdminCourses$1
+com/example/login/ListViewNesting.java
+ com.example.login.ListViewNesting
 com/example/login/InstructorSearchAssign.java
  com.example.login.InstructorSearchAssign
  com.example.login.InstructorSearchAssign$1
@@ -44,17 +41,16 @@ com/example/login/MainActivity.java
  com.example.login.MainActivity
  com.example.login.MainActivity$1
  com.example.login.MainActivity$2
-com/example/login/AdminWelcome.java
- com.example.login.AdminWelcome
- com.example.login.AdminWelcome$1
- com.example.login.AdminWelcome$2
- com.example.login.AdminWelcome$3
 com/example/login/CourseAdapter.java
  com.example.login.CourseAdapter
  com.example.login.CourseAdapter$1
+com/example/login/User.java
+ com.example.login.User
 com/example/login/ManageAccounts.java
  com.example.login.ManageAccounts
  com.example.login.ManageAccounts$1
 com/example/login/StudentWelcome.java
  com.example.login.StudentWelcome
  com.example.login.StudentWelcome$1
+com/example/login/Instructor.java
+ com.example.login.Instructor

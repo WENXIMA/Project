@@ -1828,6 +1828,7 @@ id counterclockwise
 id courseCodeLabel
 id courseDaysLabel
 id courseDescriptionLabel
+id courseDetailsPrompt
 id courseHoursLabel
 id courseIDLabel
 id courseIDTextView
@@ -1885,7 +1886,6 @@ id easeIn
 id easeInOut
 id easeOut
 id editCourseButton
-id editCourseDetailsCourseName
 id editCourseDetailsHeaderText
 id editTextCourseCode
 id editTextCourseName

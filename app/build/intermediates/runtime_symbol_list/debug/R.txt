@@ -1827,6 +1827,7 @@ int id counterclockwise 0x7f080081
 int id courseCodeLabel 0x7f080082
 int id courseDaysLabel 0x7f0801dc
 int id courseDescriptionLabel 0x7f0801dd
+int id courseDetailsPrompt 0x7f0801f9
 int id courseHoursLabel 0x7f0801de
 int id courseIDLabel 0x7f080083
 int id courseIDTextView 0x7f080084
@@ -1884,7 +1885,6 @@ int id easeIn 0x7f0800a7
 int id easeInOut 0x7f0800a8
 int id easeOut 0x7f0800a9
 int id editCourseButton 0x7f0800aa
-int id editCourseDetailsCourseName 0x7f0801ef
 int id editCourseDetailsHeaderText 0x7f0801f0
 int id editTextCourseCode 0x7f0800ab
 int id editTextCourseName 0x7f0800ac

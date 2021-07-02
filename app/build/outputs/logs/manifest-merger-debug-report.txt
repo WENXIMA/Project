@@ -108,7 +108,7 @@ activity#com.example.login.ViewAllCourse
 ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:19:9-51
 	android:name
 		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:19:19-48
-activity#com.example.login.InstractorUpdateCourseDetails
+activity#com.example.login.InstructorUpdateCourseDetails
 ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:20:9-66
 	android:name
 		ADDED from C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:20:19-64

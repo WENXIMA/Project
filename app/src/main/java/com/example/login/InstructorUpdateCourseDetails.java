@@ -10,9 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
-
-public class InstractorUpdateCourseDetails extends AppCompatActivity {
+public class InstructorUpdateCourseDetails extends AppCompatActivity {
 
     private int id;
     private Course course;
@@ -39,9 +37,9 @@ public class InstractorUpdateCourseDetails extends AppCompatActivity {
         update = (Button)findViewById(R.id.detailUpdate);
         unassign = findViewById(R.id.detailUnassign);
 
-        currentName = (TextView)findViewById(R.id.editCourseDetailsCourseName);
+        currentName = (TextView)findViewById(R.id.courseDetailsPrompt);
 
-        currentName.setText(course.getCourseName());
+        currentName.setText("Course name: " + course.getCourseName());
 
         currentCapa = (TextView)findViewById(R.id.detailCurrentCapacityLabel);
         capa = (EditText)findViewById(R.id.detailEditCourseCap);
@@ -60,7 +58,7 @@ public class InstractorUpdateCourseDetails extends AppCompatActivity {
         returnPre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent temp = new Intent(InstractorUpdateCourseDetails.this, InstructorCourseManage.class);
+                Intent temp = new Intent(InstructorUpdateCourseDetails.this, InstructorCourseManage.class);
                 temp.putExtra("name", instructor);
                 startActivity(temp);
                 finish();
@@ -117,7 +115,7 @@ public class InstractorUpdateCourseDetails extends AppCompatActivity {
         public void Unassign(View view){
             myDBhandler.unassign(course);
             Toast.makeText(this, "You are unassigned successfully", Toast.LENGTH_SHORT).show();
-            Intent temp = new Intent(InstractorUpdateCourseDetails.this, InstructorCourseManage.class);
+            Intent temp = new Intent(InstructorUpdateCourseDetails.this, InstructorCourseManage.class);
             temp.putExtra("name", instructor);
             startActivity(temp);
             finish();

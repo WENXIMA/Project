@@ -23,11 +23,11 @@
                 <TextView
                     android:id="@+id/CoursesManagerHeaderText"
                     android:layout_width="match_parent"
-                    android:layout_height="91dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Manage Your Course"
+                    android:text="Manage your courses"
                     android:textAlignment="textStart"
                     android:textColor="#393939"
                     android:textSize="32sp"
@@ -38,11 +38,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="-10dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Choose and edit course details"
+                    android:text="Choose one of your courses to edit"
                     android:textColor="#303030"
                     android:textSize="22sp" />
             </LinearLayout>
@@ -59,8 +58,10 @@
                 android:id="@+id/ListReturn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="return to instructor page"
-                android:backgroundTint="#393939"/>
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="#393939"
+                android:text="return to instructor page" />
 
         </LinearLayout>
     </ScrollView>

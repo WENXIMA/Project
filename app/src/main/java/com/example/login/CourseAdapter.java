@@ -87,7 +87,7 @@ public class CourseAdapter extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(context,InstractorUpdateCourseDetails.class);
+                Intent intent= new Intent(context, InstructorUpdateCourseDetails.class);
                 intent.putExtra("id",dataList.get(position).getId());
                 context.startActivity(intent);
                 ((Activity)context).finish();
