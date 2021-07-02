@@ -20,12 +20,12 @@
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
-    },
-    {
         "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
         "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",

@@ -10,18 +10,19 @@ import android.widget.TextView;
 
 public class AdminWelcome extends AppCompatActivity {
 
-    Button logout,courses,users;
-    TextView welcome;
+    Button logout, courses, users;
+    TextView header, welcome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_welcome);
 
-        logout= findViewById(R.id.LogOut);
-        welcome=findViewById(R.id.textView3);
-        courses=findViewById(R.id.Courses);
-        users=findViewById(R.id.Users);
+        logout = findViewById(R.id.LogOut);
+        header = findViewById(R.id.adminWelcomeHeaderText);
+        welcome = findViewById(R.id.textView3);
+        courses = findViewById(R.id.Courses);
+        users = findViewById(R.id.Users);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,8 +44,5 @@ public class AdminWelcome extends AppCompatActivity {
                 startActivity(new Intent(AdminWelcome.this,AdminCourses.class));
             }
         });
-
-
-
     }
 }

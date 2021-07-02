@@ -148,19 +148,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="90dp"
+                android:layout_marginTop="75dp"
                 android:layout_marginEnd="20dp"
                 android:layout_weight="1"
                 android:backgroundTint="#393939"
                 android:fontFamily="sans-serif"
+                android:onClick="searchCourse"
                 android:text="search"
-                android:textSize="22sp"
-                android:onClick="searchCourse"/>
+                android:textSize="22sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
                 android:orientation="horizontal">
 
                 <Button
@@ -170,11 +171,11 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#393939"
+                    android:backgroundTint="#006A4E "
                     android:fontFamily="sans-serif"
+                    android:onClick="newCourse"
                     android:text="ADD"
-                    android:textSize="22sp"
-                    android:onClick="newCourse"/>
+                    android:textSize="22sp" />
 
                 <Button
                     android:id="@+id/editCourseButton"
@@ -183,24 +184,23 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#393939"
+                    android:backgroundTint="#006A4E "
                     android:fontFamily="sans-serif"
+                    android:onClick="editCourse"
                     android:text="edit"
-                    android:textSize="22sp"
-                    android:onClick="editCourse"/>
+                    android:textSize="22sp" />
 
                 <Button
                     android:id="@+id/deleteCourseButton"
                     android:layout_width="118dp"
                     android:layout_height="70dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="#812F2F"
                     android:fontFamily="sans-serif"
                     android:onClick="deleteCourse"
                     android:text="delete"
-                    android:textSize="17sp" />
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -208,6 +208,10 @@
                 android:id="@+id/Return"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:backgroundTint="#393939"
                 android:text="return to admin page" />
 
         </LinearLayout>
