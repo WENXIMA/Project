@@ -11,13 +11,14 @@ import android.widget.TextView;
 
 public class StudentWelcome extends AppCompatActivity {
     Button logout;
-    TextView welcome;
+    TextView studentWelcomeHeaderText, welcome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_welcome);
-        logout= findViewById(R.id.LogOut);
-        welcome=findViewById(R.id.textView3);
+        logout = findViewById(R.id.LogOut);
+        studentWelcomeHeaderText = findViewById(R.id.studentWelcomeHeaderText);
+        welcome = findViewById(R.id.textView3);
 
         welcome.setText("Welcome "+ MainActivity.user.getUsername()+ ", you are logged in as a student");
 

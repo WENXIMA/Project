@@ -11,20 +11,47 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_marginTop="250dp"
-            android:layout_marginBottom="50dp"
-            android:text=' Welcome "Username", You logged in as a Student'
-            android:textSize="20sp" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="#D5D5D5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/studentWelcomeHeaderText"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Homepage - student"
+                android:textAlignment="textStart"
+                android:textColor="#393939"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-10dp"
+                android:layout_marginEnd="20dp"
+                android:text='Welcome "Username", You logged in as a Student'
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/LogOut"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Logut"
+            android:layout_height="65dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="#393939"
+            android:text="Log out"
+            android:textSize="20sp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="667dp" />
     </LinearLayout>

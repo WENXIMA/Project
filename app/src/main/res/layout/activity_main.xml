@@ -15,27 +15,51 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/loginPageTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Course Enrollment &amp; Management"
+            android:textColor="#393939"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/loginPagePrompt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Log in to an existing account or register a new one"
+            android:textColor="#454545"
+            android:textSize="20sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:orientation="horizontal">
+
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="15dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_weight="1"
                 android:text="Username："
-                android:layout_marginTop="30dp"
-                android:textSize="21sp"
                 android:textColor="#000000"
-                android:layout_weight="1"/>
+                android:textSize="23sp" />
+
             <EditText
                 android:id="@+id/userName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="Enter Username"
                 android:layout_marginTop="30dp"
-                android:textSize="20sp"
+                android:layout_weight="2"
+                android:hint="Enter Username"
                 android:textColor="#2196F3"
-                android:layout_weight="2"/>
+                android:textSize="20sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -43,13 +67,13 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="36dp"
+                android:layout_width="15dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_weight="1"
                 android:text="Password："
                 android:textColor="#000000"
-                android:textSize="25sp" />
+                android:textSize="23sp" />
             <EditText
                 android:id="@+id/userpassword"
                 android:layout_width="0dp"
@@ -62,35 +86,38 @@
                 android:inputType="textWebPassword"/>
         </LinearLayout>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical">
+
         <Button
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:backgroundTint="@color/black"
             android:text="LOG-IN"
             android:textAllCaps="false"
             android:textColor="#FDF8F6"
-            android:backgroundTint="@color/black"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="30dp"
             android:textSize="25sp" />
+
         <Button
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginTop="30dp"
-            android:textSize="25sp"
-            android:textColor="#FAF5F3"
-            android:textAllCaps="false"
-            android:backgroundTint="@color/black"
-            android:text="REGISTER"
             android:id="@+id/register"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:backgroundTint="@color/black"
+            android:text="REGISTER"
+            android:textAllCaps="false"
+            android:textColor="#FAF5F3"
+            android:textSize="25sp" />
     </LinearLayout>
 </LinearLayout>
 

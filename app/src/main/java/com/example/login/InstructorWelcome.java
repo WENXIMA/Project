@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class InstructorWelcome extends AppCompatActivity {
 
     Button logout,assign,viewall,manage;
-    TextView welcome;
+    TextView instructorWelcomeHeaderText, welcome;
     User instructor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class InstructorWelcome extends AppCompatActivity {
         setContentView(R.layout.activity_instructor_welcome);
         instructor = MainActivity.user;
         logout = findViewById(R.id.LogOut);
+        instructorWelcomeHeaderText = findViewById(R.id.instructorWelcomeHeaderText);
         welcome = findViewById(R.id.textView3);
         assign = findViewById(R.id.assign);
         manage = findViewById(R.id.ConnectCourseManager);

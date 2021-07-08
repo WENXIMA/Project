@@ -28,7 +28,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="sans-serif-condensed"
-                android:text="Admin"
+                android:text="Homepage - admin"
                 android:textAlignment="textStart"
                 android:textColor="#393939"
                 android:textSize="34sp"
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:backgroundTint="#393939 "
+                android:backgroundTint="#006A4E"
                 android:text="Courses"
                 android:textSize="22sp" />
 
@@ -70,7 +70,7 @@
                 android:layout_height="76dp"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#393939 "
+                android:backgroundTint="#006A4E"
                 android:text="Instructors\n and Students"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -78,7 +78,7 @@
         <Button
             android:id="@+id/LogOut"
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="65dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="20dp"

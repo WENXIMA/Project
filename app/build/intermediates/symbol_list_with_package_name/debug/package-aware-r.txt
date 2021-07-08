@@ -1936,6 +1936,7 @@ id ignoreRequest
 id image
 id info
 id instructorSelect
+id instructorWelcomeHeaderText
 id invisible
 id inward
 id italic
@@ -1959,6 +1960,8 @@ id listMode
 id listViewPop
 id list_item
 id login
+id loginPagePrompt
+id loginPageTitle
 id manageCoursePromptText
 id masked
 id material_clock_display
@@ -2112,6 +2115,7 @@ id staticPostLayout
 id stop
 id stretch
 id studentSelect
+id studentWelcomeHeaderText
 id submenuarrow
 id submit_area
 id tabMode
