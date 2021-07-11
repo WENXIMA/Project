@@ -17,13 +17,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f62d4e1-6943-4869-a7eb-02bc24fbb82a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/login/StudentSearchEnroll.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_search_enroll.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/login/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/login/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/login/InstructorUpdateCourseDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/login/InstructorUpdateCourseDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/login/MyDBhandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/login/MyDBhandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/login/StudentSearchEnroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/login/StudentSearchEnroll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/login/StudentWelcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/login/StudentWelcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_search_enroll.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_search_enroll.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_welcome.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_student_welcome.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -447,11 +451,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="236" y="270" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1623392793854" />
-    <state x="2583" y="71" width="1320" height="859" key="AVDManager" timestamp="1625772844677">
+    <state x="2583" y="71" width="1320" height="859" key="AVDManager" timestamp="1625960802749">
       <screen x="2400" y="0" width="1920" height="1040" />
     </state>
     <state x="146" y="56" width="1056" height="680" key="AVDManager/0.0.1536.824/2400.0.1920.1040@0.0.1536.824" timestamp="1625234911736" />
-    <state x="2583" y="71" width="1320" height="859" key="AVDManager/0.0.1536.824/2400.0.1920.1040@2400.0.1920.1040" timestamp="1625772844677" />
+    <state x="2583" y="71" width="1320" height="859" key="AVDManager/0.0.1536.824/2400.0.1920.1040@2400.0.1920.1040" timestamp="1625960802749" />
     <state x="146" y="56" width="1056" height="679" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1625172185713" />
     <state x="101" y="93" width="918" height="856" key="AVDManager/0.0.1920.1040@0.0.1920.1040" timestamp="1623371704546" />
     <state x="2583" y="71" width="1320" height="857" key="AVDManager/4800.0.1920.1040/2400.0.1920.1040/0.0.1536.824@2400.0.1920.1040" timestamp="1625179251894" />
@@ -469,28 +473,28 @@
     <state x="3620" y="278" key="FileChooserDialogImpl/0.0.1536.824/2400.0.1920.1040@2400.0.1920.1040" timestamp="1625526843722" />
     <state x="976" y="220" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1625156960145" />
     <state x="1220" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1623441271203" />
-    <state width="1877" height="355" key="GridCell.Tab.0.bottom" timestamp="1625245025791">
+    <state width="1877" height="355" key="GridCell.Tab.0.bottom" timestamp="1625963064275">
       <screen x="2400" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="355" key="GridCell.Tab.0.bottom/0.0.1536.824/2400.0.1920.1040@2400.0.1920.1040" timestamp="1625245025791" />
+    <state width="1877" height="355" key="GridCell.Tab.0.bottom/0.0.1536.824/2400.0.1920.1040@2400.0.1920.1040" timestamp="1625963064275" />
     <state width="1493" height="267" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1625236045055" />
     <state width="1877" height="356" key="GridCell.Tab.0.bottom/4800.0.1920.1040/2400.0.1920.1040/0.0.1536.824@2400.0.1920.1040" timestamp="1625179359138" />
-    <state width="1877" height="355" key="GridCell.Tab.0.center" timestamp="1625245025791">
+    <state width="1877" height="355" key="GridCell.Tab.0.center" timestamp="1625963064275">
       <screen x="2400" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="355" key="GridCell.Tab.0.center/0.0.1536.824/2400.0.1920.1040@2400.0.1920.1040" timestamp="1625245025791" />
+    <state width="1877" height="355" key="GridCell.Tab.0.center/0.0.1536.824/2400.0.1920.1040@2400.0.1920.1040" timestamp="1625963064275" />
     <state width="1493" height="267" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1625236045055" />
     <state width="1877" height="356" key="GridCell.Tab.0.center/4800.0.1920.1040/2400.0.1920.1040/0.0.1536.824@2400.0.1920.1040" timestamp="1625179359138" />
-    <state width="1877" height="355" key="GridCell.Tab.0.left" timestamp="1625245025791">
+    <state width="1877" height="355" key="GridCell.Tab.0.left" timestamp="1625963064275">
       <screen x="2400" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="355" key="GridCell.Tab.0.left/0.0.1536.824/2400.0.1920.1040@2400.0.1920.1040" timestamp="1625245025791" />
+    <state width="1877" height="355" key="GridCell.Tab.0.left/0.0.1536.824/2400.0.1920.1040@2400.0.1920.1040" timestamp="1625963064275" />
     <state width="1493" height="267" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1625236045055" />
     <state width="1877" height="356" key="GridCell.Tab.0.left/4800.0.1920.1040/2400.0.1920.1040/0.0.1536.824@2400.0.1920.1040" timestamp="1625179359138" />
-    <state width="1877" height="355" key="GridCell.Tab.0.right" timestamp="1625245025791">
+    <state width="1877" height="355" key="GridCell.Tab.0.right" timestamp="1625963064275">
       <screen x="2400" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="355" key="GridCell.Tab.0.right/0.0.1536.824/2400.0.1920.1040@2400.0.1920.1040" timestamp="1625245025791" />
+    <state width="1877" height="355" key="GridCell.Tab.0.right/0.0.1536.824/2400.0.1920.1040@2400.0.1920.1040" timestamp="1625963064275" />
     <state width="1493" height="267" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1625236045055" />
     <state width="1877" height="356" key="GridCell.Tab.0.right/4800.0.1920.1040/2400.0.1920.1040/0.0.1536.824@2400.0.1920.1040" timestamp="1625179359138" />
     <state x="162" y="14" key="SettingsEditor" timestamp="1624589668553">

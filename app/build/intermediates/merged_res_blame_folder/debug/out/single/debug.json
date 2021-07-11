@@ -36,6 +36,10 @@
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_student_search_enroll.xml.flat",
+        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_student_search_enroll.xml"
+    },
+    {
         "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_main.xml"
     },

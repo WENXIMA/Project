@@ -24,6 +24,7 @@
         <activity android:name="com.example.login.AdminWelcome" />
         <activity android:name="com.example.login.AdminCourses" />
         <activity android:name="com.example.login.StudentWelcome" />
+        <activity android:name="com.example.login.StudentSearchEnroll" />
         <activity android:name="com.example.login.InstructorWelcome" />
         <activity android:name="com.example.login.ViewAllCourse" />
         <activity android:name="com.example.login.InstructorUpdateCourseDetails" />

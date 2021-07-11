@@ -18,11 +18,12 @@ public class Course {
         this.courseCode = courseCode;
         this.courseName = courseName;
     }
-    public Course(String courseCode, String courseName,String id, String instructor){
+    public Course(String courseCode, String courseName, String id, String instructor, String days){
         this.courseCode = courseCode;
         this.courseName = courseName;
         this.id = Integer.parseInt(id);
-        this.instructor=instructor;
+        this.instructor = instructor;
+        this.days = days;
     }
 
     // getters and setters
