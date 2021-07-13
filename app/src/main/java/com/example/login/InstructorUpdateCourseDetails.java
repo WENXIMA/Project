@@ -18,7 +18,7 @@ public class InstructorUpdateCourseDetails extends AppCompatActivity {
 
     TextView  currentDes, currentCapa, currentDays, currentHours, currentName;
     EditText days, hours, des, capa;
-    Button returnPre, update, unassign;
+    Button returnPre, update, unassign, viewStudents;
     String instructor;
 
 
@@ -36,6 +36,7 @@ public class InstructorUpdateCourseDetails extends AppCompatActivity {
 
         update = (Button)findViewById(R.id.detailUpdate);
         unassign = findViewById(R.id.detailUnassign);
+        viewStudents = findViewById(R.id.viewStudents);
 
         currentName = (TextView)findViewById(R.id.courseDetailsPrompt);
 
@@ -54,6 +55,16 @@ public class InstructorUpdateCourseDetails extends AppCompatActivity {
         des = (EditText)findViewById(R.id.detailEditCourseDes);
 
         returnPre = findViewById(R.id.ReturnPre);
+
+        viewStudents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent temp = new Intent(InstructorUpdateCourseDetails.this, InstructorViewStudents.class);
+                temp.putExtra("courseName", course.getCourseName());
+                startActivity(temp);
+                finish();
+            }
+        });
 
         returnPre.setOnClickListener(new View.OnClickListener() {
             @Override
