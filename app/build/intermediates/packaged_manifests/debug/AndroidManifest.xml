@@ -13,12 +13,22 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
-        android:icon="@drawable/ic_launcher_background"
-        android:label="Login"
-        android:roundIcon="@drawable/ic_launcher_foreground"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Login" >
+        <activity android:name="com.example.login.InstructorSearchAssign" />
+        <activity android:name="com.example.login.ManageAccounts" />
+        <activity android:name="com.example.login.AdminWelcome" />
+        <activity android:name="com.example.login.AdminCourses" />
+        <activity android:name="com.example.login.StudentWelcome" />
+        <activity android:name="com.example.login.StudentSearchEnroll" />
+        <activity android:name="com.example.login.InstructorWelcome" />
+        <activity android:name="com.example.login.ViewAllCourse" />
+        <activity android:name="com.example.login.InstructorUpdateCourseDetails" />
+        <activity android:name="com.example.login.InstructorCourseManage" />
         <activity android:name="com.example.login.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,10 +36,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.login.Register" >
-        </activity>
-        <activity android:name="com.example.login.Student" >
-        </activity>
+        <activity android:name="com.example.login.Register" />
     </application>
 
 </manifest>

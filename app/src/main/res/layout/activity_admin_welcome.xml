@@ -14,19 +14,45 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <TextView
-            android:id="@+id/textView3"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"
-            android:text=' Welcome admin, You logged in as an Admin\n What would you like to manage?'
-            android:textSize="20sp" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="#D5D5D5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/adminWelcomeHeaderText"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Homepage - admin"
+                android:textAlignment="textStart"
+                android:textColor="#393939"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:text=" Welcome admin, You logged in as an Admin. What would you like to manage?"
+                android:textSize="20sp" />
+
+        </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:orientation="horizontal">
 
             <Button
@@ -34,6 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:backgroundTint="#006A4E"
                 android:text="Courses"
                 android:textSize="22sp" />
 
@@ -41,18 +68,24 @@
                 android:id="@+id/Users"
                 android:layout_width="wrap_content"
                 android:layout_height="76dp"
+                android:layout_marginStart="10dp"
                 android:layout_weight="1"
+                android:backgroundTint="#006A4E"
                 android:text="Instructors\n and Students"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <Button
             android:id="@+id/LogOut"
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="16dp"
-            android:text="Logut"
+            android:backgroundTint="#393939"
+            android:text="Log out"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="parent"
             tools:layout_editor_absoluteX="16dp" />

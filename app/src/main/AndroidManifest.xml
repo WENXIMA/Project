@@ -10,11 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login">
 
-        <activity android:name=".ManageAccounts"></activity>
+        <activity android:name=".InstructorSearchAssign" />
+        <activity android:name=".ManageAccounts" />
         <activity android:name=".AdminWelcome" />
         <activity android:name=".AdminCourses" />
         <activity android:name=".StudentWelcome" />
+        <activity android:name=".StudentSearchEnroll" />
         <activity android:name=".InstructorWelcome" />
+        <activity android:name=".ViewAllCourse" />
+        <activity android:name=".InstructorUpdateCourseDetails"/>
+        <activity android:name=".InstructorCourseManage"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,5 +29,4 @@
         </activity>
         <activity android:name=".Register" />
     </application>
-
 </manifest>

@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#D5D5D5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/editCourseDetailsHeaderText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Edit course details"
+                    android:textAlignment="textStart"
+                    android:textColor="#393939"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/courseDetailsPrompt"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="View and update your course details"
+                    android:textAlignment="textStart"
+                    android:textColor="#393939"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/courseDescriptionLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Course description:"
+                    android:textColor="#393939"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/detailCurrentDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Current Description:"
+                    android:textColor="#393939"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/detailCurrentDescriptionLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Current Description:"
+                    android:textColor="#393939"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/detailEditCourseDes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/courseDaysLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Course Days: "
+                    android:textColor="#393939"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/label1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="(use ',' between days)"
+                    android:textColor="#393939"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/detailCurrentCourseDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Current Course Days:"
+                    android:textColor="#393939"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/detailCurrentCourseDaysLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Current Course Days:"
+                    android:textColor="#393939"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/detailEditCourseDays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/courseHoursLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Course Hours:"
+                    android:textColor="#393939"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/label2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="(use '-' for one period, and ',' between days)"
+                    android:textColor="#393939"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/detailCurrentCourseHours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Current Course Days:"
+                    android:textColor="#393939"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/detailCurrentCourseHoursLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Current Course Days:"
+                    android:textColor="#393939"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/detailEditCourseHours"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+
+
+                <TextView
+                    android:id="@+id/courseStudentCapacityLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Course Capacity:"
+                    android:textColor="#393939"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/detailCurrentCapacity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Current Course Capacity:"
+                    android:textColor="#393939"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/detailCurrentCapacityLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Current Course Capacity:"
+                    android:textColor="#393939"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/detailEditCourseCap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/detailUpdate"
+                    android:layout_width="118dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#006A4E"
+                    android:fontFamily="sans-serif"
+                    android:onClick="editUpdate"
+                    android:text="Update"
+                    android:textSize="22sp" />
+
+                <Button
+                    android:id="@+id/detailUnassign"
+                    android:layout_width="118dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#812F2F"
+                    android:fontFamily="sans-serif"
+                    android:onClick="Unassign"
+                    android:text="unassign"
+                    android:textSize="22sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/ReturnPre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#393939"
+                android:text="return to manage page" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
