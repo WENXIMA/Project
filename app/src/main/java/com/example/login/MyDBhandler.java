@@ -33,7 +33,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String COLUMN_HOURS = "courseHours";
     private static final String COLUMN_DESCRIPTION = "courseDescription";
     private static final String COLUMN_CAPACITY = "courseCapacity";
-
+    private static final String COLUMN_COURSE_STUDENT = "courseStudent";
 
     private static SQLiteDatabase db;
     public MyDBhandler(Context context){
@@ -60,7 +60,8 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 + COLUMN_DAYS + " TEXT,"
                 + COLUMN_HOURS + " TEXT,"
                 + COLUMN_DESCRIPTION + " TEXT,"
-                + COLUMN_CAPACITY + " TEXT"
+                + COLUMN_CAPACITY + " TEXT,"
+                + COLUMN_COURSE_STUDENT + " TEXT"
                 + ")";
 
         db.execSQL(CREATE_COURSES_TABLE);
@@ -476,5 +477,76 @@ public class MyDBhandler extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return courses;
+    }
+
+    public void enrollCourse(Course course, String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int id = course.getId();
+
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_ID +
+                " = \"" + id + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+
+        // edit the course in the db
+        if(cursor.moveToFirst()){
+            String idStr = cursor.getString(0);
+            ContentValues updatedColumns = new ContentValues();
+
+            String nameList = cursor.getString(8);
+            if(nameList == null || nameList.equals(""))
+                nameList = name;
+            else
+                nameList += (";" + name);
+
+            updatedColumns.put(COLUMN_COURSE_STUDENT, nameList);
+            db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
+            cursor.close();
+        }
+    }
+
+    public void dropCourse(Course course, String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int id = course.getId();
+
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_ID +
+                " = \"" + id + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+
+        // edit the course in the db
+        if(cursor.moveToFirst()) {
+            String idStr = cursor.getString(0);
+
+            ContentValues updatedColumns = new ContentValues();
+            String temp = cursor.getString(8);
+            if(temp != null) {
+                String[] nameList = temp.split(";");
+                String[] newA = new String[nameList.length-1];
+                int index = -1;
+                for(int i = 0; i < nameList.length; i++) {
+                    if(nameList[i].equals(name)) {
+                        index = i;
+                        break;
+                    }
+                }
+                System.arraycopy(nameList, 0, newA, 0, index);
+                System.arraycopy(nameList, index + 1, newA, index, nameList.length - index - 1);
+                String after = "";
+                if(newA.length != 0) {
+                    after += newA[0];
+                    for(int i = 1; i < newA.length;i++) {
+                        after += ";";
+                        after += newA[i];
+                    }
+                }
+                else after = null;
+                updatedColumns.put(COLUMN_COURSE_STUDENT, after);
+                db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
+            }
+        }
+        cursor.close();
     }
 }

@@ -13,6 +13,7 @@ public class StudentSearchEnroll extends AppCompatActivity {
     TextView searchCourseHeaderText, searchCoursePromptText, courseCodeLabel, courseNameLabel, dayLabel, courseIDLabel, courseIDTextView, warningTextSearchCourse;
     EditText editTextCourseCode, editTextCourseName, editTextDay;
     Button searchButton, enroll, unenroll, returnToWelcomePage;
+    String studentUsername = MainActivity.user.getUsername();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,5 +71,34 @@ public class StudentSearchEnroll extends AppCompatActivity {
             warningTextSearchCourse.setText("Course not found, re-enter course code or name");
             return false;
         }
+    }
+
+    public void enroll(View v){
+        MyDBhandler dbHandler = new MyDBhandler(this);
+        String courseCodeEntered = editTextCourseCode.getText().toString().trim();
+        String courseNameEntered = editTextCourseName.getText().toString().trim();
+        String dayEntered = editTextDay.getText().toString().toLowerCase().trim();
+
+        warningTextSearchCourse.setText(""); // reset warning text in case it was previously triggered
+
+        Course course = dbHandler.findCourse(courseCodeEntered, courseNameEntered, dayEntered);
+
+        if(course != null){
+            if(course.getStudentList() != null && course.getStudentList().contains(studentUsername)){ // if already enrolled
+                warningTextSearchCourse.setText("You are already enrolled in this course");
+            } else {
+                dbHandler.enrollCourse(course, studentUsername); // update DB
+                if(course.getStudentList() == null) course.setStudentList(studentUsername); // update object (no students enrolled yet)
+                else course.setStudentList(course.getStudentList() + ";" + studentUsername); // update object (1+ students enrolled so far)
+
+                System.out.println("UPDATE SUCCESSFUL; course.getStudentList() = " + course.getStudentList());
+            }
+        } else {
+            warningTextSearchCourse.setText("Course not found, re-enter course code or name");
+        }
+    }
+
+    public void unenroll(View v){
+        MyDBhandler dbHandler = new MyDBhandler(this);
     }
 }

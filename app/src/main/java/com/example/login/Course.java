@@ -9,7 +9,7 @@ public class Course {
     private String hours;
     private String description;
     private String capacity;
-
+    private String studentList;
 
 
     // constructors
@@ -89,4 +89,8 @@ public class Course {
     public String getHours() {
         return hours;
     }
+
+    public void setStudentList(String studentList) { this.studentList = studentList; }
+
+    public String getStudentList() { return studentList; }
 }

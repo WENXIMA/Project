@@ -196,7 +196,8 @@
                     android:backgroundTint="#006A4E "
                     android:fontFamily="sans-serif"
                     android:text="enroll"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:onClick="enroll"/>
 
 
                 <Button
@@ -209,7 +210,8 @@
                     android:backgroundTint="#812F2F"
                     android:fontFamily="sans-serif"
                     android:text="unenroll"
-                    android:textSize="22sp" />
+                    android:textSize="22sp"
+                    android:onClick="unenroll"/>
 
             </LinearLayout>
 
