@@ -90,8 +90,6 @@ public class StudentSearchEnroll extends AppCompatActivity {
                 dbHandler.enrollCourse(course, studentUsername); // update DB
                 if(course.getStudentList() == null) course.setStudentList(studentUsername); // update object (no students enrolled yet)
                 else course.setStudentList(course.getStudentList() + ";" + studentUsername); // update object (1+ students enrolled so far)
-
-                System.out.println("UPDATE SUCCESSFUL; course.getStudentList() = " + course.getStudentList());
             }
         } else {
             warningTextSearchCourse.setText("Course not found, re-enter course code or name");
@@ -100,5 +98,26 @@ public class StudentSearchEnroll extends AppCompatActivity {
 
     public void unenroll(View v){
         MyDBhandler dbHandler = new MyDBhandler(this);
+        String courseCodeEntered = editTextCourseCode.getText().toString().trim();
+        String courseNameEntered = editTextCourseName.getText().toString().trim();
+        String dayEntered = editTextDay.getText().toString().toLowerCase().trim();
+
+        warningTextSearchCourse.setText(""); // reset warning text in case it was previously triggered
+
+        Course course = dbHandler.findCourse(courseCodeEntered, courseNameEntered, dayEntered);
+
+        if(course != null){
+            if(course.getStudentList() != null && !course.getStudentList().contains(studentUsername)) { // if not enrolled to begin with
+                warningTextSearchCourse.setText("Cannot unenroll: you are not enrolled in this course");
+            } else {
+                dbHandler.dropCourse(course, studentUsername);
+                if(!course.getStudentList().contains(";")) course.setStudentList(null); // update object (course has only 1 student before unenrolling)
+                else {
+                    
+                }
+            }
+        } else {
+            warningTextSearchCourse.setText("Course not found, re-enter course code or name");
+        }
     }
 }
