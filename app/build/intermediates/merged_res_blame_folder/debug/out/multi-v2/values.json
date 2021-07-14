@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Key\\Downloads\\NewProjectSearch\\Project-student-course-search\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Key\\.gradle\\caches\\transforms-2\\files-2.1\\2730d74d200c17936a122ce975a9aa70\\material-1.3.0\\res\\values\\values.xml",
@@ -37,25 +37,6 @@
                         "startOffsets": "58143",
                         "endColumns": "49",
                         "endOffsets": "58188"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Key\\Downloads\\NewProjectSearch\\Project-student-course-search\\app\\src\\main\\res\\values\\themes.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "100",
-                        "endLines": "14",
-                        "endColumns": "12",
-                        "endOffsets": "814"
-                    },
-                    "to": {
-                        "startLines": "3690",
-                        "startColumns": "4",
-                        "startOffsets": "243175",
-                        "endLines": "3702",
-                        "endColumns": "12",
-                        "endOffsets": "243887"
                     }
                 },
                 {
@@ -148,7 +129,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Key\\Downloads\\NewProjectSearch\\Project-student-course-search\\app\\src\\main\\res\\values\\style.xml",
+                    "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\values\\style.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -205,23 +186,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Key\\Downloads\\NewProjectSearch\\Project-student-course-search\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "16",
-                        "endColumns": "42",
-                        "endOffsets": "54"
-                    },
-                    "to": {
-                        "startLines": "1055",
-                        "startColumns": "4",
-                        "startOffsets": "61756",
-                        "endColumns": "42",
-                        "endOffsets": "61794"
-                    }
-                },
-                {
                     "source": "C:\\Users\\Key\\.gradle\\caches\\transforms-2\\files-2.1\\eb1af8f1493225341620214c24755800\\coordinatorlayout-1.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,6,16",
@@ -238,23 +202,6 @@
                         "endLines": "50,4884,6276,6365",
                         "endColumns": "60,12,24,24",
                         "endOffsets": "2554,322949,410279,415490"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Key\\Downloads\\NewProjectSearch\\Project-student-course-search\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "7,2,3,4,5,6,8",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "286,55,102,149,196,241,328",
-                        "endColumns": "41,46,46,46,44,44,41",
-                        "endOffsets": "323,97,144,191,236,281,365"
-                    },
-                    "to": {
-                        "startLines": "402,490,491,492,503,504,507",
-                        "startColumns": "4,4,4,4,4,4,4",
-                        "startOffsets": "19482,25475,25522,25569,26313,26358,26524",
-                        "endColumns": "41,46,46,46,44,44,41",
-                        "endOffsets": "19519,25517,25564,25611,26353,26398,26561"
                     }
                 },
                 {
@@ -315,6 +262,42 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "7,2,3,4,5,6,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "286,55,102,149,196,241,328",
+                        "endColumns": "41,46,46,46,44,44,41",
+                        "endOffsets": "323,97,144,191,236,281,365"
+                    },
+                    "to": {
+                        "startLines": "402,490,491,492,503,504,507",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "19482,25475,25522,25569,26313,26358,26524",
+                        "endColumns": "41,46,46,46,44,44,41",
+                        "endOffsets": "19519,25517,25564,25611,26353,26398,26561"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\values\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "100",
+                        "endLines": "14",
+                        "endColumns": "12",
+                        "endOffsets": "814"
+                    },
+                    "to": {
+                        "startLines": "3690",
+                        "startColumns": "4",
+                        "startOffsets": "243175",
+                        "endLines": "3702",
+                        "endColumns": "12",
+                        "endOffsets": "243887"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Key\\.gradle\\caches\\transforms-2\\files-2.1\\c8925b41f4a20a47760feaff8220048e\\recyclerview-1.1.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
@@ -331,6 +314,23 @@
                         "endLines": "313,652,653,654,662,663,664,946,7229",
                         "endColumns": "55,58,47,55,74,75,71,65,24",
                         "endOffsets": "14897,36147,36195,36251,36937,37013,37085,55415,468432"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "42",
+                        "endOffsets": "54"
+                    },
+                    "to": {
+                        "startLines": "1055",
+                        "startColumns": "4",
+                        "startOffsets": "61756",
+                        "endColumns": "42",
+                        "endOffsets": "61794"
                     }
                 }
             ]

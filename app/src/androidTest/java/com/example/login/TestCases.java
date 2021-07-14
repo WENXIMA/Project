@@ -25,6 +25,7 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static org.junit.Assert.assertEquals;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -35,43 +36,43 @@ public class TestCases {
     public void searchForClassByDay() {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         MyDBhandler db = new MyDBhandler(appContext);
-        Course course= new Course("name","code");
-        course.setDays("monday");
+        Course course= new Course("code","name","25","Key","Monday");
         db.addCourse(course);
 
-        Course temp=db.findCourse("","","monday");
+        Course temp=db.findCourse("","","Monday");
+        System.out.println(temp.getCourseCode());
 
         assertEquals("code",temp.getCourseCode());
         assertEquals("name",temp.getCourseName());
-        assertEquals("monday",temp.getDays());
+        assertEquals("Monday",temp.getDays());
     }
 
     @Test
     public void searchForClassByCode() {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         MyDBhandler db = new MyDBhandler(appContext);
-        Course course= new Course("name1","code1");
-        course.setDays("tuesday");
+        Course course= new Course("code","name","25","Key","Monday");
         db.addCourse(course);
 
-        Course temp=db.findCourse("code1","","");
-        assertEquals("code1",temp.getCourseCode());
-        assertEquals("name1",temp.getCourseName());
-        assertEquals("tuesday",temp.getDays());
+        Course temp=db.findCourse("code","","");
+        System.out.println(temp.getCourseCode());
+        assertEquals("code",temp.getCourseCode());
+        assertEquals("name",temp.getCourseName());
+        assertEquals("Monday",temp.getDays());
     }
 
     @Test
     public void searchForClassByName() {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         MyDBhandler db = new MyDBhandler(appContext);
-        Course course= new Course("name2","code2");
-        course.setDays("wednesday");
+        Course course= new Course("code","name","25","Key","Monday");
         db.addCourse(course);
 
-        Course temp=db.findCourse("","name2","");
-        assertEquals("code2",temp.getCourseCode());
-        assertEquals("name2",temp.getCourseName());
-        assertEquals("wednesday",temp.getDays());
+        Course temp=db.findCourse("","name","");
+        System.out.println(temp.getCourseCode());
+        assertEquals("code",temp.getCourseCode());
+        assertEquals("name",temp.getCourseName());
+        assertEquals("Monday",temp.getDays());
     }
 
 //    @Test

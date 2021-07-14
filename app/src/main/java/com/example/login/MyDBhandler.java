@@ -19,7 +19,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
 
     // columns
-    private static final int DATABASE_VERSION = 62;
+    private static final int DATABASE_VERSION = 70;
     private static final String DATABASE_NAME = "productDB.db";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
@@ -228,7 +228,11 @@ public class MyDBhandler extends SQLiteOpenHelper {
         // add values to the set
         values.put(COLUMN_COURSE_NAME, course.getCourseName());
         values.put(COLUMN_COURSE_CODE, course.getCourseCode());
-        values.put(COLUMN_DAYS, course.getDays());
+        values.put(COLUMN_INSTRUCTOR,course.getInstructor());
+        values.put(COLUMN_DAYS,course.getDays());
+        values.put(COLUMN_HOURS,course.getHours());
+        values.put(COLUMN_DESCRIPTION,course.getDescription());
+        values.put(COLUMN_CAPACITY,course.getCapacity());
 
         // insert the set into the products table and close
         db.insert(TABLE_COURSES, null, values);
@@ -251,7 +255,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
             if(temp.getCourseName().equals(courseName)){
                 return temp;
             }
-            if(temp.getDays() != null && !day.equals("")&& temp.getDays().contains(day)){
+            if(temp.getDays() != null && temp.getDays().contains(day)){
                 return temp;
             }
         }
