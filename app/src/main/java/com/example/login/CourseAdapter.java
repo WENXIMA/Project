@@ -45,16 +45,43 @@ public class CourseAdapter extends BaseAdapter {
         TextView courseDes = (TextView)view.findViewById(R.id.listItemDescription);
         Button button = (Button)view.findViewById(R.id.ListItemButton);
         Button returnPre = view.findViewById(R.id.ListReturn);
+        TextView capacity = view.findViewById(R.id.itemCapacity);
+        TextView courseHours = view.findViewById(R.id.itemCourseHours);
+        TextView courseDays = view.findViewById(R.id.itemCoursDays);
 
         courseName.setText(dataList.get(position).getCourseName());
 
-        String temp = dataList.get(position).getDescription();
-        if( temp == null || temp.equals(""))
+        String tempD = dataList.get(position).getDescription();
+        if( tempD == null || tempD.equals(""))
         {
             courseDes.setText("No Description");
         }
         else
             courseDes.setText(dataList.get(position).getDescription());
+
+        String tempH = dataList.get(position).getHours();
+        if( tempH == null || tempH.equals(""))
+        {
+            courseHours.setText("Not Set");
+        }
+        else
+            courseHours.setText(dataList.get(position).getHours());
+
+        String TempD = dataList.get(position).getDays();
+        if( tempD == null || tempD.equals(""))
+        {
+            courseDays.setText("Not Set");
+        }
+        else
+            courseDays.setText(dataList.get(position).getDays());
+
+        String tempC = dataList.get(position).getCapacity();
+        if( tempC == null || tempC.equals(""))
+        {
+            capacity.setText("Not Set");
+        }
+        else
+            capacity.setText(dataList.get(position).getCapacity());
 
 //        String[] days,hours;
 //        String tempd,temph;

@@ -21,6 +21,18 @@
             android:textSize="20sp" />
 
         <Button
+            android:id="@+id/studentSearchEnroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enroll" />
+
+        <Button
+            android:id="@+id/studentAllCourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Course" />
+
+        <Button
             android:id="@+id/LogOut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,6 +34,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String COLUMN_HOURS = "courseHours";
     private static final String COLUMN_DESCRIPTION = "courseDescription";
     private static final String COLUMN_CAPACITY = "courseCapacity";
+    private static final String COLUMN_COURSE_STUDENT = "courseStudent";
 
 
     private static SQLiteDatabase db;
@@ -60,10 +62,20 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 + COLUMN_DAYS + " TEXT,"
                 + COLUMN_HOURS + " TEXT,"
                 + COLUMN_DESCRIPTION + " TEXT,"
-                + COLUMN_CAPACITY + " TEXT"
+                + COLUMN_CAPACITY + " TEXT,"
+                + COLUMN_COURSE_STUDENT + " TEXT"
                 + ")";
-
         db.execSQL(CREATE_COURSES_TABLE);
+
+//        String CREATE_STUDENT_TABLE = "CREATE TABLE " + TABLE_STUDENTS
+//                + "(" + COLUMN_ID + "INTEGER primary key,"
+//                + COLUMN_USERNAME +"text"
+//                + COLUMN_PASSWORD + "text"
+//                + COLUMN_TYPE + "text"
+//                + COLUMN_STUDENT_COURSE + "TEXT"
+//                + ")";
+//        db.execSQL(CREATE_STUDENT_TABLE);
+
     }
 
     @Override
@@ -72,6 +84,8 @@ public class MyDBhandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_COURSES);
         onCreate(db);
     }
+
+
 
     public  ArrayList<User> getAllDATA(){
         ArrayList<User> list = new ArrayList<User>();
@@ -107,16 +121,21 @@ public class MyDBhandler extends SQLiteOpenHelper {
             String name = cursor.getString(cursor.getColumnIndex("courseName"));
             String id = cursor.getString(cursor.getColumnIndex("_id"));
             String instructor = cursor.getString(cursor.getColumnIndex("instructor"));
+            String days = cursor.getString(4);
+            String Hours = cursor.getString(5);
+            String Capacity = cursor.getString(cursor.getColumnIndex("courseCapacity"));
 
-            list.add(new Course(code,name,id,instructor));
+            list.add(new Course(code,name,id,instructor,days,Hours,Capacity));
 
             while(cursor.moveToNext()){
                 code = cursor.getString(cursor.getColumnIndex("courseCode"));
                 name = cursor.getString(cursor.getColumnIndex("courseName"));
                 id = cursor.getString(cursor.getColumnIndex("_id"));
                 instructor = cursor.getString(cursor.getColumnIndex("instructor"));
-
-                list.add(new Course(code,name,id,instructor));
+                days = cursor.getString(4);
+                Hours = cursor.getString(5);
+                Capacity = cursor.getString(cursor.getColumnIndex("courseCapacity"));
+                list.add(new Course(code,name,id,instructor,days,Hours,Capacity));
             }
         }
         cursor.close();
@@ -197,6 +216,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         values.put(COLUMN_USERNAME, student.getUsername());
         values.put(COLUMN_PASSWORD, student.getPassword());
         values.put(COLUMN_TYPE, student.getUserType());
+
         // insert into table and close
         db.insert(TABLE_USER, null, values);
         db.close();
@@ -256,7 +276,35 @@ public class MyDBhandler extends SQLiteOpenHelper {
             }
         }
         return null;
+    }
 
+    public Course findCourse(String courseCode){
+
+        ArrayList<Course> list= getAllCourseData();
+        Course temp=null;
+        for(int i=0;i<list.size(); i++){
+            temp= list.get(i);
+            if (temp.getCourseName().equals(StudentSearchEnroll.editTextCourseNamee)&& temp.getCourseCode().equals(StudentSearchEnroll.editTextCourseCodee)){
+                temp.setDescription(list.get(i).getDescription());
+                temp.setHours(list.get(i).getHours());
+                temp.setDays(list.get(i).getDays());
+                return temp;
+            }
+        }
+        for(int i=0;i<list.size(); i++) {
+            temp= list.get(i);
+            if (StudentSearchEnroll.editTextCourseNamee.equals("")||StudentSearchEnroll.editTextCourseCodee.equals("")) {
+                if (temp.getCourseName().equals(StudentSearchEnroll.editTextCourseNamee) || temp.getCourseCode().equals(StudentSearchEnroll.editTextCourseCodee)) {
+                    temp.setDescription(list.get(i).getDescription());
+                    temp.setHours(list.get(i).getHours());
+                    temp.setDays(list.get(i).getDays());
+                    return temp;
+                }
+            }else {
+                return null;
+            }
+        }
+        return null;
     }
 
     public Course findCourseAdmin(String courseCode){
@@ -299,6 +347,20 @@ public class MyDBhandler extends SQLiteOpenHelper {
             course.setId(Integer.parseInt(cursor.getString(0)));
             course.setCourseCode(cursor.getString(1));
             course.setCourseName(cursor.getString(2));
+//            TABLE_COURSES
+//                    + "(" + COLUMN_ID + " INTEGER PRIMARY KEY,"
+//                    + COLUMN_COURSE_CODE + " TEXT,"
+//                    + COLUMN_COURSE_NAME + " TEXT,"
+//                    + COLUMN_INSTRUCTOR + " TEXT,"
+//                    + COLUMN_DAYS + " TEXT,"
+//                    + COLUMN_HOURS + " TEXT,"
+//                    + COLUMN_DESCRIPTION + " TEXT,"
+//                    + COLUMN_CAPACITY + " TEXT"
+            course.setInstructor(cursor.getString(3));
+            course.setDays(cursor.getString(4));
+            course.setHours(cursor.getString(5));
+            course.setDescription(cursor.getString(6));
+            course.setCapacity(cursor.getString(7));
             cursor.close();
         } else {
             course = null;
@@ -454,5 +516,139 @@ public class MyDBhandler extends SQLiteOpenHelper {
         return courses;
     }
 
+    public Course findCourse(String courseCode, String courseName, String day){
+        ArrayList<Course> courseList = getAllCourseData();
+        Course temp;
 
+        for(int i = 0; i < courseList.size(); i++){
+            temp = courseList.get(i);
+            if(temp.getCourseCode().equals(courseCode)){
+                return temp;
+            }
+            if(temp.getCourseName().equals(courseName)){
+                return temp;
+            }
+            if(temp.getDays() != null && !day.equals("")&& temp.getDays().toLowerCase().contains(day)){
+                return temp;
+            }
+        }
+        return null;
+    }
+
+    public List<Course> findCoursesByStudent(String studentName)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "select * from " + TABLE_COURSES;
+        Cursor cursor = db.rawQuery(query,null);
+        List<Course> courses = new LinkedList<>();
+
+        while(cursor.moveToNext())
+        {
+            String temp = cursor.getString(8);
+            if(temp != null && !temp.equals(""))
+            {
+                String[] students = temp.split(";");
+                for(int i = 0; i < students.length;i++)
+                {
+                    if(students[i].equals(studentName) || temp.contains(studentName))
+                    {
+                        Course course = new Course();
+                        course.setId(Integer.parseInt(cursor.getString(0)));
+                        course.setCourseCode(cursor.getString(1));
+                        course.setCourseName(cursor.getString(2));
+                        course.setInstructor(cursor.getString(3));
+                        course.setDays(cursor.getString(4));
+                        course.setHours(cursor.getString(5));
+                        course.setDescription(cursor.getString(6));
+                        courses.add(course);
+                    }
+                }
+            }
+            else
+                continue;
+        }
+        cursor.close();
+        db.close();
+        return courses;
+    }
+
+    public void enrollCourse(Course course,String name)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int id = course.getId();
+
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_ID +
+                " = \"" + id + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+
+        // edit the course in the db
+        if(cursor.moveToFirst()){
+            String idStr = cursor.getString(0);
+
+            ContentValues updatedColumns = new ContentValues();
+            String nameList = cursor.getString(8);
+            if(nameList == null || nameList.equals(""))
+                nameList = name;
+            else
+                nameList += (";" + name);
+            updatedColumns.put(COLUMN_COURSE_STUDENT, nameList);
+
+            db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
+            cursor.close();
+        }
+    }
+
+    public void dropCourse(Course course, String name)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int id = course.getId();
+
+        // run a query to find the course
+        // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
+        String query = "SELECT * FROM " + TABLE_COURSES + " WHERE " + COLUMN_ID +
+                " = \"" + id + "\"";
+        Cursor cursor = db.rawQuery(query, null);
+
+        // edit the course in the db
+        if(cursor.moveToFirst()) {
+            String idStr = cursor.getString(0);
+
+            ContentValues updatedColumns = new ContentValues();
+            String temp = cursor.getString(8);
+            if(temp != null)
+            {
+                String[] nameList = temp.split(";");
+                String[] newA = new String[nameList.length-1];
+                int index = -1;
+                for(int i = 0; i < nameList.length;i++)
+                {
+                    if(nameList[i].equals(name))
+                    {
+                        index = i;
+                        break;
+                    }
+                }
+                System.arraycopy(nameList, 0, newA, 0, index);
+                System.arraycopy(nameList, index + 1,
+                        newA, index, nameList.length - index - 1);
+                String after = "";
+                if(newA.length != 0)
+                {
+                    after += newA[0];
+                    for(int i = 1; i < newA.length;i++)
+                    {
+                        after += ";";
+                        after += newA[i];
+                    }
+                }
+                else
+                    after = null;
+                updatedColumns.put(COLUMN_COURSE_STUDENT, after);
+                db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
+            }
+        }
+        cursor.close();
+    }
 }

@@ -9,6 +9,7 @@ public class Course {
     private String hours;
     private String description;
     private String capacity;
+    private String courseStudents;
 
 
 
@@ -23,6 +24,16 @@ public class Course {
         this.courseName = courseName;
         this.id = Integer.parseInt(id);
         this.instructor=instructor;
+    }
+
+    public Course(String code, String name, String id, String instructor, String days, String hours, String capacity) {
+        this.id = Integer.parseInt(id);
+        this.courseCode = code;
+        this.courseName = name;
+        this.instructor = instructor;
+        this.days = days;
+        this.hours = hours;
+        this.capacity = capacity;
     }
 
     // getters and setters

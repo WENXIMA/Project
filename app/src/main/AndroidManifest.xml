@@ -18,6 +18,9 @@
         <activity android:name=".ViewAllCourse" />
         <activity android:name=".InstractorUpdateCourseDetails"/>
         <activity android:name=".InstructorCourseManage"/>
+        <activity android:name=".StudentSearchEnroll"/>
+        <activity android:name=".StudentAllCourse"/>
+        <activity android:name=".StudentCourseDetail"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

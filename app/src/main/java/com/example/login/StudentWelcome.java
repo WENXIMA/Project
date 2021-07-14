@@ -18,6 +18,8 @@ public class StudentWelcome extends AppCompatActivity {
         setContentView(R.layout.activity_student_welcome);
         logout= findViewById(R.id.LogOut);
         welcome=findViewById(R.id.textView3);
+        Button enroll = findViewById(R.id.studentSearchEnroll);
+        Button allCourse = findViewById(R.id.studentAllCourse);
 
         welcome.setText("Welcome "+ MainActivity.user.getUsername()+ ", you are logged in as a student");
 
@@ -27,6 +29,21 @@ public class StudentWelcome extends AppCompatActivity {
                 startActivity(new Intent(StudentWelcome.this,MainActivity.class));
             }
         });
+
+        enroll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StudentWelcome.this,StudentSearchEnroll.class));
+            }
+        });
+
+        allCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StudentWelcome.this,StudentAllCourse.class));
+            }
+        });
+
     }
 
 
