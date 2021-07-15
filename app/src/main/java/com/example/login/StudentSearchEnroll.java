@@ -19,13 +19,15 @@ public class StudentSearchEnroll extends AppCompatActivity {
     TextView searchCourseHeaderText, searchCoursePromptText, courseCodeLabel, courseNameLabel, dayLabel, courseIDLabel, courseIDTextView, warningTextSearchCourse;
     EditText editTextCourseCode, editTextCourseName, editTextDay;
     Button searchButton, enroll, unenroll, returnToWelcomePage;
-    String studentUsername = MainActivity.user.getUsername();
+    String studentUsername;
     Course course;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_search_enroll);
+
+        studentUsername = MainActivity.user.getUsername();
 
         searchCourseHeaderText = findViewById(R.id.searchCourseHeaderText);
         searchCoursePromptText = findViewById(R.id.searchCoursePromptText);
@@ -109,7 +111,7 @@ public class StudentSearchEnroll extends AppCompatActivity {
         SimpleDateFormat format = new SimpleDateFormat("HH:mm");
         if(StudentSearchCourseTwo())
         {
-            List<Course> temp = dBhandler.findCoursesByStudent(MainActivity.user.getUsername());
+            List<Course> temp = dBhandler.findCoursesByStudent(studentUsername);
             if(!find(temp,course))
             {
                 String tempCD = course.getDays();
@@ -163,7 +165,18 @@ public class StudentSearchEnroll extends AppCompatActivity {
                         }
                     }
                 }
-                dBhandler.enrollCourse(course,MainActivity.user.getUsername());
+                dBhandler.enrollCourse(course, studentUsername);
+
+                // update course list for student object
+//                Student student = (Student)dBhandler.findusers(studentUsername);
+//
+//                if(student.getCourseList() == null){ // if previously empty
+//                    student.setCourseList(course.getCourseName());
+//                } else {
+//                    student.setCourseList(student.getCourseList() + ";" + course.getCourseName());
+//                }
+//                System.out.println("NEW COURSE LIST: " + student.getCourseList());
+
                 warningTextSearchCourse.setText("Enroll successfully");
             }
             else
@@ -172,7 +185,6 @@ public class StudentSearchEnroll extends AppCompatActivity {
         else {
             warningTextSearchCourse.setText("Course not found, re-enter course code or name");
         }
-
     }
 
     public void StudentUnenrollCourse(View v) {
@@ -187,10 +199,22 @@ public class StudentSearchEnroll extends AppCompatActivity {
 
         if(StudentSearchCourseTwo())
         {
-            List<Course> temp = dbhandler.findCoursesByStudent(MainActivity.user.getUsername());
+            List<Course> temp = dbhandler.findCoursesByStudent(studentUsername);
             if(find(temp,course))
             {
-                dbhandler.dropCourse(course,MainActivity.user.getUsername());
+                dbhandler.dropCourse(course, studentUsername);
+
+                // update course list for student object
+//                Student student = (Student)dbhandler.findusers(studentUsername);
+//
+//                if(!student.getCourseList().contains(";")){ // if only enrolled in one course
+//                    student.setCourseList(null);
+//                } else {
+//                    String newCourseList = student.getCourseList().replace(course.getCourseName() + ";", "");
+//                    student.setCourseList(newCourseList);
+//                }
+//                System.out.println("NEW COURSE LIST: " + student.getCourseList());
+
                 warningTextSearchCourse.setText("Unenrolled successfully");
             }
             else

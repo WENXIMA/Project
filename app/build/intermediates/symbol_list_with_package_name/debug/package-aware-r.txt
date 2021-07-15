@@ -1833,8 +1833,10 @@ id courseHoursLabel
 id courseIDLabel
 id courseIDTextView
 id courseList
+id courseListView
 id courseNameLabel
 id courseStudentCapacityLabel
+id coursesHeader
 id createAccountHeaderText
 id createButton
 id custom
@@ -2191,6 +2193,7 @@ id usernameLabel
 id usernamePasswordLayout
 id userpassword
 id viewButton
+id viewCoursesButton
 id viewStudents
 id view_offset_helper
 id view_tree_lifecycle_owner
@@ -2276,6 +2279,7 @@ layout activity_instructor_welcome
 layout activity_main
 layout activity_manage_accounts
 layout activity_student_search_enroll
+layout activity_student_view_courses
 layout activity_student_welcome
 layout activity_view_all_course
 layout custom_dialog

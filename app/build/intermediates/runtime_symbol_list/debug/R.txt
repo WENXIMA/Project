@@ -1832,8 +1832,10 @@ int id courseHoursLabel 0x7f08008c
 int id courseIDLabel 0x7f08008d
 int id courseIDTextView 0x7f08008e
 int id courseList 0x7f08008f
+int id courseListView 0x7f080205
 int id courseNameLabel 0x7f080090
 int id courseStudentCapacityLabel 0x7f080091
+int id coursesHeader 0x7f080206
 int id createAccountHeaderText 0x7f080092
 int id createButton 0x7f080093
 int id custom 0x7f080094
@@ -2190,6 +2192,7 @@ int id usernameLabel 0x7f0801f2
 int id usernamePasswordLayout 0x7f0801f3
 int id userpassword 0x7f0801f4
 int id viewButton 0x7f0801f5
+int id viewCoursesButton 0x7f080207
 int id viewStudents 0x7f0801f6
 int id view_offset_helper 0x7f0801f7
 int id view_tree_lifecycle_owner 0x7f0801f8
@@ -2275,6 +2278,7 @@ int layout activity_instructor_welcome 0x7f0b0022
 int layout activity_main 0x7f0b0023
 int layout activity_manage_accounts 0x7f0b0024
 int layout activity_student_search_enroll 0x7f0b0025
+int layout activity_student_view_courses 0x7f0b007c
 int layout activity_student_welcome 0x7f0b0026
 int layout activity_view_all_course 0x7f0b0027
 int layout custom_dialog 0x7f0b0028

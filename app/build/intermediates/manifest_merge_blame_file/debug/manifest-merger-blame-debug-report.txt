@@ -11,7 +11,7 @@
 9-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:5:5-32:19
+11-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:5:5-33:19
 12        android:allowBackup="true"
 12-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -47,38 +47,41 @@
 27        <activity android:name="com.example.login.StudentSearchEnroll" />
 27-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:18:9-57
 27-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:18:19-54
-28        <activity android:name="com.example.login.InstructorWelcome" />
-28-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:19:9-55
-28-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:19:19-52
-29        <activity android:name="com.example.login.ViewAllCourse" />
-29-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:20:9-51
-29-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:20:19-48
-30        <activity android:name="com.example.login.InstructorUpdateCourseDetails" />
-30-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:21:9-66
-30-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:21:19-64
-31        <activity android:name="com.example.login.InstructorCourseManage" />
-31-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:22:9-59
-31-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:22:19-57
-32        <activity android:name="com.example.login.InstructorViewStudents" />
+28        <activity android:name="com.example.login.StudentViewCourses" />
+28-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:19:9-56
+28-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:19:19-53
+29        <activity android:name="com.example.login.InstructorWelcome" />
+29-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:20:9-55
+29-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:20:19-52
+30        <activity android:name="com.example.login.ViewAllCourse" />
+30-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:21:9-51
+30-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:21:19-48
+31        <activity android:name="com.example.login.InstructorUpdateCourseDetails" />
+31-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:22:9-66
+31-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:22:19-64
+32        <activity android:name="com.example.login.InstructorCourseManage" />
 32-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:23:9-59
 32-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:23:19-57
-33        <activity android:name="com.example.login.MainActivity" >
-33-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:24:9-30:20
-33-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:24:19-47
-34            <intent-filter>
-34-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:25:13-29:29
-35                <action android:name="android.intent.action.MAIN" />
-35-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:26:17-69
-35-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:26:25-66
-36
-37                <category android:name="android.intent.category.LAUNCHER" />
-37-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:28:17-77
-37-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:28:27-74
-38            </intent-filter>
-39        </activity>
-40        <activity android:name="com.example.login.Register" />
-40-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:31:9-46
-40-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:31:19-43
-41    </application>
-42
-43</manifest>
+33        <activity android:name="com.example.login.InstructorViewStudents" />
+33-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:24:9-59
+33-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:24:19-57
+34        <activity android:name="com.example.login.MainActivity" >
+34-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:25:9-31:20
+34-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:25:19-47
+35            <intent-filter>
+35-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:26:13-30:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:27:17-69
+36-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:27:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:29:17-77
+38-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:29:27-74
+39            </intent-filter>
+40        </activity>
+41        <activity android:name="com.example.login.Register" />
+41-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:32:9-46
+41-->C:\Users\laral\Documents\University\SEG2105\TermProject\app\src\main\AndroidManifest.xml:32:19-43
+42    </application>
+43
+44</manifest>

@@ -12,6 +12,10 @@
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_instructor_course_details.xml"
     },
     {
+        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_student_view_courses.xml.flat",
+        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_student_view_courses.xml"
+    },
+    {
         "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_course_manage.xml.flat",
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_instructor_course_manage.xml"
     },

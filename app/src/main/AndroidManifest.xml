@@ -16,6 +16,7 @@
         <activity android:name=".AdminCourses" />
         <activity android:name=".StudentWelcome" />
         <activity android:name=".StudentSearchEnroll" />
+        <activity android:name=".StudentViewCourses" />
         <activity android:name=".InstructorWelcome" />
         <activity android:name=".ViewAllCourse" />
         <activity android:name=".InstructorUpdateCourseDetails"/>

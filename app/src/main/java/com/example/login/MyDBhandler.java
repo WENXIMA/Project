@@ -135,10 +135,10 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
         // run a query to find the course
         // SELECT * FROM TABLE_COURSES WHERE COLUMN_COURSE_CODE = courseCode
-        ArrayList<User> list= getAllDATA();
-        User temp=null;
-        for(int i=0;i<list.size(); i++){
-            temp= list.get(i);
+        ArrayList<User> list = getAllDATA();
+        User temp = null;
+        for(int i = 0; i < list.size(); i++){
+            temp = list.get(i);
             if (temp.getUsername().equals(username)&& temp.getUserType().equals(ManageAccounts.type)){
                 return temp;
             }
@@ -547,7 +547,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
             db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
             cursor.close();
 
-            course.setStudentList(nameList); // update the object itself
+            course.setStudentList(nameList); // update the course object itself
         }
     }
 
@@ -600,7 +600,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 updatedColumns.put(COLUMN_COURSE_STUDENT, after);
                 db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
 
-                course.setStudentList(after); // update the object itself
+                course.setStudentList(after); // update the course object itself
             }
         }
         cursor.close();
