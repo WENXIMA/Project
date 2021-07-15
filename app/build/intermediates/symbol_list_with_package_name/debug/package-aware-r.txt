@@ -1906,6 +1906,8 @@ id endToStart
 id enroll
 id enrollCourseDetailsCourseName
 id enrollPageButton
+id enrolledStudentsHeader
+id enrolledStudentsSubheader
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
@@ -2130,6 +2132,7 @@ id studentCourseDes
 id studentCourseDrop
 id studentCourseHours
 id studentCourseInstructor
+id studentList
 id studentListItemCourseDays
 id studentListItemCourseHours
 id studentListItemCourseName
@@ -2205,6 +2208,7 @@ id usernameLabel
 id usernamePasswordLayout
 id userpassword
 id viewButton
+id viewStudents
 id view_offset_helper
 id view_tree_lifecycle_owner
 id view_tree_saved_state_registry_owner
@@ -2283,6 +2287,7 @@ layout activity_admin_courses
 layout activity_admin_welcome
 layout activity_instructor_course_details
 layout activity_instructor_course_manage
+layout activity_instructor_enrolled_students
 layout activity_instructor_search_assign
 layout activity_instructor_welcome
 layout activity_main

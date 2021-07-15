@@ -112,6 +112,10 @@
         "source": "C:\\Users\\Key\\Downloads\\Project-main\\app\\src\\main\\res\\layout\\activity_admin_courses.xml"
     },
     {
+        "merged": "C:\\Users\\Key\\Downloads\\Project-main\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_enrolled_students.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-main\\app\\src\\main\\res\\layout\\activity_instructor_enrolled_students.xml"
+    },
+    {
         "merged": "C:\\Users\\Key\\Downloads\\Project-main\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_course_details.xml.flat",
         "source": "C:\\Users\\Key\\Downloads\\Project-main\\app\\src\\main\\res\\layout\\activity_instructor_course_details.xml"
     },

@@ -1905,6 +1905,8 @@ int id endToStart 0x7f0800d1
 int id enroll 0x7f0800d2
 int id enrollCourseDetailsCourseName 0x7f080205
 int id enrollPageButton 0x7f0800d3
+int id enrolledStudentsHeader 0x7f080212
+int id enrolledStudentsSubheader 0x7f080213
 int id enterAlways 0x7f0800d4
 int id enterAlwaysCollapsed 0x7f0800d5
 int id exitUntilCollapsed 0x7f0800d6
@@ -2129,6 +2131,7 @@ int id studentCourseDes 0x7f080208
 int id studentCourseDrop 0x7f080209
 int id studentCourseHours 0x7f08020a
 int id studentCourseInstructor 0x7f08020b
+int id studentList 0x7f080214
 int id studentListItemCourseDays 0x7f08020c
 int id studentListItemCourseHours 0x7f08020d
 int id studentListItemCourseName 0x7f08020e
@@ -2204,6 +2207,7 @@ int id usernameLabel 0x7f0801ef
 int id usernamePasswordLayout 0x7f0801f0
 int id userpassword 0x7f0801f1
 int id viewButton 0x7f0801f2
+int id viewStudents 0x7f080215
 int id view_offset_helper 0x7f0801f3
 int id view_tree_lifecycle_owner 0x7f0801f4
 int id view_tree_saved_state_registry_owner 0x7f0801f5
@@ -2282,6 +2286,7 @@ int layout activity_admin_courses 0x7f0b001c
 int layout activity_admin_welcome 0x7f0b001d
 int layout activity_instructor_course_details 0x7f0b001e
 int layout activity_instructor_course_manage 0x7f0b001f
+int layout activity_instructor_enrolled_students 0x7f0b007e
 int layout activity_instructor_search_assign 0x7f0b0020
 int layout activity_instructor_welcome 0x7f0b0021
 int layout activity_main 0x7f0b0022

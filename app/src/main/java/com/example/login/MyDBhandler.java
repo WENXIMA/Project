@@ -19,7 +19,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
 
     // columns
-    private static final int DATABASE_VERSION = 101;
+    private static final int DATABASE_VERSION = 111;
     private static final String DATABASE_NAME = "productDB.db";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
@@ -110,8 +110,10 @@ public class MyDBhandler extends SQLiteOpenHelper {
             String id = cursor.getString(cursor.getColumnIndex("_id"));
             String instructor = cursor.getString(cursor.getColumnIndex("instructor"));
             String days = cursor.getString(cursor.getColumnIndex("courseDays"));
+            String studentList = cursor.getString(cursor.getColumnIndex("courseStudent"));
 
-            list.add(new Course(code, name, id, instructor, days));
+
+            list.add(new Course(code, name, id, instructor, days,studentList));
 
             while(cursor.moveToNext()){
                 code = cursor.getString(cursor.getColumnIndex("courseCode"));
@@ -119,8 +121,9 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 id = cursor.getString(cursor.getColumnIndex("_id"));
                 instructor = cursor.getString(cursor.getColumnIndex("instructor"));
                 days = cursor.getString(cursor.getColumnIndex("courseDays"));
+                studentList = cursor.getString(cursor.getColumnIndex("courseStudent"));
 
-                list.add(new Course(code, name, id, instructor, days));
+                list.add(new Course(code, name, id, instructor, days,studentList));
             }
         }
         cursor.close();

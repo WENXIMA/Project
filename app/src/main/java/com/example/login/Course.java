@@ -9,7 +9,7 @@ public class Course {
     private String hours;
     private String description;
     private String capacity;
-
+    private String studentList;
 
 
     // constructors
@@ -18,12 +18,13 @@ public class Course {
         this.courseCode = courseCode;
         this.courseName = courseName;
     }
-    public Course(String courseCode, String courseName, String id, String instructor, String days){
+    public Course(String courseCode, String courseName, String id, String instructor, String days, String studentList){
         this.courseCode = courseCode;
         this.courseName = courseName;
         this.id = Integer.parseInt(id);
         this.instructor = instructor;
         this.days = days;
+        this.studentList = studentList;
     }
 
     // getters and setters
@@ -47,7 +48,7 @@ public class Course {
     }
     @Override
     public String toString(){
-        return "Course #" + id + "\n course code = "+ courseCode + "\n course name = " + courseName +"\n Instructor name = "+ instructor;
+        return "Course #" + id + "\n course code = "+ courseCode + "\n course name = " + courseName +"\n Instructor name = "+ days;
     }
 
     public void setInstructor(String instructor) {
@@ -89,4 +90,8 @@ public class Course {
     public String getHours() {
         return hours;
     }
+
+    public void setStudentList(String studentList) { this.studentList = studentList; }
+
+    public String getStudentList() { return studentList; }
 }

@@ -18,7 +18,7 @@ public class InstructorUpdateCourseDetails extends AppCompatActivity {
 
     TextView  currentDes, currentCapa, currentDays, currentHours, currentName;
     EditText days, hours, des, capa;
-    Button returnPre, update, unassign;
+    Button returnPre, update, unassign, viewStudents;
     String instructor;
 
 
@@ -36,6 +36,7 @@ public class InstructorUpdateCourseDetails extends AppCompatActivity {
 
         update = (Button)findViewById(R.id.detailUpdate);
         unassign = findViewById(R.id.detailUnassign);
+        viewStudents = findViewById(R.id.viewStudents);
 
         currentName = (TextView)findViewById(R.id.courseDetailsPrompt);
 
@@ -54,6 +55,17 @@ public class InstructorUpdateCourseDetails extends AppCompatActivity {
         des = (EditText)findViewById(R.id.detailEditCourseDes);
 
         returnPre = findViewById(R.id.ReturnPre);
+
+        viewStudents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent temp = new Intent(InstructorUpdateCourseDetails.this, InstructorViewStudents.class);
+                temp.putExtra("courseCode", course.getCourseCode());
+                temp.putExtra("courseName", course.getCourseName());
+                startActivity(temp);
+                finish();
+            }
+        });
 
         returnPre.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,28 +108,28 @@ public class InstructorUpdateCourseDetails extends AppCompatActivity {
         if (tempC.equals("")) {
             tempC = course.getCapacity();}
 
-            if (tempD.equals("")) {
-                tempD = course.getDays();
-            }
-
-            if (tempDe.equals("")) {
-                tempDe = course.getDescription();
-            }
-
-            if (tempH.equals("")) {
-                tempH = course.getHours();
-            }
-
-            myDBhandler.updateCourseDetails(course, tempDe, tempD, tempH, tempC);
-            Toast.makeText(this, "Course details update successfully", Toast.LENGTH_SHORT).show();
+        if (tempD.equals("")) {
+            tempD = course.getDays();
         }
 
-        public void Unassign(View view){
-            myDBhandler.unassign(course);
-            Toast.makeText(this, "You are unassigned successfully", Toast.LENGTH_SHORT).show();
-            Intent temp = new Intent(InstructorUpdateCourseDetails.this, InstructorCourseManage.class);
-            temp.putExtra("name", instructor);
-            startActivity(temp);
-            finish();
+        if (tempDe.equals("")) {
+            tempDe = course.getDescription();
         }
+
+        if (tempH.equals("")) {
+            tempH = course.getHours();
+        }
+
+        myDBhandler.updateCourseDetails(course, tempDe, tempD, tempH, tempC);
+        Toast.makeText(this, "Course details update successfully", Toast.LENGTH_SHORT).show();
     }
+
+    public void Unassign(View view){
+        myDBhandler.unassign(course);
+        Toast.makeText(this, "You are unassigned successfully", Toast.LENGTH_SHORT).show();
+        Intent temp = new Intent(InstructorUpdateCourseDetails.this, InstructorCourseManage.class);
+        temp.putExtra("name", instructor);
+        startActivity(temp);
+        finish();
+    }
+}
