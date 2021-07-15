@@ -16,6 +16,10 @@
         "source": "C:\\Users\\Key\\Downloads\\Project-main\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\Key\\Downloads\\Project-main\\app\\build\\intermediates\\res\\merged\\debug\\layout_student_listitem_course_enrolled.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-main\\app\\src\\main\\res\\layout\\student_listitem_course_enrolled.xml"
+    },
+    {
         "merged": "C:\\Users\\Key\\Downloads\\Project-main\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_view_all_course.xml.flat",
         "source": "C:\\Users\\Key\\Downloads\\Project-main\\app\\src\\main\\res\\layout\\activity_view_all_course.xml"
     },
@@ -42,6 +46,10 @@
     {
         "merged": "C:\\Users\\Key\\Downloads\\Project-main\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Key\\Downloads\\Project-main\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Key\\Downloads\\Project-main\\app\\build\\intermediates\\res\\merged\\debug\\layout_student_course_details.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-main\\app\\src\\main\\res\\layout\\student_course_details.xml"
     },
     {
         "merged": "C:\\Users\\Key\\Downloads\\Project-main\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
@@ -106,5 +114,9 @@
     {
         "merged": "C:\\Users\\Key\\Downloads\\Project-main\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_course_details.xml.flat",
         "source": "C:\\Users\\Key\\Downloads\\Project-main\\app\\src\\main\\res\\layout\\activity_instructor_course_details.xml"
+    },
+    {
+        "merged": "C:\\Users\\Key\\Downloads\\Project-main\\app\\build\\intermediates\\res\\merged\\debug\\layout_student_course_manage.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-main\\app\\src\\main\\res\\layout\\student_course_manage.xml"
     }
 ]

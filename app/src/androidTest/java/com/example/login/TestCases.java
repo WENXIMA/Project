@@ -9,6 +9,7 @@ import androidx.test.filters.LargeTest;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
+import org.junit.FixMethodOrder;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -17,6 +18,7 @@ import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -31,8 +33,55 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class TestCases {
+
+    @Test
+    public void Enroll(){
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        MyDBhandler db = new MyDBhandler(appContext);
+
+        Course course= new Course("name3","code3");
+        course.setDays("thursday");
+        course.setHours("11-12");
+        db.addCourse(course);
+        course.setId(1);
+
+
+        Student student = new Student("Tom","Key","student");
+
+        db.enrollCourse(course, student.getUsername());
+
+        List<Course> coursesExpected= new LinkedList<>();
+        coursesExpected.add(course);
+
+        assertEquals(coursesExpected.get(0).toString(),db.findCoursesByStudent(student.getUsername()).get(0).toString());
+    }
+
+    @Test
+    public void Unenroll(){
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        MyDBhandler db = new MyDBhandler(appContext);
+
+        Course course= new Course("name4","code4");
+        course.setDays("friday");
+        course.setHours("11-12");
+        db.addCourse(course);
+        course.setId(5);
+
+
+        Student student = new Student("Key1","Key1","student");
+
+        db.enrollCourse(course, student.getUsername());
+
+        List<Course> coursesExpected= new LinkedList<>();
+        coursesExpected.add(course);
+
+        db.dropCourse(course, student.getUsername());
+
+        assertNotEquals(coursesExpected,db.findCoursesByStudent(student.getUsername()));
+    }
 
     @Test
     public void searchForClassByDay() {
@@ -41,6 +90,7 @@ public class TestCases {
         Course course= new Course("name","code");
         course.setDays("monday");
         db.addCourse(course);
+
 
         Course temp=db.findCourse("","","monday");
 
@@ -71,56 +121,11 @@ public class TestCases {
         course.setDays("wednesday");
         db.addCourse(course);
 
+
         Course temp=db.findCourse("","name2","");
         assertEquals("code2",temp.getCourseCode());
         assertEquals("name2",temp.getCourseName());
         assertEquals("wednesday",temp.getDays());
     }
 
-    @Test
-    public void Enroll(){
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        MyDBhandler db = new MyDBhandler(appContext);
-
-        Course course= new Course("name3","code3");
-        course.setDays("thursday");
-        course.setHours("11-12");
-        db.addCourse(course);
-
-        Course courseTwo= new Course("name3","code3");
-        courseTwo.setDays("thursday");
-        courseTwo.setHours("11-12");
-        db.addCourse(courseTwo);
-
-        Student student = new Student("Tom","Key","student");
-
-        db.enrollCourse(course, student.getUsername());
-        db.enrollCourse(courseTwo, student.getUsername());
-
-        List<Course> coursesExpected= new LinkedList<>();
-        coursesExpected.add(course);
-        coursesExpected.add(courseTwo);
-
-        assertEquals(coursesExpected,db.findCoursesByStudent(student.getUsername()));
-    }
-
-    @Test
-    public void Unenroll(){
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        MyDBhandler db = new MyDBhandler(appContext);
-
-        Course course= new Course("name4","code4");
-        course.setDays("friday");
-        course.setHours("11-12");
-        db.addCourse(course);
-
-        Student student = new Student("Key1","Key1","student");
-
-        db.enrollCourse(course, student.getUsername());
-
-        List<Course> coursesExpected= new LinkedList<>();
-        coursesExpected.add(course);
-
-        assertNotEquals(coursesExpected,db.findCoursesByStudent(student.getUsername()));
-    }
 }
