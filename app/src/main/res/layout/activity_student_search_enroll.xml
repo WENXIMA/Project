@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentSearchEnroll">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#D5D5D5"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/searchCourseHeaderText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Find and enroll in courses"
+                    android:textAlignment="textStart"
+                    android:textColor="#393939"
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/searchCoursePromptText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Search by entering a course code, course name, or day of the week"
+                    android:textColor="#303030"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/courseCodeLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Course code:"
+                    android:textColor="#393939"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextCourseCode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/courseNameLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Course name:"
+                    android:textColor="#393939"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextCourseName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/dayLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:text="Day of the week:"
+                    android:textColor="#393939"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/editTextDay"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/courseIDLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:text="Course ID:"
+                    android:textColor="#393939"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/courseIDTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:textColor="#393939"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/courseIDLabel"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/warningTextSearchCourse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:textColor="#494949"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/searchButton"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:backgroundTint="#393939"
+                android:fontFamily="sans-serif"
+                android:text="search"
+                android:textSize="22sp"
+                android:onClick="StudentSearchCourse"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/enroll"
+                    android:layout_width="118dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#006A4E "
+                    android:fontFamily="sans-serif"
+                    android:text="enroll"
+                    android:textSize="22sp"
+                    android:onClick="StudentEnrollCourse"/>
+
+
+                <Button
+                    android:id="@+id/unenroll"
+                    android:layout_width="118dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#812F2F"
+                    android:fontFamily="sans-serif"
+                    android:text="unenroll"
+                    android:textSize="22sp"
+                    android:onClick="StudentUnenrollCourse"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/returnToWelcomePage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="#393939"
+                android:text="return to student page" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
