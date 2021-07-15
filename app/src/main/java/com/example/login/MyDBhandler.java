@@ -19,7 +19,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
 
     // columns
-    private static final int DATABASE_VERSION = 72;
+    private static final int DATABASE_VERSION = 90;
     private static final String DATABASE_NAME = "productDB.db";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";

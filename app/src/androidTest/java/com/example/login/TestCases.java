@@ -87,14 +87,20 @@ public class TestCases {
         course.setHours("11-12");
         db.addCourse(course);
 
+        Course courseTwo= new Course("name3","code3");
+        courseTwo.setDays("thursday");
+        courseTwo.setHours("11-12");
+        db.addCourse(courseTwo);
+
         Student student = new Student("Tom","Key","student");
 
         db.enrollCourse(course, student.getUsername());
+        db.enrollCourse(courseTwo, student.getUsername());
 
         List<Course> coursesExpected= new LinkedList<>();
         coursesExpected.add(course);
+        coursesExpected.add(courseTwo);
 
-        System.out.println(db.findCoursesByStudent(student.getUsername()));
         assertEquals(coursesExpected,db.findCoursesByStudent(student.getUsername()));
     }
 

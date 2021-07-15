@@ -47,7 +47,7 @@ public class Course {
     }
     @Override
     public String toString(){
-        return "Course #" + id + "\n course code = "+ courseCode + "\n course name = " + courseName +"\n Instructor name = "+ days;
+        return "Course #" + id + "\n course code = "+ courseCode + "\n course name = " + courseName +"\n Instructor name = "+ instructor;
     }
 
     public void setInstructor(String instructor) {
