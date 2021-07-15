@@ -16,9 +16,7 @@ public class StudentWelcome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_welcome);
-
         enrollPageButton = findViewById(R.id.enrollPageButton);
-
         logout = findViewById(R.id.LogOut);
         studentWelcomeHeaderText = findViewById(R.id.studentWelcomeHeaderText);
         welcome = findViewById(R.id.textView3);
