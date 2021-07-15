@@ -109,8 +109,9 @@ public class MyDBhandler extends SQLiteOpenHelper {
             String id = cursor.getString(cursor.getColumnIndex("_id"));
             String instructor = cursor.getString(cursor.getColumnIndex("instructor"));
             String days = cursor.getString(cursor.getColumnIndex("courseDays"));
+            String studentList = cursor.getString(cursor.getColumnIndex("courseStudent"));
 
-            list.add(new Course(code, name, id, instructor, days));
+            list.add(new Course(code, name, id, instructor, days, studentList));
 
             while(cursor.moveToNext()){
                 code = cursor.getString(cursor.getColumnIndex("courseCode"));
@@ -118,8 +119,9 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 id = cursor.getString(cursor.getColumnIndex("_id"));
                 instructor = cursor.getString(cursor.getColumnIndex("instructor"));
                 days = cursor.getString(cursor.getColumnIndex("courseDays"));
+                studentList = cursor.getString(cursor.getColumnIndex("courseStudent"));
 
-                list.add(new Course(code, name, id, instructor, days));
+                list.add(new Course(code, name, id, instructor, days, studentList));
             }
         }
         cursor.close();

@@ -42,11 +42,9 @@ public class InstructorViewStudents extends AppCompatActivity {
         Course course = db.findCourseInstructor(courseCode);
 
         if(course.getStudentList() == null){
-            System.out.println("NULL STUDENT LIST");
             enrolledStudents = new ArrayList<String>();
             enrolledStudents.add("");
         } else {
-            System.out.println("NON-NULL STUDENT LIST");
             String[] enrolledStudentArray = course.getStudentList().split(";");
             enrolledStudents = Arrays.asList(enrolledStudentArray);
         }
