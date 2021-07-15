@@ -60,6 +60,7 @@ public class InstructorUpdateCourseDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent temp = new Intent(InstructorUpdateCourseDetails.this, InstructorViewStudents.class);
+                temp.putExtra("courseCode", course.getCourseCode());
                 temp.putExtra("courseName", course.getCourseName());
                 startActivity(temp);
                 finish();

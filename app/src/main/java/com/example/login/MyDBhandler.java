@@ -542,9 +542,10 @@ public class MyDBhandler extends SQLiteOpenHelper {
             else nameList += (";" + name);
 
             updatedColumns.put(COLUMN_COURSE_STUDENT, nameList);
-
             db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
             cursor.close();
+
+            course.setStudentList(nameList); // update the object itself
         }
     }
 
@@ -596,6 +597,8 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
                 updatedColumns.put(COLUMN_COURSE_STUDENT, after);
                 db.update(TABLE_COURSES, updatedColumns, COLUMN_ID + " = " + idStr, null);
+
+                course.setStudentList(after); // update the object itself
             }
         }
         cursor.close();

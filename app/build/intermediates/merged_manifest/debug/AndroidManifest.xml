@@ -29,6 +29,7 @@
         <activity android:name="com.example.login.ViewAllCourse" />
         <activity android:name="com.example.login.InstructorUpdateCourseDetails" />
         <activity android:name="com.example.login.InstructorCourseManage" />
+        <activity android:name="com.example.login.InstructorViewStudents" />
         <activity android:name="com.example.login.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

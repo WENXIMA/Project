@@ -4,24 +4,29 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class InstructorViewStudents extends AppCompatActivity {
 
     TextView enrolledStudentsHeader, enrolledStudentsSubheader;
-    String courseName;
-    RecyclerView studentView;
+    String courseCode, courseName;
+    ListView studentView;
+    List enrolledStudents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructor_enrolled_students);
 
+        courseCode = getIntent().getStringExtra("courseCode");
         courseName = getIntent().getStringExtra("courseName");
         studentView = findViewById(R.id.studentList);
 
@@ -29,9 +34,24 @@ public class InstructorViewStudents extends AppCompatActivity {
         enrolledStudentsSubheader = findViewById(R.id.enrolledStudentsSubheader);
         enrolledStudentsSubheader.setText("Course name: " + courseName);
 
+        // manually set these to use the findCourseInstructor method in DBhandler
+        InstructorSearchAssign.editTextCourseCodee = courseCode;
+        InstructorSearchAssign.editTextCourseNamee = courseName;
+
         MyDBhandler db = new MyDBhandler(this);
-        // get list of students enrolled in the specified course via DBhandler
-        // ArrayAdapter<Student> arrayAdapter = new ArrayAdapter<Student>(this, android.R.layout.activity_list_item,android.R.id.text1, students);
-        // studentView.setAdapter(arrayAdapter);
+        Course course = db.findCourseInstructor(courseCode);
+
+        if(course.getStudentList() == null){
+            System.out.println("NULL STUDENT LIST");
+            enrolledStudents = new ArrayList<String>();
+            enrolledStudents.add("");
+        } else {
+            System.out.println("NON-NULL STUDENT LIST");
+            String[] enrolledStudentArray = course.getStudentList().split(";");
+            enrolledStudents = Arrays.asList(enrolledStudentArray);
+        }
+
+        ArrayAdapter<Course> arrayAdapter = new ArrayAdapter<Course>(this, android.R.layout.activity_list_item, android.R.id.text1, enrolledStudents);
+        studentView.setAdapter(arrayAdapter);
     }
 }

@@ -1901,11 +1901,8 @@ id end
 id endToStart
 id enroll
 id enrollPageButton
-<<<<<<< HEAD
 id enrolledStudentsHeader
 id enrolledStudentsSubheader
-=======
->>>>>>> 178f23817bee650b1166e56baca9105c9a9e31fa
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
