@@ -19,7 +19,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
 
     // columns
-    private static final int DATABASE_VERSION = 111;
+    private static final int DATABASE_VERSION = 155;
     private static final String DATABASE_NAME = "productDB.db";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
@@ -249,21 +249,78 @@ public class MyDBhandler extends SQLiteOpenHelper {
     // search for a course
 
     public Course findCourse(String courseCode, String courseName, String day){
-        ArrayList<Course> courseList = getAllCourseData();
-        Course temp;
+        ArrayList<Course> list = getAllCourseData();
+        Course temp=null;
 
-        for(int i = 0; i < courseList.size(); i++){
-            temp = courseList.get(i);
-            if(temp.getCourseCode().equals(courseCode)){
-                return temp;
-            }
-            if(temp.getCourseName().equals(courseName)){
-                return temp;
-            }
-            if(temp.getDays() != null && temp.getDays().contains(day) && !day.equals("")){
+        //All filled
+        for(int i=0;i<list.size(); i++){
+            temp= list.get(i);
+            if (temp.getCourseName().equals(courseName)&& temp.getCourseCode().equals(courseCode)&& temp.getDays().equals(day)){
                 return temp;
             }
         }
+
+        //Name and code are filled
+        for(int i=0;i<list.size(); i++) {
+            temp= list.get(i);
+            if (!courseCode.equals("")&& !courseName.equals("") && day.equals("")) {
+                if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
+                    return temp;
+                }
+            }
+        }
+
+        //Name and day are filled
+        for(int i=0;i<list.size(); i++) {
+            temp= list.get(i);
+            if (courseCode.equals("")&& !courseName.equals("") && !day.equals("")) {
+                if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
+                    return temp;
+                }
+            }
+        }
+
+        //Code and Day are filled
+        for(int i=0;i<list.size(); i++) {
+            temp= list.get(i);
+            if (courseCode.equals("")&& !courseName.equals("") && !day.equals("")) {
+                if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
+                    return temp;
+                }
+            }
+        }
+
+
+        // Name are filled
+            for(int i=0;i<list.size(); i++) {
+                temp= list.get(i);
+                if (courseCode.equals("")&& !courseName.equals("") && day.equals("")) {
+                    if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
+                        return temp;
+                    }
+                }
+            }
+
+        // code are filled
+        for(int i=0;i<list.size(); i++) {
+            temp= list.get(i);
+            if (!courseCode.equals("")&& courseName.equals("") && day.equals("")) {
+                if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
+                    return temp;
+                }
+            }
+        }
+
+        // day are filled
+        for(int i=0;i<list.size(); i++) {
+            temp= list.get(i);
+            if (courseCode.equals("")&& courseName.equals("") && !day.equals("")) {
+                if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
+                    return temp;
+                }
+            }
+        }
+
         return null;
     }
 
