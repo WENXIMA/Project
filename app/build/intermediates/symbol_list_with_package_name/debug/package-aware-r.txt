@@ -1841,6 +1841,7 @@ id custom
 id customPanel
 id cut
 id date_picker_actions
+id dayLabel
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
@@ -1889,6 +1890,10 @@ id editCourseButton
 id editCourseDetailsHeaderText
 id editTextCourseCode
 id editTextCourseName
+<<<<<<< HEAD
+=======
+id editTextDay
+>>>>>>> 8563cb78fd394f2b28a508aa4e72403080b72195
 id editTextPassword
 id editTextUserName
 id editTextUsername
@@ -1897,6 +1902,8 @@ id edit_query
 id elastic
 id end
 id endToStart
+id enroll
+id enrollPageButton
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
@@ -2050,6 +2057,10 @@ id radio
 id ratio
 id rectangles
 id register
+<<<<<<< HEAD
+=======
+id returnToWelcomePage
+>>>>>>> 8563cb78fd394f2b28a508aa4e72403080b72195
 id reverseSawtooth
 id right
 id rightToLeft
@@ -2173,6 +2184,7 @@ id transition_transform
 id triangle
 id unassign
 id unchecked
+id unenroll
 id uniform
 id unlabeled
 id up
@@ -2264,6 +2276,10 @@ layout activity_instructor_search_assign
 layout activity_instructor_welcome
 layout activity_main
 layout activity_manage_accounts
+<<<<<<< HEAD
+=======
+layout activity_student_search_enroll
+>>>>>>> 8563cb78fd394f2b28a508aa4e72403080b72195
 layout activity_student_welcome
 layout activity_view_all_course
 layout custom_dialog

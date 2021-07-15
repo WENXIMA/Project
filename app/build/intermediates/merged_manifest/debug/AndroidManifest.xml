@@ -24,6 +24,10 @@
         <activity android:name="com.example.login.AdminWelcome" />
         <activity android:name="com.example.login.AdminCourses" />
         <activity android:name="com.example.login.StudentWelcome" />
+<<<<<<< HEAD
+=======
+        <activity android:name="com.example.login.StudentSearchEnroll" />
+>>>>>>> 8563cb78fd394f2b28a508aa4e72403080b72195
         <activity android:name="com.example.login.InstructorWelcome" />
         <activity android:name="com.example.login.ViewAllCourse" />
         <activity android:name="com.example.login.InstructorUpdateCourseDetails" />

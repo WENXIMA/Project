@@ -19,7 +19,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
 
     // columns
-    private static final int DATABASE_VERSION = 40;
+    private static final int DATABASE_VERSION = 70;
     private static final String DATABASE_NAME = "productDB.db";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
@@ -107,16 +107,18 @@ public class MyDBhandler extends SQLiteOpenHelper {
             String name = cursor.getString(cursor.getColumnIndex("courseName"));
             String id = cursor.getString(cursor.getColumnIndex("_id"));
             String instructor = cursor.getString(cursor.getColumnIndex("instructor"));
+            String days = cursor.getString(cursor.getColumnIndex("courseDays"));
 
-            list.add(new Course(code,name,id,instructor));
+            list.add(new Course(code, name, id, instructor, days));
 
             while(cursor.moveToNext()){
                 code = cursor.getString(cursor.getColumnIndex("courseCode"));
                 name = cursor.getString(cursor.getColumnIndex("courseName"));
                 id = cursor.getString(cursor.getColumnIndex("_id"));
                 instructor = cursor.getString(cursor.getColumnIndex("instructor"));
+                days = cursor.getString(cursor.getColumnIndex("courseDays"));
 
-                list.add(new Course(code,name,id,instructor));
+                list.add(new Course(code, name, id, instructor, days));
             }
         }
         cursor.close();
@@ -226,6 +228,11 @@ public class MyDBhandler extends SQLiteOpenHelper {
         // add values to the set
         values.put(COLUMN_COURSE_NAME, course.getCourseName());
         values.put(COLUMN_COURSE_CODE, course.getCourseCode());
+        values.put(COLUMN_INSTRUCTOR,course.getInstructor());
+        values.put(COLUMN_DAYS,course.getDays());
+        values.put(COLUMN_HOURS,course.getHours());
+        values.put(COLUMN_DESCRIPTION,course.getDescription());
+        values.put(COLUMN_CAPACITY,course.getCapacity());
 
         // insert the set into the products table and close
         db.insert(TABLE_COURSES, null, values);
@@ -235,6 +242,26 @@ public class MyDBhandler extends SQLiteOpenHelper {
     }
 
     // search for a course
+
+    public Course findCourse(String courseCode, String courseName, String day){
+        ArrayList<Course> courseList = getAllCourseData();
+        Course temp;
+
+        for(int i = 0; i < courseList.size(); i++){
+            temp = courseList.get(i);
+            if(temp.getCourseCode().equals(courseCode)){
+                return temp;
+            }
+            if(temp.getCourseName().equals(courseName)){
+                return temp;
+            }
+            if(temp.getDays() != null && temp.getDays().contains(day)){
+                return temp;
+            }
+        }
+        return null;
+    }
+
     public Course findCourseInstructor(String courseCode){
 
         ArrayList<Course> list= getAllCourseData();
@@ -406,7 +433,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         }
     }
 
-    public void updateCourseDetails(Course course, String description, String days, String hours,String capacity)
+    public void updateCourseDetails(Course course, String description, String days, String hours, String capacity)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         int id = course.getId();

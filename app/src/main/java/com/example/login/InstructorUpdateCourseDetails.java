@@ -89,7 +89,7 @@ public class InstructorUpdateCourseDetails extends AppCompatActivity {
     public void editUpdate(View view) {
         String tempD, tempH, tempDe, tempC;
         tempC = capa.getText().toString().trim();
-        tempD = days.getText().toString().trim();
+        tempD = days.getText().toString().toLowerCase().trim();
         tempDe = des.getText().toString().trim();
         tempH = hours.getText().toString().trim();
 

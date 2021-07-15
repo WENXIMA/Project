@@ -1,10 +1,17 @@
 {
     "logs": [
         {
+<<<<<<< HEAD
             "outputFile": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
                     "source": "C:\\Users\\laral\\.gradle\\caches\\transforms-2\\files-2.1\\7160c6b9fdb2bc1e41d9bd715d01fdc2\\appcompat-1.3.0\\res\\values-v24\\values-v24.xml",
+=======
+            "outputFile": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Key\\.gradle\\caches\\transforms-2\\files-2.1\\7160c6b9fdb2bc1e41d9bd715d01fdc2\\appcompat-1.3.0\\res\\values-v24\\values-v24.xml",
+>>>>>>> 8563cb78fd394f2b28a508aa4e72403080b72195
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

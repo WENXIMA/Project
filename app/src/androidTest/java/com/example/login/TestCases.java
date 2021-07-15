@@ -25,6 +25,10 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+<<<<<<< HEAD
+=======
+import static org.junit.Assert.assertEquals;
+>>>>>>> 8563cb78fd394f2b28a508aa4e72403080b72195
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
@@ -32,6 +36,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 public class TestCases {
 
     @Test
+<<<<<<< HEAD
     // check that course assignment by instructor is reflected in database
     public void assignCourseToInstructor() {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
@@ -121,4 +126,61 @@ public class TestCases {
 
         assertTrue(db.findusers("testInstructor2") == null);
     }
+=======
+    public void searchForClassByDay() {
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        MyDBhandler db = new MyDBhandler(appContext);
+        Course course= new Course("code","name","25","Key","Monday");
+        db.addCourse(course);
+
+        Course temp=db.findCourse("","","Monday");
+        System.out.println(temp.getCourseCode());
+
+        assertEquals("code",temp.getCourseCode());
+        assertEquals("name",temp.getCourseName());
+        assertEquals("Monday",temp.getDays());
+    }
+
+    @Test
+    public void searchForClassByCode() {
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        MyDBhandler db = new MyDBhandler(appContext);
+        Course course= new Course("code","name","25","Key","Monday");
+        db.addCourse(course);
+
+        Course temp=db.findCourse("code","","");
+        System.out.println(temp.getCourseCode());
+        assertEquals("code",temp.getCourseCode());
+        assertEquals("name",temp.getCourseName());
+        assertEquals("Monday",temp.getDays());
+    }
+
+    @Test
+    public void searchForClassByName() {
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        MyDBhandler db = new MyDBhandler(appContext);
+        Course course= new Course("code","name","25","Key","Monday");
+        db.addCourse(course);
+
+        Course temp=db.findCourse("","name","");
+        System.out.println(temp.getCourseCode());
+        assertEquals("code",temp.getCourseCode());
+        assertEquals("name",temp.getCourseName());
+        assertEquals("Monday",temp.getDays());
+    }
+
+//    @Test
+//    public void adminEditCourse(){
+//        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+//        MyDBhandler db = new MyDBhandler(appContext);
+//
+//    }
+//
+//    @Test
+//    public void adminDeleteAccount(){
+//        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+//        MyDBhandler db = new MyDBhandler(appContext);
+//        assertTrue(db.findusers("testInstructor2") == null);
+//    }
+>>>>>>> 8563cb78fd394f2b28a508aa4e72403080b72195
 }

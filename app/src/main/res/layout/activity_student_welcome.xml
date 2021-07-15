@@ -44,10 +44,21 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/enrollPageButton"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="#006A4E"
+            android:text="enroll"
+            android:textSize="20sp" />
+
+        <Button
             android:id="@+id/LogOut"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="20dp"
             android:backgroundTint="#393939"
             android:text="Log out"
