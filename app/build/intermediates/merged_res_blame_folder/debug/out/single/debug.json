@@ -1,25 +1,26 @@
 [
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_search_assign.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\activity_instructor_search_assign.xml"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_course_details.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_instructor_course_details.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_student_welcome.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\activity_student_welcome.xml"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_course_manage.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_instructor_course_manage.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_manage_accounts.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\activity_manage_accounts.xml"
     },
     {
+<<<<<<< HEAD
         "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
@@ -30,85 +31,111 @@
     {
         "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+=======
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_course_details.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\activity_instructor_course_details.xml"
     },
     {
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+>>>>>>> 178f23817bee650b1166e56baca9105c9a9e31fa
+    },
+    {
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+<<<<<<< HEAD
         "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_student_search_enroll.xml.flat",
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_student_search_enroll.xml"
     },
     {
         "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_main.xml"
+=======
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_admin_courses.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\activity_admin_courses.xml"
+>>>>>>> 178f23817bee650b1166e56baca9105c9a9e31fa
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_course_manage.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\activity_instructor_course_manage.xml"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_register.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\register.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_view_all_course.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\activity_view_all_course.xml"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_student_welcome.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_student_welcome.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_welcome.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_instructor_welcome.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_student_search_enroll.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\activity_student_search_enroll.xml"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_manage_accounts.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_manage_accounts.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_welcome.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\activity_instructor_welcome.xml"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_admin_welcome.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_admin_welcome.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_admin_welcome.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\activity_admin_welcome.xml"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_admin_courses.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_admin_courses.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_listitem_course_manage.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\listitem_course_manage.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_search_assign.xml.flat",
-        "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_instructor_search_assign.xml"
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_listitem_course_manage.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\listitem_course_manage.xml"
     },
     {
+<<<<<<< HEAD
         "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_view_all_course.xml.flat",
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_view_all_course.xml"
     },
     {
         "merged": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_instructor_enrolled_students.xml.flat",
         "source": "C:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\src\\main\\res\\layout\\activity_instructor_enrolled_students.xml"
+=======
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_register.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\register.xml"
+    },
+    {
+        "merged": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\src\\main\\res\\layout\\activity_main.xml"
+>>>>>>> 178f23817bee650b1166e56baca9105c9a9e31fa
     }
 ]

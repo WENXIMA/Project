@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 #Wed Jul 14 14:12:50 EDT 2021
 base.2=C\:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
+=======
+#Wed Jul 14 20:32:21 EDT 2021
+base.2=C\:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\15\\classes.dex
+>>>>>>> 178f23817bee650b1166e56baca9105c9a9e31fa
 path.2=15/classes.dex
-base.1=C\:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.1=C\:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 path.1=0/classes.dex
-base.0=C\:\\Users\\laral\\Documents\\University\\SEG2105\\TermProject\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.0=C\:\\Users\\Key\\Downloads\\Project-student-course-search\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex

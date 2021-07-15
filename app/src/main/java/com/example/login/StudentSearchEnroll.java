@@ -6,14 +6,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 public class StudentSearchEnroll extends AppCompatActivity {
     TextView searchCourseHeaderText, searchCoursePromptText, courseCodeLabel, courseNameLabel, dayLabel, courseIDLabel, courseIDTextView, warningTextSearchCourse;
     EditText editTextCourseCode, editTextCourseName, editTextDay;
     Button searchButton, enroll, unenroll, returnToWelcomePage;
     String studentUsername = MainActivity.user.getUsername();
+    Course course;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +57,7 @@ public class StudentSearchEnroll extends AppCompatActivity {
         });
     }
 
-    public boolean studentSearchCourse(View v){
+    public boolean StudentSearchCourse(View v){
         MyDBhandler dbHandler = new MyDBhandler(this);
         String courseCodeEntered = editTextCourseCode.getText().toString().trim();
         String courseNameEntered = editTextCourseName.getText().toString().trim();
@@ -73,7 +80,7 @@ public class StudentSearchEnroll extends AppCompatActivity {
         }
     }
 
-    public void enroll(View v){
+    public boolean StudentSearchCourseTwo(){
         MyDBhandler dbHandler = new MyDBhandler(this);
         String courseCodeEntered = editTextCourseCode.getText().toString().trim();
         String courseNameEntered = editTextCourseName.getText().toString().trim();
@@ -81,43 +88,128 @@ public class StudentSearchEnroll extends AppCompatActivity {
 
         warningTextSearchCourse.setText(""); // reset warning text in case it was previously triggered
 
-        Course course = dbHandler.findCourse(courseCodeEntered, courseNameEntered, dayEntered);
+        course = dbHandler.findCourse(courseCodeEntered, courseNameEntered, dayEntered);
 
-        if(course != null){
-            if(course.getStudentList() != null && course.getStudentList().contains(studentUsername)){ // if already enrolled
-                warningTextSearchCourse.setText("You are already enrolled in this course");
-            } else {
-                dbHandler.enrollCourse(course, studentUsername); // update DB
-                if(course.getStudentList() == null) course.setStudentList(studentUsername); // update object (no students enrolled yet)
-                else course.setStudentList(course.getStudentList() + ";" + studentUsername); // update object (1+ students enrolled so far)
-            }
-        } else {
+        if(course != null){ // if found the course, display its information
+            editTextCourseName.setText(String.valueOf(course.getCourseName()));
+            editTextCourseCode.setText(String.valueOf(course.getCourseCode()));
+            editTextDay.setText(String.valueOf(course.getDays()));
+            courseIDTextView.setText(String.valueOf(course.getId()));
+            return true;
+
+        } else { // if course not found
             warningTextSearchCourse.setText("Course not found, re-enter course code or name");
+            return false;
         }
+
     }
 
-    public void unenroll(View v){
-        MyDBhandler dbHandler = new MyDBhandler(this);
+    public void StudentEnrollCourse(View v) {
+        MyDBhandler dBhandler = new MyDBhandler(this);
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+        if(StudentSearchCourseTwo())
+        {
+            List<Course> temp = dBhandler.findCoursesByStudent(MainActivity.user.getUsername());
+            if(!find(temp,course))
+            {
+                String tempCD = course.getDays();
+                String tempCH = course.getHours();
+                if(tempCD != null && tempCH != null)
+                {
+                    String[] currD = tempCD.split(",");
+                    String[] currH = tempCH.split(",");
+                    for(int i = 0;i < temp.size();i++)
+                    {
+                        String D = temp.get(i).getDays();
+                        String H = temp.get(i).getHours();
+                        if(D == null || H == null )
+                            continue;
+                        String[] tempD = D.split(",");
+                        String[] tempH = H.split(",");
+
+                        for(int j = 0; j < currD.length; j++)
+                        {
+                            String currStart = (currH[j].split("-")[0]);
+                            String currEnd = currH[j].split("-")[1];
+                            if(j > tempD.length)
+                                continue;
+                            for(int k = 0; k < tempD.length;k++)
+                            {
+                                if(currD[j].equals(tempD[k])) {
+                                    try {
+                                        Date tempCurrStart = format.parse(currStart);
+                                        Date tempCurrEnd = format.parse(currEnd);
+                                        Date tempStart = format.parse(tempH[k].split("-")[0]);
+                                        Date tempEnd = format.parse(tempH[k].split("-")[1]);
+//                                    (J_S.compareTo(I_S) == -1 && I_S.compareTo(J_E) == -1)
+//                                        || (J_S.compareTo(I_E) == -1 && I_E.compareTo(J_E) == -1)
+//　　　　　　　　　　　　       || (I_S.compareTo(J_S) == -1 && J_S.compareTo(I_E) == -1)
+//　　　　　　　　　　　　       || (I_S.compareTo(J_E) == -1 && J_E.compareTo(I_E) == -1)
+//                          || J_E.compareTo(I_S) == 0 || J_S.compareTo(I_E) == 0
+//                                            || J_E.compareTo(I_E) == 0 || J_S.compareTo(I_S) == 0)
+                                        if (tempCurrStart.before(tempStart) && tempCurrEnd.after(tempStart) && tempCurrEnd.before(tempEnd) ||
+                                                tempCurrStart.before(tempStart) && tempCurrEnd.after(tempEnd) ||
+                                                tempCurrStart.after(tempStart) && tempCurrStart.before(tempEnd) && tempCurrEnd.after(tempStart) && tempCurrEnd.after(tempEnd) ||
+                                                tempCurrStart.after(tempStart) && tempCurrStart.before(tempEnd) && tempCurrEnd.after(tempEnd)) {
+                                            warningTextSearchCourse.setText("Time conflict with " + temp.get(i).getCourseName());
+                                            return;
+                                        }
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                dBhandler.enrollCourse(course,MainActivity.user.getUsername());
+                warningTextSearchCourse.setText("Enroll successfully");
+            }
+            else
+                warningTextSearchCourse.setText("You are already in the course");
+        }
+        else {
+            warningTextSearchCourse.setText("Course not found, re-enter course code or name");
+        }
+
+    }
+
+    public void StudentUnenrollCourse(View v) {
+        MyDBhandler dbhandler = new MyDBhandler(this);
         String courseCodeEntered = editTextCourseCode.getText().toString().trim();
         String courseNameEntered = editTextCourseName.getText().toString().trim();
         String dayEntered = editTextDay.getText().toString().toLowerCase().trim();
 
         warningTextSearchCourse.setText(""); // reset warning text in case it was previously triggered
 
-        Course course = dbHandler.findCourse(courseCodeEntered, courseNameEntered, dayEntered);
+        course=dbhandler.findCourse(courseCodeEntered,courseNameEntered,dayEntered);
 
-        if(course != null){
-            if(course.getStudentList() != null && !course.getStudentList().contains(studentUsername)) { // if not enrolled to begin with
-                warningTextSearchCourse.setText("Cannot unenroll: you are not enrolled in this course");
-            } else {
-                dbHandler.dropCourse(course, studentUsername);
-                if(!course.getStudentList().contains(";")) course.setStudentList(null); // update object (course has only 1 student before unenrolling)
-                else {
-                    
-                }
+        if(StudentSearchCourseTwo())
+        {
+            List<Course> temp = dbhandler.findCoursesByStudent(MainActivity.user.getUsername());
+            if(find(temp,course))
+            {
+                dbhandler.dropCourse(course,MainActivity.user.getUsername());
+                warningTextSearchCourse.setText("Unenrolled successfully");
             }
-        } else {
+            else
+                warningTextSearchCourse.setText("You are already not in the course");
+        }
+        else {
             warningTextSearchCourse.setText("Course not found, re-enter course code or name");
         }
+
+    }
+
+    private boolean find(List<Course> courseList,Course course)
+    {
+        int courseID = course.getId();
+        for(int i = 0; i < courseList.size();i++)
+        {
+            if(courseID == courseList.get(i).getId())
+                return true;
+        }
+        return false;
     }
 }

@@ -1,17 +1,34 @@
+<<<<<<< HEAD
 com/example/login/Instructor.java
  com.example.login.Instructor
 com/example/login/BuildConfig.java
  com.example.login.BuildConfig
 com/example/login/Student.java
  com.example.login.Student
+=======
+com/example/login/StudentWelcome.java
+ com.example.login.StudentWelcome
+ com.example.login.StudentWelcome$1
+ com.example.login.StudentWelcome$2
+com/example/login/ListViewNesting.java
+ com.example.login.ListViewNesting
+com/example/login/User.java
+ com.example.login.User
+>>>>>>> 178f23817bee650b1166e56baca9105c9a9e31fa
 com/example/login/InstructorWelcome.java
  com.example.login.InstructorWelcome
  com.example.login.InstructorWelcome$1
  com.example.login.InstructorWelcome$2
  com.example.login.InstructorWelcome$3
  com.example.login.InstructorWelcome$4
+<<<<<<< HEAD
 com/example/login/ListViewNesting.java
  com.example.login.ListViewNesting
+=======
+com/example/login/CourseAdapter.java
+ com.example.login.CourseAdapter
+ com.example.login.CourseAdapter$1
+>>>>>>> 178f23817bee650b1166e56baca9105c9a9e31fa
 com/example/login/AdminWelcome.java
  com.example.login.AdminWelcome
  com.example.login.AdminWelcome$1
@@ -27,6 +44,15 @@ com/example/login/CourseAdapter.java
  com.example.login.CourseAdapter$1
 com/example/login/Course.java
  com.example.login.Course
+<<<<<<< HEAD
+=======
+com/example/login/BuildConfig.java
+ com.example.login.BuildConfig
+com/example/login/Student.java
+ com.example.login.Student
+com/example/login/Instructor.java
+ com.example.login.Instructor
+>>>>>>> 178f23817bee650b1166e56baca9105c9a9e31fa
 com/example/login/Register.java
  com.example.login.Register
  com.example.login.Register$1
@@ -41,8 +67,11 @@ com/example/login/MyDBhandler.java
 com/example/login/InstructorCourseManage.java
  com.example.login.InstructorCourseManage
  com.example.login.InstructorCourseManage$1
+<<<<<<< HEAD
 com/example/login/InstructorViewStudents.java
  com.example.login.InstructorViewStudents
+=======
+>>>>>>> 178f23817bee650b1166e56baca9105c9a9e31fa
 com/example/login/InstructorSearchAssign.java
  com.example.login.InstructorSearchAssign
  com.example.login.InstructorSearchAssign$1
@@ -53,6 +82,7 @@ com/example/login/MainActivity.java
 com/example/login/InstructorUpdateCourseDetails.java
  com.example.login.InstructorUpdateCourseDetails
  com.example.login.InstructorUpdateCourseDetails$1
+<<<<<<< HEAD
  com.example.login.InstructorUpdateCourseDetails$2
 com/example/login/StudentSearchEnroll.java
  com.example.login.StudentSearchEnroll
@@ -61,3 +91,11 @@ com/example/login/StudentWelcome.java
  com.example.login.StudentWelcome
  com.example.login.StudentWelcome$1
  com.example.login.StudentWelcome$2
+=======
+com/example/login/ManageAccounts.java
+ com.example.login.ManageAccounts
+ com.example.login.ManageAccounts$1
+com/example/login/StudentSearchEnroll.java
+ com.example.login.StudentSearchEnroll
+ com.example.login.StudentSearchEnroll$1
+>>>>>>> 178f23817bee650b1166e56baca9105c9a9e31fa
