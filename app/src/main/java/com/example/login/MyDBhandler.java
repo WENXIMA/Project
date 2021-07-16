@@ -19,7 +19,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
     private static final String TABLE_USER = "user";
 
     // columns
-    private static final int DATABASE_VERSION = 155;
+    private static final int DATABASE_VERSION = 156;
     private static final String DATABASE_NAME = "productDB.db";
     private static final String COLUMN_ID = "_id";
     private static final String COLUMN_USERNAME = "username";
@@ -111,6 +111,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
             String instructor = cursor.getString(cursor.getColumnIndex("instructor"));
             String days = cursor.getString(cursor.getColumnIndex("courseDays"));
             String studentList = cursor.getString(cursor.getColumnIndex("courseStudent"));
+            String hours = cursor.getString(cursor.getColumnIndex("courseHours"));
 
 
             list.add(new Course(code, name, id, instructor, days,studentList));
@@ -122,8 +123,9 @@ public class MyDBhandler extends SQLiteOpenHelper {
                 instructor = cursor.getString(cursor.getColumnIndex("instructor"));
                 days = cursor.getString(cursor.getColumnIndex("courseDays"));
                 studentList = cursor.getString(cursor.getColumnIndex("courseStudent"));
+                hours = cursor.getString(cursor.getColumnIndex("courseHours"));
 
-                list.add(new Course(code, name, id, instructor, days,studentList));
+                list.add(new Course(code, name, id, instructor, days,hours,studentList));
             }
         }
         cursor.close();
@@ -264,7 +266,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         for(int i=0;i<list.size(); i++) {
             temp= list.get(i);
             if (!courseCode.equals("")&& !courseName.equals("") && day.equals("")) {
-                if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
+                if (temp.getCourseName().equals(courseName) && temp.getCourseCode().equals(courseCode)) {
                     return temp;
                 }
             }
@@ -274,7 +276,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         for(int i=0;i<list.size(); i++) {
             temp= list.get(i);
             if (courseCode.equals("")&& !courseName.equals("") && !day.equals("")) {
-                if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
+                if (temp.getCourseName().equals(courseName) && temp.getDays().equals(day)) {
                     return temp;
                 }
             }
@@ -283,8 +285,8 @@ public class MyDBhandler extends SQLiteOpenHelper {
         //Code and Day are filled
         for(int i=0;i<list.size(); i++) {
             temp= list.get(i);
-            if (courseCode.equals("")&& !courseName.equals("") && !day.equals("")) {
-                if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
+            if (!courseCode.equals("")&& courseName.equals("") && !day.equals("")) {
+                if (temp.getDays().equals(day) || temp.getCourseCode().equals(courseCode)) {
                     return temp;
                 }
             }
@@ -292,20 +294,20 @@ public class MyDBhandler extends SQLiteOpenHelper {
 
 
         // Name are filled
-            for(int i=0;i<list.size(); i++) {
-                temp= list.get(i);
-                if (courseCode.equals("")&& !courseName.equals("") && day.equals("")) {
-                    if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
-                        return temp;
-                    }
+        for(int i=0;i<list.size(); i++) {
+            temp= list.get(i);
+            if (courseCode.equals("")&& !courseName.equals("") && day.equals("")) {
+                if (temp.getCourseName().equals(courseName)) {
+                    return temp;
                 }
             }
+        }
 
         // code are filled
         for(int i=0;i<list.size(); i++) {
             temp= list.get(i);
             if (!courseCode.equals("")&& courseName.equals("") && day.equals("")) {
-                if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
+                if (temp.getCourseCode().equals(courseCode)) {
                     return temp;
                 }
             }
@@ -315,7 +317,7 @@ public class MyDBhandler extends SQLiteOpenHelper {
         for(int i=0;i<list.size(); i++) {
             temp= list.get(i);
             if (courseCode.equals("")&& courseName.equals("") && !day.equals("")) {
-                if (temp.getCourseName().equals(courseName) || temp.getCourseCode().equals(courseCode)) {
+                if (temp.getDays().equals(day)) {
                     return temp;
                 }
             }

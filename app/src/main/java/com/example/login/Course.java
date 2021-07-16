@@ -27,6 +27,16 @@ public class Course {
         this.studentList = studentList;
     }
 
+    public Course(String courseCode, String courseName, String id, String instructor, String days, String hours, String studentList){
+        this.courseCode = courseCode;
+        this.courseName = courseName;
+        this.id = Integer.parseInt(id);
+        this.instructor = instructor;
+        this.days = days;
+        this.studentList = studentList;
+        this.hours = hours;
+    }
+
     // getters and setters
     public int getId(){
         return id;
@@ -48,7 +58,7 @@ public class Course {
     }
     @Override
     public String toString(){
-        return "Course #" + id + "\n course code = "+ courseCode + "\n course name = " + courseName +"\n Instructor name = "+ days;
+        return "Course #" + id + "\n course code = "+ courseCode + "\n course name = " + courseName +"\n Instructor name = "+ instructor;
     }
 
     public void setInstructor(String instructor) {

@@ -150,12 +150,14 @@ public class StudentSearchEnroll extends AppCompatActivity {
                                         if (tempCurrStart.before(tempStart) && tempCurrEnd.after(tempStart) && tempCurrEnd.before(tempEnd) ||
                                                 tempCurrStart.before(tempStart) && tempCurrEnd.after(tempEnd) ||
                                                 tempCurrStart.after(tempStart) && tempCurrStart.before(tempEnd) && tempCurrEnd.after(tempStart) && tempCurrEnd.after(tempEnd) ||
-                                                tempCurrStart.after(tempStart) && tempCurrStart.before(tempEnd) && tempCurrEnd.after(tempEnd)) {
+                                                tempCurrStart.after(tempStart) && tempCurrStart.before(tempEnd) && tempCurrEnd.after(tempEnd) ||
+                                                tempCurrStart.equals(tempStart) && tempCurrEnd.equals(tempEnd)) {
                                             warningTextSearchCourse.setText("Time conflict with " + temp.get(i).getCourseName());
                                             return;
                                         }
                                     } catch (ParseException e) {
                                         e.printStackTrace();
+                                        warningTextSearchCourse.setText("Time conflict with " + temp.get(i).getCourseName());
                                         return;
                                     }
                                 }
